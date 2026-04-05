@@ -1,0 +1,1200 @@
+[
+  {
+    "id": 1,
+    "titulo": "Bolo de Milho de Latinha (O Inesquecível)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Bolo_de_Milho_de_Latinha.avif",
+    "tempo": "50 min",
+    "dificuldade": "Iniciante",
+    "custo": "Baixo",
+    "descricao": "O clássico que derrete na boca com a praticidade que o seu tempo exige. Textura de curau com crosta dourada.",
+    "diferencial": "Totalmente sem farinha de trigo, focado na cremosidade natural do milho e leite condensado.",
+    "rendimento": "12 fatias generosas",
+    "ingredientes": [
+      "1 lata (170g) de milho verde (drene bem a água)",
+      "1 lata (395g) de leite condensado",
+      "250ml de leite integral (use a lata como medida)",
+      "125ml de óleo de milho (ou girassol para leveza)",
+      "150g de milharina ou flocão de milho",
+      "3 ovos grandes (aprox. 180g)",
+      "1 colher (sopa - 15g) de fermento químico",
+      "50g de coco ralado fino (opcional)",
+      "Manteiga e açúcar para untar a fôrma"
+    ],
+    "preparo": [
+      "No liquidificador, bata o milho, o leite condensado, o leite, o óleo e os ovos por 5 minutos até ficar bem liso.",
+      "Adicione a milharina e o coco ralado. Pulse apenas para misturar.",
+      "Acrescente o fermento e use a função Pulsar por 3 vezes apenas. Não bata em excesso.",
+      "Unte fôrma de furo central com bastante manteiga e polvilhe açúcar cristal (o segredo da crosta).",
+      "Asse em forno pré-aquecido a 180°C por 40 a 45 minutos até dourar bem."
+    ],
+    "segredo": "Jamais desenforme o bolo ainda quente. Por ser extremamente úmido (estilo bombocado), ele precisa de 20 minutos de descanso para 'assentar'. Se desenformar fervendo, ele pode quebrar.",
+    "harmonizacao": "Sirva com um Café Coado na hora (torra média) ou acompanhe com uma fatia de queijo coalho grelhado."
+  },
+  {
+    "id": 2,
+    "titulo": "Pamonha de Forno Gratinada (A Rainha do Milho)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Pamonha_de_Forno_Gratinada.avif",
+    "tempo": "60 min",
+    "dificuldade": "Médio",
+    "custo": "Médio",
+    "descricao": "Todo o sabor da pamonha tradicional sem o trabalho das palhas. Uma textura cremosa incomparável com o toque salgado do queijo derretido.",
+    "diferencial": "Focada na suculência interna e na crosta externa crocante de parmesão gratinado.",
+    "rendimento": "8 porções generosas",
+    "ingredientes": [
+      "6 espigas de milho verde grandes (aprox. 1.2kg debulhado)",
+      "240ml (1 xícara) de leite integral",
+      "300g (1 ½ xícara) de açúcar refinado",
+      "45ml (3 colheres de sopa) de manteiga de garrafa",
+      "200g de queijo meia cura ou coalho em cubos",
+      "3g (1 pitada generosa) de sal",
+      "50g de queijo parmesão ralado na hora (para gratinar)"
+    ],
+    "preparo": [
+      "No liquidificador, bata o milho debulhado com o leite e a manteiga por 3 minutos até virar um creme (deixe alguns pedacinhos se gostar de textura rústica).",
+      "Transfira para uma tigela e misture o açúcar e o sal até dissolver completamente.",
+      "Adicione os cubos de queijo meia cura à massa e mexa delicadamente com uma espátula.",
+      "Despeje em um refratário de cerâmica ou vidro untado generosamente com manteiga.",
+      "Polvilhe o parmesão por cima e leve ao forno pré-aquecido a 200°C por 45-50 min até a crosta borbulhar e dourar."
+    ],
+    "segredo": "Não use fermento. A estrutura da pamonha de elite vem do amido natural do milho verde. Se o milho estiver muito 'novo' (clarinho), a pamonha ficará mais cremosa; se estiver mais 'velho', ficará mais firme.",
+    "harmonizacao": "Acompanhe com um Chá de Amendoim cremoso ou um Vinho Branco Chardonnay que realça o sabor tostado do milho assado."
+  },
+  {
+    "id": 3,
+    "titulo": "Canjica Branca Imperial (Elite & Amendoim)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Canjica_Branca_Imperial.avif",
+    "tempo": "60 min",
+    "dificuldade": "Médio",
+    "custo": "Médio",
+    "descricao": "O equilíbrio supremo entre a cremosidade do leite de coco e a crocância do amendoim torrado. Uma sobremesa quente que define o inverno brasileiro.",
+    "diferencial": "Infusão lenta de especiarias no leite, garantindo que cada grão de milho absorva o aroma do cravo e da canela.",
+    "rendimento": "10 a 12 porções (250ml cada)",
+    "ingredientes": [
+      "250g de canjica branca seca (deixe de molho por 12h)",
+      "1 litro de leite integral tipo A (fresco)",
+      "395g (1 lata) de leite condensado premium",
+      "200ml (1 vidro) de leite de coco extra-cremoso",
+      "150g (1 xícara) de amendoim torrado sem pele e sem sal",
+      "2 paus de canela e 5 cravos-da-índia",
+      "2g (1 pitada) de sal para equilibrar o açúcar",
+      "Canela em pó para a finalização de vitrine"
+    ],
+    "preparo": [
+      "Escorra a água do molho e cozinhe a canjica na pressão com 1.5L de água por 40 min após pegar pressão.",
+      "Escorra o excesso de água e adicione o leite integral, o leite de coco, a canela e os cravos.",
+      "Deixe ferver em fogo baixo por 10 min, mexendo de vez em quando para a infusão aromática.",
+      "Adicione o leite condensado e a pitada de sal. Cozinhe por mais 15 min até o caldo reduzir e ficar aveludado.",
+      "Misture o amendoim torrado por último (para manter a crocância) e sirva polvilhado com canela."
+    ],
+    "segredo": "Não ferva o amendoim desde o início. Ele deve entrar nos 2 minutos finais do preparo ou apenas na hora de servir para não amolecer e manter o contraste de texturas que caracteriza a Canjica Imperial.",
+    "harmonizacao": "Harmoniza perfeitamente com um Licor de Doce de Leite ou uma dose pequena de Cachaça Envelhecida em Carvalho para aquecer o paladar."
+  },
+  {
+    "id": 4,
+    "titulo": "Arroz Doce Brulée (Ouro & Canela)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Arroz_Doce_Brulee.avif",
+    "tempo": "45 min",
+    "dificuldade": "Médio",
+    "custo": "Baixo",
+    "descricao": "O segredo da cremosidade persistente com o toque aveludado e notas cítricas. Finalizado com uma crosta crocante de açúcar queimado.",
+    "diferencial": "Técnica de cozimento em duas etapas (água e infusão de leite) para liberar o amido sem quebrar o grão do arroz.",
+    "rendimento": "8 a 10 porções (200ml cada)",
+    "ingredientes": [
+      "200g (1 xícara) de arroz branco curto ou arbóreo",
+      "480ml (2 xícaras) de água quente",
+      "1 litro de leite integral morno",
+      "395g (1 lata) de leite condensado premium",
+      "200g (1 caixinha) de creme de leite de elite",
+      "2 paus de canela e 3 cravos-da-índia",
+      "Casca de 1/2 laranja ou limão siciliano (sem a parte branca)",
+      "2g (1 pitada) de sal",
+      "Açúcar cristal (para maçaricar)"
+    ],
+    "preparo": [
+      "Cozinhe o arroz com a água e as especiarias em fogo médio até que a água quase seque.",
+      "Adicione o leite morno aos poucos, mexendo sempre para o arroz liberar o amido e criar o creme natural.",
+      "Quando o arroz estiver no ponto 'al dente', junte o leite condensado e o sal. Cozinhe por mais 10 min.",
+      "Desligue o fogo e misture o creme de leite para garantir que ele não endureça após esfriar.",
+      "Distribua em potinhos individuais, polvilhe açúcar cristal e use um maçarico para criar a crosta Brulée crocante."
+    ],
+    "segredo": "O segredo do arroz doce de elite é nunca lavar o grão. Lavar o arroz retira o amido superficial, que é justamente o que dá a cremosidade aveludada. Retire as cascas cítricas antes de servir para não amargar.",
+    "harmonizacao": "Harmoniza perfeitamente com uma taça de Vinho do Porto ou um Café Espresso de torra clara com notas frutadas."
+  },
+  {
+    "id": 5,
+    "titulo": "Bolo de Fubá Nuvem (Goiabada & Erva-Doce)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Bolo_de_Fubá_Nuvem.avif",
+    "tempo": "50 min",
+    "dificuldade": "Iniciante",
+    "custo": "Baixo",
+    "descricao": "Uma massa amanteigada e extremamente aerada que derrete na boca, contrastando com pedaços suculentos de goiabada cascão.",
+    "diferencial": "Técnica de batimento prolongado que cria uma estrutura de 'nuvem', abandonando a textura pesada de bolos de fubá comuns.",
+    "rendimento": "12 fatias generosas",
+    "ingredientes": [
+      "3 ovos grandes (gemas peneiradas)",
+      "240ml (1 xícara) de óleo de girassol ou milho",
+      "240ml (1 xícara) de leite integral morno",
+      "200g (1 xícara) de açúcar refinado",
+      "150g (1 xícara) de fubá mimoso (peneirado)",
+      "150g (1 xícara) de farinha de trigo premium",
+      "15g (1 colher de sopa) de fermento químico",
+      "150g de goiabada cascão cortada em cubos",
+      "5g (1 colher de chá) de sementes de erva-doce"
+    ],
+    "preparo": [
+      "Bata os ovos com o açúcar no liquidificador ou batedeira por 5 minutos até formar um creme pálido e fofinho.",
+      "Adicione o óleo e o leite morno. Bata apenas por 30 segundos para misturar.",
+      "Em uma tigela, peneire o fubá e a farinha. Adicione o líquido sobre os secos, mexendo delicadamente com um fouet.",
+      "Passe os cubos de goiabada no trigo (técnica anti-gravidade) e incorpore à massa junto com a erva-doce e o fermento.",
+      "Despeje na fôrma untada com manteiga e fubá. Asse em forno pré-aquecido a 180°C por cerca de 40 min."
+    ],
+    "segredo": "O segredo para a goiabada não afundar é passar os cubos em farinha de trigo e espalhá-los por cima da massa já na fôrma. O crescimento do bolo elevará os cubos, mantendo-os suspensos no centro da fatia.",
+    "harmonizacao": "Harmoniza lindamente com um Café Coado de torra média com notas de caramelo ou um Chá de Capim-Limão bem fresco."
+  },
+  {
+    "id": 6,
+    "titulo": "Curau de Milho Verde (Creme de Seda)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Curau_de_Milho_Verde.avif",
+    "tempo": "30 min",
+    "dificuldade": "Média",
+    "custo": "Baixo",
+    "descricao": "O creme mais delicado e aveludado do milho verde, com uma textura que escorrega no paladar e aroma de canela fresca.",
+    "diferencial": "Extração purista do amido do milho verde, sem adição de espessantes industriais, garantindo o sabor real da roça de elite.",
+    "rendimento": "6 taças de 150ml",
+    "ingredientes": [
+      "4 espigas de milho verde grandes e amarelas (aprox. 800g debulhado)",
+      "500ml de leite integral tipo A (fresco)",
+      "150g (3/4 xícara) de açúcar refinado",
+      "2g (1 pitada) de sal marinho",
+      "Canela em pó de alta qualidade para finalizar",
+      "1 pau de canela (para infusão no cozimento)"
+    ],
+    "preparo": [
+      "Retire os grãos das espigas com uma faca afiada, tomando cuidado para não cortar o sabugo (para evitar o amargor).",
+      "Bata o milho com o leite no liquidificador por 5 minutos em velocidade máxima para extrair todo o amido natural.",
+      "Peneire a mistura em uma panela, espremendo o bagaço vigorosamente com uma colher. Repita a filtragem com peneira fina para garantir a seda.",
+      "Adicione o açúcar, a pitada de sal e a canela em pau. Leve ao fogo médio-baixo mexendo sem parar com um fouet.",
+      "Cozinhe por aprox. 20 min até o creme espessar, brilhar e desgrudar levemente do fundo. Distribua nas taças e finalize com canela após esfriar."
+    ],
+    "segredo": "O segredo para a textura de seda de elite é a filtragem dupla e o cozimento lento. O amido natural do milho precisa ser cozido com paciência para perder o sabor de grão cru e ganhar o brilho e a doçura característicos.",
+    "harmonizacao": "Harmoniza lindamente com um Chá de Capim-Santo (Cidreira) bem gelado ou um Licor de Milho Verde extra cremoso."
+  },
+  {
+    "id": 7,
+    "titulo": "Cuscuz do Sertão (Luxo & Manteiga de Garrafa)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Cuscuz_do_Sertão.avif",
+    "tempo": "20 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O rei do Sertão elevado ao patamar de banquete. Fofinho, extremamente úmido e finalizado com a sedosidade da manteiga de garrafa original.",
+    "diferencial": "Hidratação técnica do milho em estágios, resultando em um cuscuz 'nuvem' que não esfarela e derrete plenamente na boca.",
+    "rendimento": "4 porções (aprox. 150g cada)",
+    "ingredientes": [
+      "300g (2 xícaras) de flocão de milho de alta qualidade",
+      "240ml (1 xícara) de água mineral ou filtrada",
+      "3g (1 pitada generosa) de sal marinho",
+      "60ml (4 colheres de sopa) de manteiga de garrafa legítima",
+      "150g de queijo coalho em fatias ou cubos",
+      "100g de carne de sol desfiada e crispy (opcional para o toque de elite)",
+      "Temperos verdes (coentro e cebolinha) picados finamente"
+    ],
+    "preparo": [
+      "Em uma tigela, misture o flocão com o sal. Adicione a água aos poucos, hidratando uniformemente com as pontas dos dedos até que a massa pareça areia úmida.",
+      "Deixe a massa descansar por 10 a 15 min (essencial para o volume e maciez). A massa deve absorver toda a água e expandir.",
+      "Coloque água na base da cuscuzeira. Despeje a massa na parte superior delicadamente, sem apertar com a colher (para o vapor circular livremente).",
+      "Cozinhe por 10 min após o vapor começar a sair pela tampa. Desligue e deixe descansar tampado por 2 min antes de abrir.",
+      "Sirva imediatamente, regando generosamente com a manteiga de garrafa e finalizando com o queijo coalho grelhado no topo."
+    ],
+    "segredo": "A regra de ouro do cuscuz de elite é o tempo de hidratação. Se você cozinhar o milho sem o descanso de 10 minutos, o interior do grão ficará seco e duro. O vapor deve encontrar o grão já expandido para criar a textura de nuvem.",
+    "harmonizacao": "Harmoniza lindamente com um Café de Coador bem forte, quente e sem açúcar, ou um Suco de Caju natural bem gelado."
+  },
+  {
+    "id": 8,
+    "titulo": "Pé de Moleque Gourmet (Macio & Crocante)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Pé_de_Moleque_Gourmet.avif",
+    "tempo": "30 min",
+    "dificuldade": "Média",
+    "custo": "Baixo",
+    "descricao": "O equilíbrio histórico entre o crocante do amendoim torrado e a maciez sedosa do leite condensado caramelizado. Um doce que não quebra dentes, mas conquista corações.",
+    "diferencial": "Ponto de 'vidro fosco' que garante estrutura firme no corte, mas uma mordida macia e aveludada por dentro.",
+    "rendimento": "20 tabletes de aprox. 40g",
+    "ingredientes": [
+      "500g de amendoim torrado sem pele e sem sal (preferencialmente metades)",
+      "400g (2 xícaras) de açúcar cristal",
+      "395g (1 lata) de leite condensado premium",
+      "50g (2 colheres de sopa) de manteiga sem sal de boa qualidade",
+      "1 pitada (2g) de bicarbonato de sódio (segredo da leveza)",
+      "1 pitada de sal (para realçar o caramelo)"
+    ],
+    "preparo": [
+      "Em uma panela de fundo grosso, coloque o açúcar e leve ao fogo baixo até formar um caramelo dourado e uniforme.",
+      "Adicione a manteiga e o amendoim. Mexa rapidamente para envolver todos os grãos no caramelo fumegante.",
+      "Despeje o leite condensado aos poucos, mexendo sem parar. O caramelo vai endurecer e depois derreter novamente com o calor.",
+      "Continue mexendo até que a massa desgrude totalmente do fundo da panela e comece a ficar opaca (sem brilho).",
+      "Adicione o bicarbonato, mexa rápido (a massa vai espumar levemente) e despeje imediatamente em superfície de mármore ou assadeira untada.",
+      "Aplane com uma espátula e faça os cortes em retângulos enquanto a massa ainda estiver morna."
+    ],
+    "segredo": "O segredo da maciez de elite é o bicarbonato de sódio. Ele cria microbolhas de ar na estrutura do açúcar, impedindo que o doce fique duro como pedra. O ponto ideal é o 'ponto de bala mole', detectado quando a massa perde o brilho vítreo do melaço.",
+    "harmonizacao": "Harmoniza lindamente com um Café Espresso de torra escura ou uma dose de Cachaça Envelhecida em Amburana, que complementa as notas de madeira e amendoim."
+  },
+  {
+    "id": 9,
+    "titulo": "Bolo de Mandioca Real (Aipim & Coco Fresco)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Bolo_de_Mandioca_Real.avif",
+    "tempo": "60 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "Um clássico brasileiro que brilha pela sua densidade úmida e doçura equilibrada. A união perfeita entre a raiz rústica e a sofisticação do coco fresco.",
+    "diferencial": "Massa 100% natural sem uso de farinhas, focada na textura 'pudim' que apenas a mandioca fresca e o leite de coco de elite proporcionam.",
+    "rendimento": "12 fatias generosas",
+    "ingredientes": [
+      "1kg de mandioca (aipim) crua, descascada e ralada fina",
+      "3 ovos grandes (gemas peneiradas)",
+      "400g (2 xícaras) de açúcar cristal",
+      "100g (1/2 xícara) de manteiga sem sal derretida",
+      "200ml (1 vidro) de leite de coco extra-cremoso",
+      "100g de coco ralado fresco (preferencialmente extraído na hora)",
+      "1 pitada de sal para equilibrar a doçura",
+      "Manteiga para untar generosamente a fôrma"
+    ],
+    "preparo": [
+      "Em uma tigela grande, misture a mandioca ralada (não precisa espremer, queremos a umidade natural) com o açúcar e o sal.",
+      "Adicione os ovos levemente batidos e a manteiga derretida. Misture bem com uma colher de pau até ficar homogêneo.",
+      "Incorpore o leite de coco e o coco ralado fresco por último. A massa deve ficar densa e úmida.",
+      "Despeje em uma fôrma (retangular ou redonda) untada generosamente com manteiga (não precisa polvilhar farinha).",
+      "Asse em forno pré-aquecido a 180°C por cerca de 60 min, até que o topo esteja bem dourado e as bordas levemente caramelizadas."
+    ],
+    "segredo": "O segredo do Bolo de Mandioca Real é a integridade da raiz. Nunca use mandioca congelada ou batida no liquidificador; a textura deve vir obrigatoriamente do ralo fino, garantindo a mordida de 'pudim rústico' que derrete na boca.",
+    "harmonizacao": "Harmoniza lindamente com um Café com Leite bem cremoso ou um Chá de Erva-Doce quente para equilibrar a densidade do doce."
+  },
+  {
+    "id": 10,
+    "titulo": "Broa de Fubá Caxambu (Artesanal & Elite)",
+    "categoria": "🌽 Clássicos",
+    "imagem": "https://webbookpro.com/imagens/Broa_de_Fubá_Caxambu.avif",
+    "tempo": "45 min",
+    "dificuldade": "Média",
+    "custo": "Médio",
+    "descricao": "O sabor autêntico das vitrines de padaria artesanal. Crocante por fora e surpreendentemente aerada por dentro, com aroma profundo de erva-doce.",
+    "diferencial": "Utilização da técnica de escaldamento do fubá, que gelatiniza o amido e garante uma broa que derrete no paladar.",
+    "rendimento": "15 broas artesanais (aprox. 60g cada)",
+    "ingredientes": [
+      "300g (2 xícaras) de fubá mimoso (fino e peneirado)",
+      "300g (2 xícaras) de farinha de trigo premium",
+      "360ml (1 ½ xícara) de leite integral fervente",
+      "3 ovos grandes em temperatura ambiente (gemas peneiradas)",
+      "200g (1 xícara) de manteiga sem sal em ponto de pomada",
+      "200g (1 xícara) de açúcar refinado",
+      "15g (1 colher de sopa) de fermento químico",
+      "5g (1 colher de sopa) de sementes de erva-doce fresca",
+      "Gema de ovo e um fio de leite (para pincelar)"
+    ],
+    "preparo": [
+      "Coloque o fubá em uma tigela de aço ou barro. Despeje o leite fervendo por cima (escaldar) e mexa até formar uma pasta homogênea. Reserve até esfriar totalmente.",
+      "Em outra tigela, bata a manteiga com o açúcar até ficar um creme pálido. Adicione os ovos um a um, batendo bem após cada adição.",
+      "Misture a pasta de fubá fria ao creme amanteigado. Junte a farinha de trigo peneirada, o fermento e a erva-doce.",
+      "Modele bolas (utilize uma xícara redonda para ajudar no formato) e coloque em assadeira untada com manteiga e fubá.",
+      "Pincele com a gema e o leite. Asse em forno pré-aquecido a 200°C por 20 a 25 min até que o topo rache levemente e doure profissionalmente."
+    ],
+    "segredo": "O segredo da Broa Caxambu de elite é obrigatoriamente o escaldamento. Se você pular essa etapa, o fubá terá uma textura granulosa e 'seca'. Escaldar o fubá pré-cozinha o grão, garantindo a leveza que define as melhores broas das montanhas mineiras.",
+    "harmonizacao": "Harmoniza perfeitamente com um Café de Coador servido em caneca de barro ou um Chocolate Quente denso focado em 50% cacau."
+  },
+  {
+    "id": 11,
+    "titulo": "Paçoca de Colher Velvet (Amendoim & Flor de Sal)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "15 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "A versão contemporânea e ultra cremosa do doce de amendoim. Uma textura aveludada que derrete no paladar, equilibrando a doçura com um toque de flor de sal.",
+    "diferencial": "Utilização de amendoim torrado artesanalmente e finalização com creme de leite de elite, fugindo da textura pastosa de paçocas comuns.",
+    "rendimento": "10 potinhos gourmet (100ml cada)",
+    "ingredientes": [
+      "500g de amendoim torrado sem pele e sem sal (moído na hora)",
+      "395g (1 lata) de leite condensado premium",
+      "200g (1 caixinha) de creme de leite de elite",
+      "30g (2 colheres de sopa) de manteiga sem sal premium",
+      "3g (1 pitada) de flor de sal (ou sal marinho)",
+      "Amendoim triturado grosseiramente (para decorar)"
+    ],
+    "preparo": [
+      "Em uma panela de fundo grosso, misture o amendoim moído, o leite condensado e a manteiga.",
+      "Cozinhe em fogo baixo, mexendo sempre com uma espátula de silicone até que a massa comece a desgrudar levemente do fundo (ponto de brigadeiro mole).",
+      "Retire do fogo e adicione o creme de leite e a flor de sal imediatamente. Mexa vigorosamente para emulsionar e criar o efeito Velvet.",
+      "Distribua em potinhos de vidro individuais e deixe esfriar naturalmente em temperatura ambiente (não leve à geladeira imediatamente).",
+      "Finalize com o amendoim triturado reservado no topo para garantir o contraste 'crocante-cremoso'."
+    ],
+    "segredo": "O segredo da Paçoca Velvet de elite é a flor de sal adicionada apenas no final, fora do fogo. O sal quebra a doçura saturante do leite condensado e 'desperta' as notas sensoriais amadeiradas do amendoim, elevando o sabor para o patamar gastronômico.",
+    "harmonizacao": "Harmoniza lindamente com um Licor de Doce de Leite bem gelado ou um Café Espresso de torra média com notas naturais de nozes."
+  },
+  {
+    "id": 12,
+    "titulo": "Maçã do Amor Ruby (Vidrada & Espelhada)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "30 min",
+    "dificuldade": "Média",
+    "custo": "Baixo",
+    "descricao": "O brilho intenso do amor em forma de doce. Uma cobertura vítrea, vermelha vibrante, que envolve maçãs selecionadas para uma crocância sonora a cada mordida.",
+    "diferencial": "Técnica de cristalização de precisão com vinagre de maçã, garantindo o Ponto de Vidro que não murcha e não gruda nos dentes.",
+    "rendimento": "10 maçãs rubi selecionadas",
+    "ingredientes": [
+      "10 maçãs vermelhas pequenas e firmes (padrão Gala)",
+      "1kg de açúcar cristal de alta pureza",
+      "500ml de água mineral",
+      "20ml de corante alimentício vermelho morango (gel ou pó)",
+      "30ml (2 colheres de sopa) de vinagre de maçã (segredo do brilho)",
+      "10 palitos de sorvete de madeira selecionada"
+    ],
+    "preparo": [
+      "Lave e seque as maçãs meticulosamente. Qualquer umidade na casca impede a aderência da calda de elite. Introduza os palitos firmemente.",
+      "Em uma panela funda, misture a água, o açúcar, o vinagre e o corante. Mexa apenas para dissolver antes de levar ao fogo.",
+      "Leve ao fogo médio e nunca mexa a mistura após o início da fervura para evitar a cristalização do açúcar.",
+      "Cozinhe até o Ponto de Vidro: teste pingando a calda em água gelada — ela deve endurecer instantaneamente e quebrar como vidro ao ser pressionada.",
+      "Mergulhe as maçãs girando-as com rapidez. Deixe o excesso escorrer por 5 segundos antes de repousar em papel manteiga untado."
+    ],
+    "segredo": "O segredo do brilho Ruby inalterável é o vinagre de maçã. Ele impede a recristalização indesejada. O teste de quebra é obrigatório: se a calda estiver minimamente 'puxa-puxa', a maçã perderá o brilho em 1 hora. Se estiver 'vidro', brilhará por todo o evento.",
+    "harmonizacao": "Harmoniza perfeitamente com Água com Gás trincando de gelada e rodelas de limão siciliano para elevar a adstringência e neutralizar o açúcar."
+  },
+  {
+    "id": 13,
+    "titulo": "Cocada Duo Bahia (Branca & Queimada)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "40 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O contraste perfeito da Bahia no seu arraiá. Uma cocada cremosa de fita, em duas versões: a pureza alva do coco e a profundidade caramelizada da versão queimada.",
+    "diferencial": "Corte em 'fitas' de coco fresco, que garante uma textura rústica e elegante, fugindo do coco ralado industrial seco.",
+    "rendimento": "15 unidades artesanais (aprox. 50g cada)",
+    "ingredientes": [
+      "500g de coco fresco cortado em fitas (lâminas finas)",
+      "400g (2 xícaras) de açúcar cristal premium",
+      "150ml de água mineral",
+      "395g (1 lata) de leite condensado de elite",
+      "1 pau de canela (exclusivo para a versão branca)",
+      "Manteiga sem sal para untar a superfície de mármore"
+    ],
+    "preparo": [
+      "Em uma panela de fundo grosso, misture a água e o açúcar. Leve ao fogo sem mexer até formar uma calda em 'ponto de fio'.",
+      "Adicione as fitas de coco. Para a versão Branca, inclua a canela. Cozinhe em fogo médio mexendo sempre até a água secar e o coco brilhar.",
+      "Para a versão Queimada: Continue mexendo o coco na calda após secar até que o açúcar caramelize no fundo e envolva as fitas em um tom bronze intenso.",
+      "Adicione o leite condensado e mexa vigorosamente até desgrudar levemente do fundo (ponto de cocada mole).",
+      "Modele rapidamente com o auxílio de duas colheres sobre o mármore untado e deixe cristalizar em temperatura ambiente por 20 min."
+    ],
+    "segredo": "O segredo da cocada de elite é o corte do coco: use um descascador de legumes para fazer fitas finas e translúcidas. Isso cria uma aparência artesanal de alta gastronomia e mantém a suculência interna que o coco ralado comum perde no fogo.",
+    "harmonizacao": "Harmoniza lindamente com um Vinho de Sobremesa (Late Harvest) ou um Suco de Maracujá natural concentrado para equilibrar a carga de açúcar."
+  },
+  {
+    "id": 14,
+    "titulo": "Doce de Abóbora Coração (Afeto & Especiarias)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "60 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O tradicional doce de abóbora em formato de coração, com uma textura aveludada e o aroma profundo de especiarias que perfumam o arraiá.",
+    "diferencial": "Cozimento purista sem adição de água, garantindo uma concentração máxima do sabor da abóbora e um brilho vítreo natural.",
+    "rendimento": "10 corações artesanais (aprox. 80g cada)",
+    "ingredientes": [
+      "1kg de abóbora pescoço madura (descascada e picada em cubos pequenos)",
+      "400g (2 xícaras) de açúcar cristal premium",
+      "5 cravos-da-índia e 2 paus de canela da China",
+      "100g de coco ralado fresco em flocos médios",
+      "Suco de 1/2 limão siciliano (segredo da cor vibrante)",
+      "Manteiga para untar os moldes"
+    ],
+    "preparo": [
+      "Em uma panela de fundo grosso, coloque a abóbora, o açúcar, o suco de limão e as especiarias. Misture e deixe descansar por 10 min.",
+      "Tampe a panela e cozinhe em fogo baixíssimo. A abóbora soltará seu próprio néctar, criando a calda de elite sem necessidade de água.",
+      "Quando a abóbora estiver desmanchando (aprox. 40 min), retire a tampa e amasse grosseiramente com as costas de uma colher.",
+      "Adicione o coco fresco e continue mexendo até que o doce brilhe intensamente e comece a soltar do fundo da panela.",
+      "Modele em cortadores metálicos de coração ou use moldes de silicone untados. Desenforme após esfriar completamente."
+    ],
+    "segredo": "O segredo do Doce de Abóbora de elite é o limão siciliano. Ele atua como um fixador de cor natural, impedindo que o doce oxide e escureça, mantendo um laranja vivo e iluminado. O néctar próprio da abóbora garante uma textura densa que o açúcar sozinho não daria.",
+    "harmonizacao": "Harmoniza lindamente com uma fatia grossa de Queijo Minas Padrão ou Queijo Coalho grelhado, criando o autêntico contraste junino entre o doce e o salgado."
+  },
+  {
+    "id": 15,
+    "titulo": "Maria Mole Nuvem (Coco & Leite de Coco Elite)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "30 min",
+    "dificuldade": "Média",
+    "custo": "Baixo",
+    "descricao": "Leve como uma nuvem de inverno. Uma maria mole ultra aerada, com o frescor do leite de coco e a textura inconfundível do coco ralado ao vento.",
+    "diferencial": "Batimento ultra-longo que triplica o volume da massa, criando uma textura esponjosa de alta confeitaria que derrete instantaneamente na boca.",
+    "rendimento": "12 quadrados generosos (aprox. 80g cada)",
+    "ingredientes": [
+      "24g (2 pacotes) de gelatina incolor e sem sabor premium",
+      "400g (2 xícaras) de açúcar refinado de alta pureza",
+      "250ml de água mineral fervente",
+      "200ml (1 vidro) de leite de coco extra-cremoso (obrigatoriamente gelado)",
+      "150g de coco ralado em flocos frescos para empanar",
+      "1 gota de extrato de baunilha de Madagascar (opcional de elite)"
+    ],
+    "preparo": [
+      "Dissolva a gelatina na água fervente até que não reste nenhum grânulo residual. O líquido deve estar cristalino.",
+      "Na batedeira, coloque a gelatina dissolvida e o açúcar. Comece a bater em velocidade média e aumente para a máxima.",
+      "Bata por exatos 15 a 20 minutos até que a massa triplique de volume e atinja o estágio de merengue brilhante e firme.",
+      "Reduza a velocidade e adicione o leite de coco gelado em fio constante. Despeje em refratário untado com óleo de coco ou manteiga.",
+      "Gele por 4 horas, corte em quadrados perfeitos e passe generosamente no coco ralado em flocos para finalizar o visual de nuvem."
+    ],
+    "segredo": "O segredo da Maria Mole de elite é a temperatura do leite de coco. Ele deve entrar na batedeira muito gelado. O choque térmico com a gelatina quente recém-batida fixa as bolhas de ar permanentemente na rede proteica, garantindo que o doce nunca murcha e mantenha a mola macia de nuvem.",
+    "harmonizacao": "Harmoniza lindamente com um Chá Branco frio com rodela de limão siciliano ou um Suco de Abacaxi natural para criar um contraste tropical com a cremosidade do coco."
+  },
+  {
+    "id": 16,
+    "titulo": "Amendoim Praliné do Agreste (Crocante & Aerado)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "20 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O clássico praliné elevado ao patamar de snack de elite. Uma casquinha de chocolate finíssima, aerada e extremamente crocante que explode no paladar.",
+    "diferencial": "Técnica de expansão química controlada com fermento, resultando em uma casca que não é 'pedra', mas sim um cristal de açúcar leve e poroso.",
+    "rendimento": "10 porções (snack de 100g cada)",
+    "ingredientes": [
+      "500g de amendoim cru com pele (lavado e escorrido)",
+      "400g (2 xícaras) de açúcar cristal",
+      "200ml de água mineral",
+      "30g (2 colheres de sopa) de chocolate em pó 50% cacau",
+      "5g (1 colher de chá) de fermento químico em pó (segredo da leveza)",
+      "1 pitada de canela em pó (toque aromático de elite)"
+    ],
+    "preparo": [
+      "Em uma panela de fundo grosso (preferencialmente aço inox), misture o amendoim, o açúcar, a água e o chocolate.",
+      "Leve ao fogo médio e mexa ocasionalmente até abrir fervura. A calda começará a reduzir e se tornará espessa e densa.",
+      "Mantenha no fogo até que comece a 'açucarar' (formar aspecto de areia nas bordas). Esse é o momento crítico.",
+      "Mexa vigorosamente. Assim que os grãos estiverem envolvidos pelo açúcar seco, adicione o fermento e a canela imediatamente.",
+      "Misture rápido por 30 segundos: a cobertura vai expandir e ficar leve. Despeje em assadeira grande para esfriar sem amontoar."
+    ],
+    "segredo": "O segredo do Amendoim Praliné de elite é o fermento químico adicionado no segundo exato do açucaramento. Ele cria microbolhas que impedem a vitrificação sólida do açúcar, garantindo que a casca seja leve, porosa e derreta na boca após o primeiro contato crocante.",
+    "harmonizacao": "Harmoniza lindamente com uma Cerveja Preta artesanal (Stout) ou um Café Espresso de torra intensa para contrastar com as notas terrosas do cacau."
+  },
+  {
+    "id": 17,
+    "titulo": "Queijadinha de Minas (Queijo Meia Cura & Coco)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "35 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "Uma explosão de texturas em uma única mordida. O equilíbrio clássico entre o salgado do queijo meia cura e a doçura tropical do coco fresco.",
+    "diferencial": "Utilização de queijo meia cura ralado grosso, que cria picos de sabor salgado dentro da massa cremosa, fugindo do parmesão industrial seco.",
+    "rendimento": "20 unidades artesanais",
+    "ingredientes": [
+      "395g (1 lata) de leite condensado premium",
+      "2 gemas de ovos grandes (obrigatoriamente peneiradas)",
+      "100g de queijo meia cura ou canastra ralado grosso",
+      "100g de coco ralado fresco (em flocos médios)",
+      "15g (1 colher de sopa) de manteiga sem sal derretida",
+      "Forminhas de papel e suporte de metal"
+    ],
+    "preparo": [
+      "Em uma tigela, misture as gemas peneiradas com o leite condensado e a manteiga derretida até formar um creme homogêneo.",
+      "Adicione o coco ralado fresco e o queijo meia cura. Misture delicadamente com uma espátula, sem bater a massa.",
+      "Distribua a massa nas forminhas de papel, preenchendo até 3/4 da capacidade (elas crescem levemente).",
+      "Asse em forno pré-aquecido a 180°C por cerca de 20 a 25 min, até que o topo doure intensamente mas o centro permaneça úmido.",
+      "Retire do forno e deixe esfriar completamente na própria fôrma para que o doce 'assente' e ganhe a textura ideal."
+    ],
+    "segredo": "O segredo da Queijadinha de elite é a escolha do queijo. O uso do meia cura fresco garante uma umidade interna que o queijo parmesão seco de saquinho jamais proporcionaria. O resfriamento lento fora do forno evita que o doce murcha.",
+    "harmonizacao": "Harmoniza lindamente com um Café com Leite bem espumoso ou um Chá de Maçã com Canela bem quente para realçar o aroma do coco assado."
+  },
+  {
+    "id": 18,
+    "titulo": "Brigadeiro de Paçoca (Cremosidade & Amendoim)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "20 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "O clássico brigadeiro brasileiro em uma releitura junina de luxo. Uma massa elástica, brilhante e carregada com o sabor rústico da paçoca rolha selecionada.",
+    "diferencial": "Utilização da técnica Velvet, onde a proporção de gordura correta e o ponto de retirada garantem que o doce não cristalize e derreta plenamente na boca.",
+    "rendimento": "25 a 30 esferas gourmet (aprox. 20g cada)",
+    "ingredientes": [
+      "395g (1 lata) de leite condensado premium",
+      "100g (1/2 caixinha) de creme de leite de elite (mínimo 17% gordura)",
+      "4 paçocas tipo 'rolha' de alta qualidade (esfareladas)",
+      "15g (1 colher de sopa) de manteiga sem sal premium",
+      "2 paçocas extras moídas grosseiramente (para o confeito final)",
+      "Amendoim torrado inteiro (para decorar o topo)"
+    ],
+    "preparo": [
+      "Em uma panela de fundo triplo, misture o leite condensado, o creme de leite, a manteiga e as 4 paçocas esfareladas.",
+      "Leve ao fogo médio-baixo, mexendo sempre com espátula de silicone em movimentos constantes para não queimar o fundo.",
+      "O ponto de elite é o 'Moisés': ao passar a espátula no meio, a massa forma um caminho que demora a fechar, mas mantém brilho úmido.",
+      "Transfira para um prato e cubra imediatamente com filme plástico em contato para evitar a formação de película granulosa.",
+      "Após 6 horas de descanso em temperatura ambiente, modele as esferas e envolva-as na paçoca moída reservada. Finalize com um amendoim no topo."
+    ],
+    "segredo": "O segredo do Brigadeiro de Paçoca de elite é o creme de leite e o descanso fora da geladeira. O creme de leite quebra a estrutura cristalina do açúcar; o descanso em temperatura ambiente preserva a elasticidade e o brilho intenso que a geladeira retiraria.",
+    "harmonizacao": "Harmoniza lindamente com um Chá de Amendoim cremoso bem quente ou uma dose de Licor de Amarula gelado para realçar as notas profundas de castanhas."
+  },
+  {
+    "id": 19,
+    "titulo": "Doce de Batata Doce (Roxo Imperial & Afeto)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "45 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O doce rústico modelado com o afeto das festas juninas. Uma cor vibrante e natural que encanta os olhos antes mesmo da primeira mordida.",
+    "diferencial": "Utilização de batata doce roxa selecionada, que proporciona uma coloração imperial sem o uso de corantes artificiais, mantendo a pureza de elite.",
+    "rendimento": "15 corações artesanais (aprox. 60g cada)",
+    "ingredientes": [
+      "1kg de batata doce roxa (firme e de polpa colorida)",
+      "400g (2 xícaras) de açúcar cristal premium",
+      "30g (2 colheres de sopa) de manteiga sem sal premium",
+      "1 pau de canela e 3 cravos-da-índia",
+      "Açúcar cristal fino (para empanar)",
+      "Moldes ou cortadores em formato de coração"
+    ],
+    "preparo": [
+      "Cozinhe as batatas com casca em água fervente até ficarem bem macias. Descasque e amasse ainda quentes para garantir a textura de seda.",
+      "Em uma panela, misture o purê de batata, o açúcar, a manteiga e as especiarias. Cozinhe em fogo médio-baixo.",
+      "Mexa sempre até que a massa desgrude totalmente do fundo da panela, atingindo um ponto de modelagem firme.",
+      "Retire as especiarias e deixe a massa esfriar até conseguir manusear. Modele em corações perfeitos com cortadores.",
+      "Passe os corações no açúcar cristal fino para criar a crosta brilhante e deixe secar em temperatura ambiente por 1 hora."
+    ],
+    "segredo": "O segredo do Roxo Imperial de elite é cozinhar a batata sempre com a casca. Isso evita que o amido absorva água em excesso, mantendo a cor vibrante e o sabor concentrado. Amassar a batata ainda quente é o que garante a massa lisa e profissional.",
+    "harmonizacao": "Harmoniza lindamente com fatias finas de Goiabada Cascão e Queijo Minas Padrão, criando um trio rústico de alta elegância gustativa."
+  },
+  {
+    "id": 20,
+    "titulo": "Quindim de Iaiá (Ouro Líquido & Espelho)",
+    "categoria": "🍬 Doces",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "60 min",
+    "dificuldade": "Difícil",
+    "custo": "Médio",
+    "descricao": "O brilho do ouro em forma de doce. Um quindim de transparência impecável, textura úmida e o sabor inconfundível das gemas selecionadas.",
+    "diferencial": "Técnica de filtragem tripla das gemas, que elimina qualquer rastro de odor e garante um espelhamento perfeito na superfície do doce.",
+    "rendimento": "10 quindins individuais (aprox. 80g cada)",
+    "ingredientes": [
+      "12 gemas de ovos grandes e frescos (preferencialmente de granja livre)",
+      "250g (1 ¼ xícara) de açúcar refinado de alta pureza",
+      "50g de coco ralado fresco (lâminas finíssimas)",
+      "30g (2 colheres de sopa) de manteiga sem sal derretida",
+      "Manteiga e açúcar cristal (para untar com perfeição)"
+    ],
+    "preparo": [
+      "Peneire as gemas duas vezes, deixando-as escorrer naturalmente (jamais force com a colher para não passar a película de cheiro forte).",
+      "Em uma tigela, misture o açúcar, a manteiga e o coco. Deixe descansar por 1 hora (segredo da hidratação do coco na gordura).",
+      "Incorpore as gemas peneiradas à mistura de coco com movimentos circulares ultra-suaves, evitando a incorporação de qualquer bolha de ar.",
+      "Distribua em forminhas untadas generosamente com manteiga e polvilhadas com açúcar cristal.",
+      "Asse em banho-maria (com água já quente) a 180°C por 50 a 60 min. Desenforme morno para garantir que o 'espelho' de açúcar cristal não quebre."
+    ],
+    "segredo": "O segredo do Quindim de elite é o repouso do coco no açúcar e manteiga antes de entrar as gemas. Isso garante que o coco absorva a gordura e fique denso o suficiente para descer na fôrma, permitindo que a camada de gemas suba e crie o efeito espelho de ouro liso e sem porosidades.",
+    "harmonizacao": "Harmoniza lindamente com uma taça de Vinho do Porto Tawny ou um Café Espresso intenso de torra escura, que equilibra a doçura profunda das gemas."
+  },
+  {
+    "id": 21,
+    "titulo": "Caldo Verde Imperial (Chouriço & Couve-Manteiga)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "45 min",
+    "dificuldade": "Média",
+    "custo": "Médio",
+    "descricao": "O mais clássico dos caldos juninos elevado ao status imperial. Um creme de batatas aveludado, rico em sabor defumado e finalizado com a vivacidade da couve fresca.",
+    "diferencial": "Utilização da batata Asterix para uma base mais amilácea e estável, resultando em um caldo que não 'separa' e mantém a cremosidade de elite.",
+    "rendimento": "6 porções generosas (aprox. 350ml cada)",
+    "ingredientes": [
+      "1kg de batatas Asterix (casca rosada) descascadas e em cubos",
+      "200g de couve-manteiga cortada em fios ultra-finos (cabelo de anjo)",
+      "200g de paio ou chouriço de alta qualidade em rodelas finas",
+      "150g de bacon artesanal em cubos minúsculos (brunoise)",
+      "1 cebola branca grande picada finamente",
+      "3 dentes de alho esmagados",
+      "1.5L de caldo de legumes natural ou água mineral",
+      "80ml (1/3 xícara) de azeite de oliva extra virgem",
+      "Sal e pimenta-do-reino moída na hora"
+    ],
+    "preparo": [
+      "Em uma panela grande, refogue a cebola e o alho em metade do azeite até que fiquem translúcidos e aromáticos.",
+      "Adicione as batatas e o caldo. Cozinhe em fogo médio até que as batatas estejam desmanchando.",
+      "Bata a mistura (usando um mixer ou liquidificador) até obter um creme sedoso. Retorne ao fogo baixo.",
+      "Em uma frigideira, frite o bacon e o paio até dourarem e soltarem a gordura defumada. Adicione tudo ao creme de batatas.",
+      "Deixe ferver por 5 min para os sabores se fundirem. Ajuste sal e pimenta.",
+      "Desligue o fogo e adicione a couve ultra-fina e o restante do azeite. Mexa suavemente e sirva imediatamente para manter o frescor."
+    ],
+    "segredo": "O segredo do Caldo Verde de elite é o momento da couve. Jamais cozinhe a couve por muito tempo; ela deve entrar com o fogo já desligado. O calor residual é suficiente para murchá-la levemente, mantendo a cor verde vibrante e a textura que contrasta com o creme.",
+    "harmonizacao": "Harmoniza lindamente com uma taça de Vinho Tinto seco de corpo médio (como um Merlot) ou fatias de Pão Português artesanal de casca grossa."
+  },
+  {
+    "id": 22,
+    "titulo": "Caldo de Kenga Nobre (Mandioca & Milho)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "50 min",
+    "dificuldade": "Média",
+    "custo": "Médio",
+    "descricao": "Uma explosão de sabor e textura que une a sustança da mandioca com a doçura do milho verde e o caráter do frango defumado.",
+    "diferencial": "Base dupla de amido (mandioca + milho) que cria um caldo encorpado e extremamente nutritivo, com fios de frango que derretem no paladar.",
+    "rendimento": "8 porções generosas (aprox. 300ml cada)",
+    "ingredientes": [
+      "500g de mandioca (aipim) cozida até desmanchar",
+      "300g (2 xícaras) de milho verde fresco (debulhado ou premium em lata)",
+      "400g de peito de frango cozido e desfiado (fios ultra-finos)",
+      "150g de bacon artesanal em cubos milimétricos",
+      "150g de linguiça calabresa fina em rodelas translúcidas",
+      "1 cebola roxa grande e 3 dentes de alho picados",
+      "1 litro de caldo natural do cozimento do frango",
+      "Salsa e cebolinha frescas colhidas na hora",
+      "Pimenta-do-reino moída e uma pitada de colorau premium"
+    ],
+    "preparo": [
+      "No liquidificador, bata a mandioca cozida com o milho e metade do caldo de frango até obter um creme espesso, liso e vibrante.",
+      "Em uma panela de ferro ou fundo grosso, frite o bacon e a calabresa até dourarem. Adicione a cebola e o alho, refogando até perfumar a cozinha.",
+      "Junte o frango desfiado em seda e o colorau. Refogue por 3 min para absorção total dos aromas defumados.",
+      "Despeje o creme de mandioca/milho na panela e adicione o restante do caldo aos poucos até atingir a consistência aveludada de elite.",
+      "Ferva em fogo baixo por 15 min, mexendo sempre para não queimar o fundo. Finalize com os temperos verdes no ato de servir."
+    ],
+    "segredo": "O segredo do Caldo de Kenga de elite é o frango desfiado em fios 'seda'. Isso permite que a proteína se funda quimicamente ao creme de mandioca, criando uma textura homogênea onde você sente o sabor defumado em cada colherada sem a interrupção de pedaços grosseiros.",
+    "harmonizacao": "Harmoniza lindamente com uma Cerveja Dunkel (escura) bem gelada ou uma Tubaína Artesanal trincando para contrastar com a densidade mineral do caldo."
+  },
+  {
+    "id": 23,
+    "titulo": "Buraco Quente (Elite & Queijo Selado)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "30 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "O sanduíche imbatível de carne moída ultra suculenta, cozida lentamente em molho de tomates frescos. O destaque é a selagem de queijo que impede o pão de murchar.",
+    "diferencial": "Técnica de impermeabilização interna com muçarela e uso de carne de primeira (Patinho), garantindo sabor limpo e suculência técnica sem gordura excessiva.",
+    "rendimento": "10 sanduíches de elite",
+    "ingredientes": [
+      "10 pães franceses fresquinhos (tipo baguete individual rústica)",
+      "600g de carne moída de primeira (Patinho ou Acém moído duas vezes)",
+      "400g (1 lata) de tomates pelados italianos esmagados à mão",
+      "1 cebola grande e 3 dentes de alho picados brunoise",
+      "150g de queijo muçarela em fatias ou cubos (para a selagem)",
+      "50ml de vinho tinto seco (o segredo do sabor profundo e aristocrático)",
+      "1/2 pimentão vermelho picado em cubos minúsculos",
+      "Cheiro-verde fresco e pimenta dedo-de-moça (sem sementes)"
+    ],
+    "preparo": [
+      "Dore a carne moída em fogo alto até que esteja solta e bem selada. Adicione a cebola, o alho e o pimentão vermelho.",
+      "Despeje o vinho tinto e deixe o álcool evaporar totalmente (aroma de elite). Junte os tomates pelados e tampe a panela.",
+      "Cozinhe em fogo baixo por 20 min até obter um molho encorpado e brilhante. Acerte o sal e a pimenta ao final.",
+      "Corte a tampa dos pães e pressione o miolo com uma colher para o fundo, mantendo a casca lateral íntegra.",
+      "Insira o queijo no fundo do pão (selagem). Recheie com a carne fumegante: o calor derreterá o queijo, criando a barreira protetora."
+    ],
+    "segredo": "O segredo do Buraco Quente de elite é a impermeabilização. Colocar o queijo no fundo do pão antes da carne cria uma barreira que impede o molho de encharcar a base do pão. Isso preserva a crocância da casca enquanto o recheio explode em suculência.",
+    "harmonizacao": "Harmoniza lindamente com um Guaraná de garrafa de vidro trincando de gelado ou um Suco de Laranja natural com muito gelo para limpar o paladar."
+  },
+  {
+    "id": 24,
+    "titulo": "Hot-Dog Junino (Artesanal & Molho de Vó)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "25 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O cachorro-quente de festa elevado ao nível supremo. Um molho de tomates apurado com técnica, salsichas de alta qualidade e finalização crocante.",
+    "diferencial": "Utilização de molho de tomates frescos com técnica de redução ácida e mostarda de elite, criando um equilíbrio perfeito entre o doce e o picante.",
+    "rendimento": "12 unidades (padrão festa)",
+    "ingredientes": [
+      "12 pães de leite ultra macios (padrão artesanal)",
+      "12 salsichas tipo 'Frankfurt' ou de alta qualidade (sem corantes excessivos)",
+      "500ml de passata de tomate ou molho artesanal concentrado",
+      "1 cebola branca e 2 dentes de alho picados finamente",
+      "1/2 pimentão amarelo picado em cubos minúsculos",
+      "20g (1 colher de sopa) de mostarda de elite (Dijon ou Escura)",
+      "Batata palha extrafina de alta qualidade",
+      "Maionese verde artesanal (para a base do pão)"
+    ],
+    "preparo": [
+      "Ferva as salsichas em água mineral por 5 min para higienização e remoção de excessos. Escorra e reserve.",
+      "Em uma panela, refogue o alho, a cebola e o pimentão no azeite até que fiquem macios e translúcidos.",
+      "Adicione a passata de tomate e a mostarda. Deixe apurar em fogo baixo por 15 min até o molho perder a acidez e ganhar brilho.",
+      "Incorpore as salsichas ao molho denso e cozinhe por 5 min extras para que elas absorvam o sabor do tempero.",
+      "Abra os pães, aplique a maionese verde, insira a salsicha com molho generoso e finalize com a batata palha para crocância."
+    ],
+    "segredo": "O segredo do Hot-Dog de elite é a mostarda inserida diretamente no molho de tomate. Ela atua como um complexador de sabor, cortando a monotonia do doce do tomate e adicionando uma profundidade aromática que caracteriza os melhores preparos artesanais.",
+    "harmonizacao": "Harmoniza lindamente com uma Tubaína Retrô bem gelada em copo americano ou um Suco de Uva Integral tinto trincando para contrastar com a picância do molho."
+  },
+  {
+    "id": 25,
+    "titulo": "Quentão Imperial (Vinho Tinto & Especiarias)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "30 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "A bebida que aquece a alma e o corpo nas noites frias de arraiá. Um elixir aromático, equilibrado entre o picante do gengibre e a doçura das frutas.",
+    "diferencial": "Técnica de caramelização seca das especiarias antes da adição do líquido, liberando óleos essenciais para uma profundidade de sabor inigualável.",
+    "rendimento": "2 litros (aprox. 10 canecas elegantes)",
+    "ingredientes": [
+      "1.5L de Vinho Tinto Seco de boa qualidade (Cabernet ou Merlot)",
+      "400g (2 xícaras) de açúcar cristal premium",
+      "100g de gengibre fresco fatiado (segredo da picância técnica)",
+      "2 maçãs vermelhas firmes cortadas em cubos pequenos",
+      "Casca de 1 laranja e 1 limão siciliano (sem a parte branca)",
+      "5 paus de canela e 10 cravos-da-índia",
+      "500ml de água mineral fervente"
+    ],
+    "preparo": [
+      "Em uma panela grande, coloque o açúcar, o gengibre, a canela e os cravos. Leve ao fogo até caramelizar em tom âmbar claro.",
+      "Adicione as cascas cítricas e as maçãs. Mexa por 1 min para os óleos essenciais aromatizarem o caramelo.",
+      "Despeje a água fervente com cuidado e mexa até dissolver os torrões de açúcar por completo.",
+      "Adicione o vinho tinto e aqueça em fogo médio-alto até que as primeiras bolhas de fervura surjam na borda da panela.",
+      "Desligue o fogo imediatamente. Jamais deixe o vinho ferver em cascata para preservar o brilho e o teor alcoólico de elite."
+    ],
+    "segredo": "O segredo do Quentão Imperial é a caramelização do gengibre com o açúcar. O calor do caramelo 'abre' as fibras do gengibre, potencializando a picância e conferindo uma cor rubi-dourada que encanta visualmente. O controle da temperatura impede a evaporação prematura do álcool de elite.",
+    "harmonizacao": "Harmoniza lindamente com Pipoca Gourmet de Leite Ninho ou Amendoim Praliné, criando um contraste térmico sofisticado entre o líquido e o crocante."
+  },
+  {
+    "id": 26,
+    "titulo": "Choconhaque Velvet (Cacau & Conhaque XO)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "10 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "Uma bebida rica, aveludada e extremamente reconfortante. O encontro clássico entre o cacau 50% e a potência do conhaque, finalizado com um corpo cremoso de elite.",
+    "diferencial": "Utilização da técnica de espessamento térmico com amido e cacau puro, resultando em uma textura 'Velvet' que abraça o paladar.",
+    "rendimento": "4 canecas generosas (250ml cada)",
+    "ingredientes": [
+      "1 litro de leite integral tipo A (bem fresco)",
+      "60g (4 colheres de sopa) de cacau em pó 50% de pureza",
+      "200g (1/2 lata) de leite condensado de elite",
+      "100ml de conhaque de boa qualidade (estilo VSOP ou XO)",
+      "5g (1 colher de chá) de amido de milho (segredo da textura)",
+      "1 pau de canela e 1 pequena pitada de sal (para realçar o cacau)",
+      "Raspas de chocolate amargo (para decorar)"
+    ],
+    "preparo": [
+      "Em uma panela, misture o leite, o cacau em pó e o leite condensado. Use um fouet para dissolver o cacau completamente.",
+      "Dissolva o amido de milho em uma colher de leite frio e adicione à panela junto com a canela em pau.",
+      "Leve ao fogo médio, batendo suavemente até o líquido começar a encorpar e ganhar um brilho acetinado.",
+      "Assim que ferver, abaixe o fogo e cozinhe por 2 min extras para garantir a cocção do amido e a sedosidade.",
+      "Desligue o fogo e incorpore o conhaque vigorosamente. O calor residual liberará os aromas sem evaporar a alma da bebida."
+    ],
+    "segredo": "O segredo do Choconhaque Velvet de elite é a pitada de amido e o momento do álcool. O amido confere o corpo denso 'europeu', e adicionar o conhaque apenas após o fogo desligado preserva as notas complexas de madeira e baunilha da bebida alcoólica.",
+    "harmonizacao": "Harmoniza lindamente com uma fatia de Broa de Fubá Caxambu ou uma Queijadinha de Minas, que complementam a cremosidade luxuosa do chocolate."
+  },
+  {
+    "id": 27,
+    "titulo": "Vinho Quente (Festival de Frutas & Mel de Elite)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "20 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "Um festival de cores, aromas e sabores frescos. O vinho quente clássico elevado por uma seleção rigorosa de frutas e o toque aveludado do mel silvestre.",
+    "diferencial": "Utilização de mel silvestre em substituição parcial ao açúcar, garantindo densidade aromática e um brilho vítreo no líquido.",
+    "rendimento": "1.5 litros (aprox. 8 canecas aromáticas)",
+    "ingredientes": [
+      "1L de Vinho Tinto Suave de boa procedência",
+      "150g (3/4 xícara) de açúcar cristal premium",
+      "100g (1/4 xícara) de mel silvestre de elite",
+      "2 maçãs gala picadas em cubos milimétricos",
+      "1/2 abacaxi pérola picado em cubos (segredo da acidez vibrante)",
+      "Casca de 1 limão tahiti e 1 laranja bahia (sem a parte branca)",
+      "5 paus de canela e 5 cravos-da-índia",
+      "1 pitada de noz-moscada ralada na hora"
+    ],
+    "preparo": [
+      "Em uma panela, coloque o abacaxi e o açúcar. Cozinhe por 5 min até formar uma compota leve e translúcida.",
+      "Adicione as cascas de cítricos, as maçãs e as especiarias. Mexa por 2 min para os aromas se fundirem à fruta.",
+      "Despeje o vinho tinto e incorpore o mel silvestre mexendo suavemente.",
+      "Aqueça em fogo médio até que o líquido vaporize intensamente (evite a fervura borbulhante para não amargar as frutas).",
+      "Mantenha em infusão quente por 10 min antes de servir. Sirva com generosa porção de frutas em cada caneca."
+    ],
+    "segredo": "O segredo do Vinho Quente de elite é o abacaxi. Sua acidez natural 'limpa' o paladar do açúcar excessivo do vinho suave, transformando a bebida em algo refrescante e aquecedor ao mesmo tempo. O mel confere o brilho de vitrine ao líquido.",
+    "harmonizacao": "Harmoniza lindamente com Amendoim Praliné do Agreste ou Pinhão Cozido salteado na manteiga de ervas frescas."
+  },
+  {
+    "id": 28,
+    "titulo": "Espetinho de Alcatra (Marinada de Cachaça & Bacon)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "40 min",
+    "dificuldade": "Média",
+    "custo": "Médio",
+    "descricao": "O espetinho clássico elevado ao patamar de churrasco de elite. Carne extremamente macia, aromatizada em marinada ácida e intercalada com a gordura nobre do bacon.",
+    "diferencial": "Técnica de marinada em cachaça envelhecida e limão siciliano, que rompe as fibras de colágeno e introduz uma nota amadeirada sutil e sofisticada.",
+    "rendimento": "10 espetinhos generosos",
+    "ingredientes": [
+      "800g de Alcatra premium cortada em cubos de 3cm",
+      "200g de Bacon artesanal (cortado em cubos idênticos à carne)",
+      "50ml de Cachaça envelhecida em barril (segredo da maciez)",
+      "Suco de 1 limão siciliano",
+      "3 dentes de alho esmagados e sal grosso triturado",
+      "Azeite de oliva extra virgem e pimenta-do-reino",
+      "Palitos de bambu (obrigatoriamente hidratados em água)"
+    ],
+    "preparo": [
+      "Prepare a marinada com cachaça, limão, alho, pimenta e azeite. envolva a carne e deixe descansar por 30 min (infusão de elite).",
+      "Monte os espetos intercalando dois cubos de carne para um de bacon. A gordura do bacon lubrificará a carne durante o fogo.",
+      "Aqueça a chapa ou brasa até atingir temperatura máxima para selar as fibras instantaneamente.",
+      "Tempere com o sal grosso triturado apenas segundos antes de levar ao fogo para evitar a desidratação precoce.",
+      "Grelhe por 3 min de cada lado até obter o ponto rosado suculento de vitrine. Sirva com farofa amanteigada crocante."
+    ],
+    "segredo": "O segredo do Espetinho de elite é a hidratação dupla: os palitos devem ficar imersos em água por 20 min antes da montagem (isso impede que queimem e passem sabor amargo à carne) e a cachaça na marinada, que amacia as fibras e confere sabor complexo de destilado nobre.",
+    "harmonizacao": "Harmoniza lindamente com um Chope Artesanal (Pilsen premium) bem gelado em copo térmico ou um Suco Integral de Caju para equilibrar a adstringência do sal."
+  },
+  {
+    "id": 29,
+    "titulo": "Milho de Elite (Manteiga de Ervas & Flor de Sal)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "20 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O milho verde cozido elevado ao patamar de prato gourmet. Espigas selecionadas, cozidas com maestria e finalizadas com uma manteiga composta de ervas frescas.",
+    "diferencial": "Cozimento técnico em água com açúcar mineral, preservando a maciez extrema dos grãos e intensificando a doçura natural do milho fresco.",
+    "rendimento": "6 espigas de elite",
+    "ingredientes": [
+      "6 espigas de milho verde extra-frescas e selecionadas",
+      "100g de manteiga sem sal premium (em ponto pomada)",
+      "Mix de ervas frescas (salsa, cebolinha e tomilho-limão)",
+      "Flor de sal (segredo da textura mineral final)",
+      "15g (1 colher de sopa) de açúcar premium (para o cozimento)",
+      "Pimenta-do-reino branca moída na hora"
+    ],
+    "preparo": [
+      "Limpe as espigas retirando os fios, mantendo a integridade dos grãos. Lave em água corrente.",
+      "Em uma panela grande com água mineral fervente e açúcar, mergulhe as espigas e cozinhe por 15 a 20 min.",
+      "Enquanto isso, misture a manteiga em ponto pomada com o mix de ervas e a pimenta branca até formar um creme.",
+      "Retire o milho ainda fumegante, escorra bem e pincele generosamente a manteiga temperada sobre os grãos quentes.",
+      "Finalize polvilhando cristais de flor de sal por toda a espiga para um contraste crocante e mineral."
+    ],
+    "segredo": "O segredo do Milho de elite é o açúcar na água. Jamais use sal no cozimento; o sódio retira a umidade interna do milho, deixando-o endurecido e opaco. O açúcar fixa a cor amarela vibrante e garante a maciez de seda. O sal deve ser a flor de sal, aplicada apenas sobre a manteiga derretida.",
+    "harmonizacao": "Harmoniza lindamente com uma Cerveja de Trigo (Weissbier) bem gelada ou um Suco de Limão Siciliano com hortelã para ressaltar as notas herbais."
+  },
+  {
+    "id": 30,
+    "titulo": "Sopa de Ervilha (Defumação Profunda & Croutons)",
+    "categoria": "🍲 Salgados",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "50 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O caldo reconfortante das noites frias. Uma sopa de ervilhas extra-macias, cozida com o sabor profundo de defumados e finalizada com a crocância de croutons ao alho.",
+    "diferencial": "Utilização de osso de costelinha defumada durante o cozimento, que libera colágeno e uma nota defumada autêntica, criando corpo e alma de elite ao caldo.",
+    "rendimento": "6 porções generosas (aprox. 350ml cada)",
+    "ingredientes": [
+      "500g de ervilha seca partida (lavada e escolhida)",
+      "200g de bacon artesanal em cubos minúsculos",
+      "150g de linguiça calabresa em rodelas translúcidas",
+      "1 osso de costelinha defumada (o segredo do sabor raiz)",
+      "1 cebola grande e 3 dentes de alho picados brunoise",
+      "1.5L de caldo de legumes natural ou água mineral",
+      "2 fatias de pão rústico de fermentação natural (para os croutons)",
+      "Azeite de oliva e folhas de hortelã fresca (para finalizar)"
+    ],
+    "preparo": [
+      "Na panela de pressão, frite o bacon e a calabresa até dourarem. Adicione a cebola e o alho e refogue até perfumar.",
+      "Junte a ervilha seca e o osso de costelinha. Refogue por 2 min para envolver os grãos na gordura defumada.",
+      "Adicione o caldo. Tampe e cozinhe por 15 a 20 min após atingir a pressão. A ervilha deve estar quase desintegrada.",
+      "Corte o pão em cubos e salteie em frigideira com azeite até ficarem dourados e crocantes.",
+      "Abra a panela (após sair a pressão), retire o osso. Bata 1/3 da sopa no mixer para uma cremosidade de elite.",
+      "Sirva o caldo fumegante, cubra com os croutons e finalize com um fio de azeite e folhas de hortelã."
+    ],
+    "segredo": "O segredo da Sopa de Ervilha de elite é o uso do osso defumado e a finalização com hortelã. O osso confere uma profundidade de sabor que a carne sozinha não alcança. A hortelã 'acorda' o paladar, limpando a gordura do bacon e trazendo um frescor que marca a memória gustativa.",
+    "harmonizacao": "Harmoniza lindamente com uma taça de Vinho Tinto encorpado (como um Malbec ou Syrah) ou um Suco de Maçã quente com infusão de especiarias."
+  },
+  {
+    "id": 31,
+    "titulo": "Pipoca Gourmet (Nuvem de Leite Ninho)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "10 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "A pipoca queridinha dos festivais elevada ao status de sobremesa de elite. Grãos perfeitamente caramelizados e envoltos em uma nuvem de leite em pó premium.",
+    "diferencial": "Utilização da técnica Double Coat: uma camada de caramelo cristalino para crocância absoluta e uma camada generosa de leite em pó para aveludar o paladar.",
+    "rendimento": "1 bowl generoso (aprox. 150g)",
+    "ingredientes": [
+      "100g (1/2 xícara) de milho de pipoca premium (tipo Mushroom)",
+      "100g (1/2 xícara) de açúcar cristal premium",
+      "50ml de água mineral",
+      "30ml de óleo de coco ou girassol",
+      "100g de leite em pó de elite (Leite Ninho)",
+      "1 pitada de flor de sal (para realçar o caramelo)"
+    ],
+    "preparo": [
+      "Em uma panela grande (preferencialmente pipoqueira), coloque o milho, o óleo, a água e o açúcar de uma vez.",
+      "Leve ao fogo médio e mexa sem parar. O açúcar dissolvido na água envolverá cada grão antes do estouro.",
+      "Assim que o primeiro grão estourar, tampe e continue mexendo vigorosamente até que os estouros cessem.",
+      "Despeje a pipoca caramelizada ainda 'pelando' em um bowl e polvilhe metade do leite em pó imediatamente.",
+      "Misture rápido para o leite aderir ao caramelo pegajoso e finalize com o restante do leite em pó para o visual de nuvem."
+    ],
+    "segredo": "O segredo da Pipoca Gourmet de elite é a água no início. Ela retarda a queima do açúcar, permitindo que ele se torne um caramelo fino e translúcido que reveste o grão por inteiro. O leite em pó deve entrar com a pipoca em alta temperatura para garantir a fusão perfeita.",
+    "harmonizacao": "Harmoniza lindamente com Água de Coco bem gelada ou um Chá Mate batido com limão para equilibrar a doçura aveludada do leite em pó."
+  },
+  {
+    "id": 32,
+    "titulo": "Curau de Milho (Creme de Seda Express)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "10 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O sabor autêntico do milho verde em um creme de seda pronto em tempo recorde. A praticidade do micro-ondas aliada à técnica de filtragem fina de elite.",
+    "diferencial": "Técnica de filtragem dupla e cozimento em pulsos térmicos, garantindo um curau sem grânulos, extremamente brilhante e aveludado.",
+    "rendimento": "4 taças individuais (aprox. 150ml cada)",
+    "ingredientes": [
+      "3 espigas de milho verde selecionadas (debulhadas)",
+      "200ml (1 vidro) de leite de coco extra-cremoso",
+      "200g (1/2 lata) de leite condensado premium",
+      "200ml de leite integral tipo A fresco",
+      "15g (1 colher de sopa) de manteiga sem sal para o brilho elite",
+      "Canela em pó (Moída na hora ou de alta pureza)"
+    ],
+    "preparo": [
+      "Bata o milho no liquidificador com o leite integral e o leite de coco por 3 min até a trituração total.",
+      "Passe a mistura por uma peneira fina por duas vezes consecutivas para garantir a textura 'seda' impecável.",
+      "Despeje o líquido em um bowl de vidro alto. Incorpore o leite condensado e a manteiga.",
+      "Leve ao micro-ondas em potência alta por ciclos de 3 min. É obrigatório mexer vigorosamente com um fouet a cada intervalo.",
+      "Repita os ciclos até o creme encorpar e apresentar brilho vítreo (aprox. 9 min). Distribua nas taças e finalize com canela."
+    ],
+    "segredo": "O segredo do Curau Express de elite é a filtragem dupla e o 'mexer técnico'. Cozinhar em pulsos térmicos de 3 min impede que a proteína do leite queime. O fouet nos intervalos quebra qualquer início de grumo e emulsiona a manteiga, conferindo o brilho espelhado que é marca da alta confeitaria.",
+    "harmonizacao": "Harmoniza lindamente com um Café com Leite cremoso extra-quente no lanche ou uma fatia de Queijo Coalho tostado para o contraste salgado perfeito."
+  },
+  {
+    "id": 33,
+    "titulo": "Pamonha de Caneca (Milho & Coração de Queijo)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "5 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "A essência da pamonha goiana em uma versão expressa e luxuosa. Um bolo ultra úmido com um coração de queijo derretido que surpreende ao corte.",
+    "diferencial": "Técnica de empanamento interno com queijo coalho e uso de milho natura (batido), garantindo a textura de pamonha autêntica em apenas 3 minutos.",
+    "rendimento": "2 canecas generosas (aprox. 300ml cada)",
+    "ingredientes": [
+      "1 ovo grande (ligeiramente batido)",
+      "150g (1 xícara) de milho verde in natura batido (sem coar)",
+      "50g (3 colheres de sopa) de açúcar cristal premium",
+      "30g (2 colheres de sopa) de flocão de milho (para sustentação)",
+      "30ml (2 colheres de sopa) de óleo de milho ou manteiga derretida",
+      "2 cubos generosos de queijo coalho ou meia cura de elite",
+      "5g (1 colher de chá) de fermento químico em pó"
+    ],
+    "preparo": [
+      "Em um bowl pequeno, misture o ovo, o milho batido, o açúcar, a gordura e o flocão até homogeneizar a massa rústica.",
+      "Incorpore o fermento com movimentos leves. Divida a massa em duas canecas grandes untadas com manteiga.",
+      "Afunde um cubo de queijo bem no centro geográfico de cada caneca, garantindo que ele fique submerso pela massa.",
+      "Leve ao micro-ondas por 3 minutos em potência alta (ajuste o tempo se a caneca for menor para não transbordar).",
+      "Retire e sirva imediatamente para aproveitar o ponto de fusão do queijo. Finalize com canela em pó."
+    ],
+    "segredo": "O segredo da Pamonha de Caneca de elite é o posicionamento do queijo. O micro-ondas cozinha a massa de milho de fora para dentro, concentrando o calor no núcleo da caneca. Isso garante que o queijo derreta por completo, criando um efeito vulcão de sabor salgado que contrasta com a doçura rústica do milho.",
+    "harmonizacao": "Harmoniza lindamente com um Café Coado na hora bem encorpado ou um Chá de Hibisco gelado para limpar o paladar entre as mordidas."
+  },
+  {
+    "id": 34,
+    "titulo": "Pé de Moça Velvet (Amendoim & Caramelo Úmido)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "10 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "A versão luxuosa e macia do clássico pé de moleque. Um doce que equilibra a crocância do amendoim torrado com a cremosidade aveludada do leite condensado.",
+    "diferencial": "Técnica de interrupção térmica com manteiga premium, que impede o açúcar de cristalizar, mantendo a textura 'Velvet' que derrete na boca.",
+    "rendimento": "12 quadrados generosos (aprox. 50g cada)",
+    "ingredientes": [
+      "250g de amendoim torrado e sem pele de alta qualidade",
+      "200g (1 xícara) de açúcar cristal premium",
+      "395g (1 lata) de leite condensado de elite",
+      "30g (2 colheres de sopa) de manteiga sem sal premium",
+      "Açúcar refinado para a finalização (empanar)"
+    ],
+    "preparo": [
+      "No fogo médio, caramelize o açúcar até atingir um tom âmbar-dourado. Evite tons escuros para não amargar o preparo.",
+      "Incorpore o amendoim e a manteiga simultaneamente. Mexa rápido para que o caramelo envolva os grãos.",
+      "Adicione o leite condensado de uma só vez e cozinhe por aprox. 5 min até que a massa comece a soltar das laterais da panela.",
+      "Despeje sobre uma superfície untada e nivele com uma espátula de silicone para obter uma superfície lisa de elite.",
+      "Aguarde esfriar por 20 min, corte em quadrados simétricos e passe no açúcar refinado para o toque final."
+    ],
+    "segredo": "O segredo do Pé de Moça de elite é a barreira lipídica garantida pela manteiga. Adicioná-la antes do leite condensado cria uma camada de gordura que impede a cristalização do açúcar em blocos duros, resultando naquela textura 'puxa' que derrete ao primeiro contato com a língua.",
+    "harmonizacao": "Harmoniza lindamente com um Vinho do Porto Tawny ou um Café Espresso de torra média para contrastar com a doçura caramelizada do amendoim."
+  },
+  {
+    "id": 35,
+    "titulo": "Chocolate Quente (Bélgica & Conforto Express)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "5 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O clássico chocolate quente europeu em uma versão expressa. Rico, denso e com o sabor profundo do chocolate amargo derretido no calor do leite fresco.",
+    "diferencial": "Utilização de chocolate em barra 60% cacau derretido por infusão térmica, garantindo corpo aveludado sem o uso de espessantes artificiais em segundos.",
+    "rendimento": "2 canecas de puro conforto (250ml cada)",
+    "ingredientes": [
+      "500ml de leite integral tipo A (extra fresco)",
+      "60g de chocolate amargo (mínimo 60% cacau) picado finamente",
+      "20g (1 colher de sopa) de cacau em pó 100% de pureza",
+      "30g (2 colheres de sopa) de leite condensado premium (para doçura técnica)",
+      "1 pitada de flor de sal e 1 pau de canela da China"
+    ],
+    "preparo": [
+      "Aqueça o leite com a canela no micro-ondas por 3 min em potência alta até que comece a vaporizar intensamente.",
+      "Em um recipiente de cerâmica pré-aquecido, coloque o chocolate picado e o cacau em pó.",
+      "Verta o leite escaldante sobre o chocolate e deixe em repouso por 60 segundos (infusão de elite).",
+      "Misture vigorosamente com um batedor pequeno até obter uma emulsão brilhante e homogênea.",
+      "Incorpore a flor de sal e sirva imediatamente para manter a temperatura aveludada do creme."
+    ],
+    "segredo": "O segredo do Chocolate Quente de elite é a infusão térmica seguida da flor de sal. O repouso permite que o chocolate derreta sem queimar as gorduras nobres; a flor de sal 'limpa' a gordura do leite no paladar e potencializa as notas complexas de cacau belga.",
+    "harmonizacao": "Harmoniza lindamente com Biscoitos de Polvilho artesanais crocantes ou uma fatia grossa de Bolo de Fubá seco para absorver o creme de chocolate."
+  },
+  {
+    "id": 36,
+    "titulo": "Sanduíche de Pernil (Estrela da Feira & Limão)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "15 min",
+    "dificuldade": "Fácil",
+    "custo": "Médio",
+    "descricao": "O sanduíche mais icônico das festas populares. Pernil desfiado suculento, refogado com técnica de abafamento e finalizado com a acidez vibrante do limão.",
+    "diferencial": "Técnica de Abafamento Térmico na chapa, que utiliza o vapor cítrico para reidratar os fios de carne, garantindo maciez de elite em tempo recorde.",
+    "rendimento": "4 sanduíches generosos",
+    "ingredientes": [
+      "500g de pernil suíno (previamente assado ou cozido e desfiado em fios longos)",
+      "4 pães franceses tipo 'Bola' ou baguetes individuais extra-crocantes",
+      "2 cebolas brancas grandes fatiadas em meia-lua (finas)",
+      "Suco de 1 limão tahiti fresco e 1 dente de alho esmagado",
+      "30g (2 colheres de sopa) de manteiga sem sal e azeite extra virgem",
+      "Cheiro-verde picado e uma pitada de cominho premium",
+      "4 fatias de queijo muçarela ou prato de boa qualidade"
+    ],
+    "preparo": [
+      "Em uma chapa ou frigideira larga, derreta a manteiga com o azeite e doure as cebolas até que fiquem translúcidas e doces.",
+      "Junte o pernil desfiado e o alho. Salteie vigorosamente para envolver a proteína na gordura aromática.",
+      "Tempere com sal e cominho. Verta o suco de limão sobre a carne e cubra a frigideira com uma tampa imediatamente.",
+      "Deixe 'abafado' por 60 segundos. O vapor ácido penetrará nas fibras, devolvendo a umidade perdida.",
+      "Monte os pães com o queijo na base, o pernil fumegante e as cebolas por cima. O calor da carne derreterá o queijo de elite."
+    ],
+    "segredo": "O segredo do Sanduíche de Pernil de elite é o abafamento tático. Ao cobrir a carne logo após o limão, você cria uma micro-câmara de vapor que rompe a rigidez das fibras do porco, garantindo a suculência que separa um lanche de feira comum de uma experiência gourmet.",
+    "harmonizacao": "Harmoniza lindamente com uma Cerveja American Lager trincando de gelada ou um Guaraná de garrafa com rodelas de limão siciliano e muito gelo."
+  },
+  {
+    "id": 37,
+    "titulo": "Pastel de Milho (Creme de Queijo Coalho & Crocância)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "15 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O pastel de feira elevado ao patamar gourmet. Uma massa ultra crocante recheada com a doçura do milho verde envolto em um creme fundente.",
+    "diferencial": "Utilização de requeijão de alta qualidade como base de emulsão, garantindo que o recheio permaneça suntuoso e úmido após a fritura rápida.",
+    "rendimento": "10 pastéis de elite",
+    "ingredientes": [
+      "1 rolo de massa de pastel premium (extrafina e fresca)",
+      "200g (1 xícara) de milho verde cozido no vapor e debulhado",
+      "150g de queijo coalho ralado grosso (para textura)",
+      "100g de requeijão cremoso tipo 'Catupiry' original",
+      "1 pitada de orégano fresco e pimenta-do-reino moída",
+      "Óleo de algodão ou girassol para fritura por imersão"
+    ],
+    "preparo": [
+      "Em um bowl de inox, misture o milho, o queijo coalho e o requeijão. Tempere levemente com orégano e pimenta.",
+      "Abra a massa sobre uma superfície fria e corte retângulos ou círculos simétricos de elite.",
+      "Distribua o recheio centralizado, dobre e sele as bordas com pressão firme (garfo ou carretilha de corte).",
+      "Mergulhe em óleo aquecido a 180°C por 1 a 2 min. A massa deve borbulhar instantaneamente.",
+      "Retire ao atingir o tom dourado-palha, escorra em grade ou papel e sirva com o interior fumegante."
+    ],
+    "segredo": "O segredo do Pastel de Milho de elite é a proporção de requeijão. Ele atua como um escudo térmico interno para o milho e o queijo coalho, impedindo que desidratem no calor da fritura e criando a cremosidade que contrasta com a massa estaladiça.",
+    "harmonizacao": "Harmoniza lindamente com um Caldo de Cana extra-gelado com gotas de limão siciliano ou uma Coca-Cola de vidro trincando para potencializar a crocância."
+  },
+  {
+    "id": 38,
+    "titulo": "Dadinhos de Tapioca (Gourmet & Geleia de Pimenta)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "15 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O petisco mais cobiçado dos bistrôs brasileiros. Cubos crocantes por fora e cremosos por dentro, servidos com geleia artesanal de pimenta.",
+    "diferencial": "Utilização de queijo coalho de cura média e técnica de Choque Térmico com o leite, garantindo a hidratação milimétrica da tapioca granulada.",
+    "rendimento": "20 dadinhos de elite",
+    "ingredientes": [
+      "250g de tapioca granulada premium (grão uniforme)",
+      "300g de queijo coalho ralado fino (segredo da cremosidade)",
+      "500ml de leite integral tipo A quente (aprox. 80°C)",
+      "5g (1 colher de chá) de sal e uma pitada de pimenta branca",
+      "Geleia de pimenta defumada para acompanhamento de elite",
+      "Óleo de coco para pincelar (caso use Airfryer)"
+    ],
+    "preparo": [
+      "Em um bowl grande, homogeinize a tapioca granulada, o queijo coalho, o sal e a pimenta branca.",
+      "Verta o leite escaldante sobre a mistura. Mexa vigorosamente com um batedor de arame até a massa encorpar e brilhar.",
+      "Despeje em uma forma retangular forrada com plástico filme. Nivele para uma espessura exata de 3cm.",
+      "Leve ao freezer por 15 min para o resfriamento express. Desenforme e corte em cubos matematicamente simétricos.",
+      "Asse na Airfryer a 200°C por 10 min ou frite em imersão até formar a crosta vítrea e dourada.",
+      "Sirva imediatamente acompanhado da geleia para o contraste doce-picante de elite."
+    ],
+    "segredo": "O segredo do Dadinho de Tapioca de elite é a temperatura do leite e a proporção de queijo. O leite deve estar a 80°C (quase fervendo) para hidratar o grânulo sem dissolvê-lo, mantendo a textura interna. O excesso de queijo coalho ralado fino é o que garante o interior fundente e elástico.",
+    "harmonizacao": "Harmoniza lindamente com uma Caipirinha de Limão Siciliano com manjericão ou uma taça de Espumante Brut gelado para limpar as papilas."
+  },
+  {
+    "id": 39,
+    "titulo": "Fondue de Amendoim (Paçoca & Chocolate Branco)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "10 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O ápice do luxo junino em versão compartilhada. Um creme de seda que une a doçura do chocolate branco real com a textura afetiva da paçoca rolha.",
+    "diferencial": "Técnica de ganache emulsionada com manteiga de cacau e toque de flor de sal, criando uma experiência suntuosa que mantém a fluidez de elite.",
+    "rendimento": "1 bowl de compartilhamento (4 a 6 pessoas)",
+    "ingredientes": [
+      "200g de chocolate branco real (com manteiga de cacau técnica)",
+      "200g (1 caixinha) de creme de leite fresco ou 35% de gordura",
+      "4 paçocas rolha de elite (esfareladas manualmente)",
+      "1 pitada de flor de sal (segredo do realce de amendoim)",
+      "Frutas frescas premium (morangos selecionados, uvas sem semente)",
+      "Marshmallows e canudos de wafer crocantes"
+    ],
+    "preparo": [
+      "Em um bowl de vidro temperado, combine o chocolate branco picado e o creme de leite.",
+      "Leve ao micro-ondas em potência média (50%) por ciclos de 30 segundos. Mexa vigorosamente até a emulsão brilhar.",
+      "Incorpore as paçocas esfareladas e a flor de sal. A textura deve ficar cremosa com pequenos pontos crocantes.",
+      "Aqueça levemente se necessário para atingir o ponto de fluidez de seda. Transfira para o réchaud de fondue.",
+      "Disponha as frutas e acompanhamentos em travessas e mergulhe-os lentamente na alma de amendoim."
+    ],
+    "segredo": "O segredo do Fondue de Paçoca de elite é a qualidade do chocolate branco e a flor de sal. O uso de chocolate real (rico em manteiga de cacau) evita a textura sebosa de coberturas vegetais. A flor de sal 'quebra' a candura do açúcar, fazendo com que o sabor da paçoca ecoe no paladar por muito mais tempo.",
+    "harmonizacao": "Harmoniza lindamente com um Espumante Brut gelado para limpar as papilas ou um Café Espresso de torra escura para um contraste sofisticado."
+  },
+  {
+    "id": 40,
+    "titulo": "Pérolas de Queijo (Crocância & Coração Fundente)",
+    "categoria": "⚡ 15 Minutos",
+    "imagem": "/images/recipe_premium.png",
+    "tempo": "15 min",
+    "dificuldade": "Fácil",
+    "custo": "Baixo",
+    "descricao": "O petisco mais amado de Arraiá em sua versão mais rápida e queijuda. Bolinhas sequinhas, estaladiças e com um interior que se estende ao infinito.",
+    "diferencial": "Técnica de massa sem farinha (apenas amido e queijo), garantindo leveza extrema e uma explosão de sabor lácteo que as bolinhas tradicionais não possuem.",
+    "rendimento": "15 pérolas generosas",
+    "ingredientes": [
+      "250g de queijo muçarela de alta qualidade (ralado fina)",
+      "1 ovo grande (batido para emulsão técnica)",
+      "30g (3 colheres de sopa) de amido de milho (para estrutura de elite)",
+      "1 pitada de orégano seco e pimenta-do-reino branca",
+      "Farinha Panko para empanar (segredo da crocância vítrea)",
+      "Óleo de girassol para fritura por imersão rápida"
+    ],
+    "preparo": [
+      "Em um bowl de inox, homogeinize a muçarela ralada, o ovo e o amido de milho. Tempere com orégano e pimenta.",
+      "Misture com as mãos até formar uma massa elástica que solte completamente dos dedos.",
+      "Modele pérolas perfeitamente esféricas de 20g. Passe cada uma na farinha panko, pressionando levemente.",
+      "Frite em óleo a 190°C por apenas 40 a 60 segundos. O choque térmico deve ser imediato.",
+      "Escorra e sirva-as ainda pulsando de calor para garantir o efeito 'fio de queijo' infinito de elite."
+    ],
+    "segredo": "O segredo das Pérolas de Queijo de elite é a ausência de farinha de trigo e a fritura ultrarrápida. Sem o trigo, a pérola é essencialmente queijo estruturado. A fritura em alta temperatura e curta duração cria a crosta vítrea sem superaquecer o recheio, mantendo o coração fundente e elástico.",
+    "harmonizacao": "Harmoniza lindamente com um Suco de Tomate temperado (estilo Virgin Mary) ou uma Cerveja Pilsen Premium extra-gelada para limpar as papilas."
+  }
+]
