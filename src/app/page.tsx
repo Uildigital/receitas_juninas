@@ -84,7 +84,7 @@ export default function RecipeApp() {
   // VIP / Freemium Logic
   const [isVip, setIsVip] = useState(false);
   const freeIds = [1, 2, 4, 21, 31]; // Recipes to showcase for free
-  const checkoutUrl = "https://kiwify.com.br/"; // REPLACE with your real link
+  const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK"; // REAL ELITE CHECKOUT
 
   // Load from localStorage
   useEffect(() => {
