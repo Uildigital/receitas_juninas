@@ -20,7 +20,8 @@ import {
   Menu,
   Trophy,
   MessageCircle,
-  Settings
+  Settings,
+  Lock
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import confetti from "canvas-confetti";
@@ -80,9 +81,24 @@ export default function RecipeApp() {
   // Yield multiplier state
   const [yieldMultiplier, setYieldMultiplier] = useState(1);
 
+  // VIP / Freemium Logic
+  const [isVip, setIsVip] = useState(false);
+  const freeIds = [1, 2, 4, 21, 31]; // Recipes to showcase for free
+  const checkoutUrl = "https://kiwify.com.br/"; // REPLACE with your real link
+
   // Load from localStorage
   useEffect(() => {
-    setIsMounted(true);
+    // Check for VIP access in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("vip") === "true") {
+      setIsVip(true);
+      localStorage.setItem("webbook-isvip", "true");
+    } else {
+      const storedVip = localStorage.getItem("webbook-isvip");
+      if (storedVip === "true") setIsVip(true);
+    }
+
+    // Load from localStorage
     const saved = localStorage.getItem("receitas-progress");
     if (saved) {
       try {
@@ -91,6 +107,8 @@ export default function RecipeApp() {
         console.error("Error loading progress", e);
       }
     }
+
+    setIsMounted(true);
   }, []);
 
   // Save to localStorage
@@ -159,6 +177,7 @@ export default function RecipeApp() {
   }, [searchQuery, activeCategory]);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showUpsellModal, setShowUpsellModal] = useState(false);
 
 
   const totalCompleted = Object.values(completedItems).filter(v => v).length;
@@ -206,6 +225,9 @@ export default function RecipeApp() {
             }} 
             getProgress={getRecipeProgress}
             isDone={isRecipeDone}
+            isVip={isVip}
+            freeIds={freeIds}
+            setShowUpsellModal={setShowUpsellModal}
           />
         ) : (
           <RecipeDetailView 
@@ -216,9 +238,18 @@ export default function RecipeApp() {
             progress={getRecipeProgress(selectedRecipe.id)}
             yieldMultiplier={yieldMultiplier}
             setYieldMultiplier={setYieldMultiplier}
+            isVip={isVip}
+            isFree={freeIds.includes(selectedRecipe.id)}
+            onUnlock={() => setShowUpsellModal(true)}
           />
         )}
       </AnimatePresence>
+
+      <UpsellModal 
+        isOpen={showUpsellModal} 
+        onClose={() => setShowUpsellModal(false)}
+        checkoutUrl={checkoutUrl}
+      />
 
       <SuccessModal 
         isOpen={showSuccessModal} 
@@ -242,7 +273,10 @@ function HomeView({
   onOpenMenu,
   onSelect, 
   getProgress, 
-  isDone 
+  isDone,
+  isVip,
+  freeIds,
+  setShowUpsellModal
 }: any) {
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   return (
@@ -387,8 +421,16 @@ function HomeView({
                 transition={{ duration: 0.2 }}
                 whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => onSelect(recipe)}
-                className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5"
+                onClick={() => {
+                  const isLocked = !isVip && !freeIds.includes(recipe.id);
+                  if (isLocked) {
+                    setShowUpsellModal(true);
+                  } else {
+                    onSelect(recipe);
+                  }
+                }}
+                className={`group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all
+                  ${!isVip && !freeIds.includes(recipe.id) ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`}
               >
                 <div className="relative h-64 w-full">
                   <Image 
@@ -398,6 +440,14 @@ function HomeView({
                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
+                  {!isVip && !freeIds.includes(recipe.id) && (
+                    <div className="absolute inset-0 bg-primary/40 backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center transition-all group-hover:backdrop-blur-[6px]">
+                       <div className="p-4 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30 shadow-2xl">
+                         <Lock size={32} className="text-secondary drop-shadow-lg" />
+                       </div>
+                       <span className="bg-white px-4 py-2 rounded-full text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">Conteúdo Premium</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent" />
                   
                   <div className="absolute top-6 left-6">
@@ -844,6 +894,49 @@ function SuccessModal({ isOpen, onClose }: any) {
           <span className="relative z-10">VER MAIS RECEITAS</span>
           <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform relative z-10" />
         </button>
+      </motion.div>
+    </div>
+  );
+}
+
+function UpsellModal({ isOpen, onClose, checkoutUrl }: any) {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-primary/90 backdrop-blur-md">
+      <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white rounded-[3rem] p-10 w-full max-w-md text-center shadow-2xl border border-primary/5">
+        <div className="mb-8 p-6 bg-secondary/10 rounded-[2.5rem] inline-block">
+          <Trophy size={64} className="text-secondary" />
+        </div>
+        <h2 className="text-4xl font-black text-primary mb-4 leading-tight uppercase tracking-tight">Desbloqueie <br />o Arraiá de Elite!</h2>
+        <p className="text-sm text-primary/60 mb-10 font-bold px-4 leading-relaxed">
+           Você descobriu o segredo das receitas de elite. Mas ainda temos 35 técnicas guardadas a sete chaves que vão te transformar em um mestre das festas juninas.
+        </p>
+        
+        <div className="space-y-4 mb-10">
+           {[
+             "Acesso Completo às 40 Receitas",
+             "Todas as Calculadoras de Lucro",
+             "Segredos Técnicos do Chef",
+             "Suporte Prioritário VIP"
+           ].map((item, i) => (
+             <div key={i} className="flex items-center gap-3 bg-primary/5 p-4 rounded-2xl">
+                <CheckCircle2 size={18} className="text-success" />
+                <span className="text-xs font-black text-primary/80 uppercase tracking-widest">{item}</span>
+             </div>
+           ))}
+        </div>
+
+        <a 
+          href={checkoutUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group w-full h-16 bg-gradient-to-br from-secondary to-accent text-white rounded-[2rem] font-black text-xs shadow-2xl flex items-center justify-center gap-4 active:scale-95 transition-all no-underline"
+        >
+          <span>QUERO MEU ACESSO VIP</span>
+          <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+        </a>
+        
+        <button onClick={onClose} className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-primary/20 hover:text-primary transition-colors">Voltar e ver receitas grátis</button>
       </motion.div>
     </div>
   );
