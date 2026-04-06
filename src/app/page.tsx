@@ -222,7 +222,10 @@ export default function RecipeApp() {
 
       <SuccessModal 
         isOpen={showSuccessModal} 
-        onClose={() => setShowSuccessModal(false)} 
+        onClose={() => {
+          setShowSuccessModal(false);
+          setSelectedRecipe(null);
+        }} 
       />
     </div>
   );
@@ -833,8 +836,14 @@ function SuccessModal({ isOpen, onClose }: any) {
         <motion.button onClick={onClose} className="absolute top-6 right-6 p-2 text-primary/20"><X size={32} /></motion.button>
         <div className="mb-8 p-6 bg-secondary/10 rounded-[2.5rem] inline-block"><PartyPopper size={64} className="text-secondary" /></div>
         <h2 className="text-4xl font-black text-primary mb-4 leading-tight">UAI, QUE <br />ORGULHO!</h2>
-        <p className="text-lg text-primary/60 mb-10 font-bold px-2">Você finalizou com perfeição. O que acha de levar o seu talento pro próximo nível?</p>
-        <button className="group w-full h-20 bg-gradient-to-br from-secondary to-accent text-white rounded-[2rem] font-black text-xl shadow-2xl flex items-center justify-center gap-4 relative overflow-hidden" onClick={() => alert("Oferta Especial!")}><span className="relative z-10">LIBERAR GUIA MINEIRO</span><ArrowRight size={24} className="group-hover:translate-x-2 transition-transform relative z-10" /></button>
+        <p className="text-lg text-primary/60 mb-10 font-bold px-2">Você finalizou com perfeição. Que tal descobrir o próximo prato de elite do nosso Arraiá?</p>
+        <button 
+          className="group w-full h-20 bg-gradient-to-br from-secondary to-accent text-white rounded-[2rem] font-black text-xl shadow-2xl flex items-center justify-center gap-4 relative overflow-hidden" 
+          onClick={onClose}
+        >
+          <span className="relative z-10">VER MAIS RECEITAS</span>
+          <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform relative z-10" />
+        </button>
       </motion.div>
     </div>
   );
