@@ -86,12 +86,35 @@ export default function RecipeApp() {
   const freeIds = [1, 2, 4, 21, 31]; // Recipes to showcase for free
   const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK"; // REAL ELITE CHECKOUT
 
+  // Server-side Event Helper (CAPI)
+  const trackServerEvent = async (eventName: string, customData: any = {}) => {
+    try {
+      await fetch('/api/events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          event_name: eventName, 
+          url: window.location.href,
+          custom_data: customData 
+        })
+      });
+    } catch (e) { console.error("Error tracking server event", e); }
+  };
+
   // Load from localStorage
   useEffect(() => {
     // Check for VIP access in URL
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("vip") === "true") {
       setIsVip(true);
+      if (!localStorage.getItem("webbook-purchase-tracked")) {
+        // Track Purchase event ONLY once
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', { currency: 'BRL', value: 67.00 });
+        }
+        trackServerEvent('Purchase', { currency: 'BRL', value: 67.00 });
+        localStorage.setItem("webbook-purchase-tracked", "true");
+      }
       localStorage.setItem("webbook-isvip", "true");
     } else {
       const storedVip = localStorage.getItem("webbook-isvip");
@@ -228,6 +251,7 @@ export default function RecipeApp() {
             isVip={isVip}
             freeIds={freeIds}
             setShowUpsellModal={setShowUpsellModal}
+            trackServerEvent={trackServerEvent}
           />
         ) : (
           <RecipeDetailView 
@@ -276,7 +300,8 @@ function HomeView({
   isDone,
   isVip,
   freeIds,
-  setShowUpsellModal
+  setShowUpsellModal,
+  trackServerEvent
 }: any) {
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   return (
@@ -424,6 +449,11 @@ function HomeView({
                 onClick={() => {
                   const isLocked = !isVip && !freeIds.includes(recipe.id);
                   if (isLocked) {
+                    // Track InitiateCheckout when trying to access locked content
+                    if (typeof window !== 'undefined' && (window as any).fbq) {
+                      (window as any).fbq('track', 'InitiateCheckout', { content_name: recipe.titulo });
+                    }
+                    trackServerEvent('InitiateCheckout', { content_name: recipe.titulo });
                     setShowUpsellModal(true);
                   } else {
                     onSelect(recipe);
