@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   title: "Receitas de São João | O Seu Livro de Cozinha Junina",
   description: "Aprenda a fazer as melhores receitas juninas com um passo a passo interativo e progressivo.",
   manifest: "/manifest.json",
+  verification: {
+    other: {
+      "facebook-domain-verification": ["uebq3kzcd3u1ni8hjupk4iwn8w8hxa"],
+    },
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
