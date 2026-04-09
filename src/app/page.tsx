@@ -81,7 +81,7 @@ export default function RecipeApp() {
 
   // Filter & Search states
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("Todas");
+  const [activeCategory, setActiveCategory] = useState("🌽 Clássicos");
 
   // Yield multiplier state
   const [yieldMultiplier, setYieldMultiplier] = useState(1);
