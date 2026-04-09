@@ -205,6 +205,10 @@ export default function RecipeApp() {
     });
   }, [searchQuery, activeCategory]);
 
+  const visibleRecipes = useMemo(() => {
+    return filteredRecipes.slice(0, isMounted ? filteredRecipes.length : 10);
+  }, [filteredRecipes, isMounted]);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showUpsellModal, setShowUpsellModal] = useState(false);
 
@@ -238,7 +242,7 @@ export default function RecipeApp() {
       <AnimatePresence mode="wait">
         {!selectedRecipe ? (
           <HomeView 
-            recipes={filteredRecipes} 
+            recipes={visibleRecipes} 
             categories={categories}
             activeCategoryInfo={categoryInfo[activeCategory] || { title: activeCategory, subtitle: "" }}
             activeCategory={activeCategory}
@@ -316,7 +320,7 @@ function HomeView({
       className="p-6 max-w-lg mx-auto pb-24 font-sans"
     >
       {/* Sticky Header Bar */}
-      <div className="fixed top-0 left-0 right-0 z-40 bg-[#FFF8F0]/80 backdrop-blur-lg border-b border-primary/5 px-6 py-4 flex items-center justify-between">
+      <div className="fixed top-0 left-0 right-0 z-40 bg-[#FFF8F0]/95 sm:bg-[#FFF8F0]/80 sm:backdrop-blur-lg border-b border-primary/5 px-6 py-4 flex items-center justify-between">
          <motion.button 
            whileTap={{ scale: 0.9 }}
            onClick={onOpenMenu}
@@ -471,9 +475,9 @@ function HomeView({
                     alt={recipe.titulo}
                     fill
                     priority={idx < 2}
-                    quality={idx < 2 ? 65 : 75}
+                    quality={idx < 2 ? 50 : 75}
                     className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
-                    sizes="(max-width: 768px) 100vw, 500px"
+                    sizes="512px"
                   />
                   {!isVip && !freeIds.includes(recipe.id) && (
                     <div className="absolute inset-0 bg-primary/40 backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center transition-all group-hover:backdrop-blur-[6px]">
