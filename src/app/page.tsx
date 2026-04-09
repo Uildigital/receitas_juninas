@@ -301,22 +301,16 @@ function HomeView({
 }: any) {
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="p-6 max-w-lg mx-auto pb-24 font-sans"
-    >
+    <div className="p-6 max-w-lg mx-auto pb-24 font-sans animate-fade-in">
       {/* Sticky Header Bar */}
       <div className="fixed top-0 left-0 right-0 z-40 bg-[#FFF8F0]/95 sm:bg-[#FFF8F0]/80 sm:backdrop-blur-lg border-b border-primary/5 px-6 py-4 flex items-center justify-between">
-         <motion.button 
-           whileTap={{ scale: 0.9 }}
+         <button 
            onClick={onOpenMenu}
            aria-label="Abrir menu lateral"
-           className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/5 active:bg-primary active:text-white transition-all"
+           className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/5 active:bg-primary active:text-white transition-all active:scale-95"
          >
            <Menu size={20} />
-         </motion.button>
+         </button>
          
          <div className="flex flex-col items-center">
             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Web Book</h2>
@@ -332,53 +326,39 @@ function HomeView({
       </div>
 
       <header className="mb-10 mt-16 min-h-[160px]">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+        <div className="animate-fade-in-up">
           <span className="text-secondary font-bold text-[10px] uppercase tracking-[0.4em] mb-4 block leading-tight">
             Plataforma de Experiência v1
           </span>
           
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
-                {activeCategoryInfo.title}
-              </h1>
-              <p className="text-sm text-primary font-black leading-relaxed max-w-[280px] mb-8">
-                {activeCategoryInfo.subtitle}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
+          <div key={activeCategory} className="animate-fade-in">
+            <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
+              {activeCategoryInfo.title}
+            </h1>
+            <p className="text-sm text-primary font-black leading-relaxed max-w-[280px] mb-8">
+              {activeCategoryInfo.subtitle}
+            </p>
+          </div>
+        </div>
 
         {/* The New "Escorrega" Menu */}
         <div className="relative mb-10">
-          <motion.button 
+          <button 
             onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
             aria-label="Selecionar categoria"
-            className="w-full h-16 bg-primary text-white rounded-[1.5rem] px-8 flex items-center justify-between shadow-2xl shadow-primary/20 z-10 relative"
+            className="w-full h-16 bg-primary text-white rounded-[1.5rem] px-8 flex items-center justify-between shadow-2xl shadow-primary/20 z-10 relative active:scale-[0.98] transition-transform"
           >
             <div className="flex items-center gap-3">
                <Menu size={20} className="text-secondary" />
                <span className="text-xs font-black uppercase tracking-[0.3em]">Menu de Receitas</span>
             </div>
-            <motion.div animate={{ rotate: isCategoryMenuOpen ? 180 : 0 }}>
+            <div className={`transition-transform duration-300 ${isCategoryMenuOpen ? 'rotate-180' : ''}`}>
                <ChevronLeft className="-rotate-90" size={20} />
-            </motion.div>
-          </motion.button>
+            </div>
+          </button>
 
-          <AnimatePresence>
-            {isCategoryMenuOpen && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0, y: -20 }}
-                animate={{ height: "auto", opacity: 1, y: 0 }}
-                exit={{ height: 0, opacity: 0, y: -20 }}
-                className="overflow-hidden bg-white rounded-b-[2rem] -mt-8 pt-10 shadow-2xl shadow-primary/10 border border-primary/5 px-4 pb-6"
-              >
+          <div className={`overflow-hidden transition-all duration-300 ${isCategoryMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="bg-white rounded-b-[2rem] -mt-8 pt-10 shadow-2xl shadow-primary/10 border border-primary/5 px-4 pb-6">
                 <div className="space-y-1">
                    {categories.map((cat: string) => {
                      const isActive = activeCategory === cat;
@@ -408,8 +388,8 @@ function HomeView({
                    })}
                 </div>
               </motion.div>
-            )}
-          </AnimatePresence>
+              </div>
+          </div>
         </div>
 
         {/* Search Bar - Refined Style */}
@@ -498,11 +478,7 @@ function HomeView({
                return <div {...commonProps}>{CardContent}</div>;
             })
           ) : (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="py-20 text-center"
-            >
+            <div className="py-20 text-center animate-fade-in">
               <div className="inline-block p-6 bg-primary/5 rounded-full mb-4">
                 <Sparkles size={40} className="text-primary/20" />
               </div>
@@ -522,7 +498,7 @@ function HomeView({
           Handcrafted with Love • 2024
         </p>
       </footer>
-    </motion.div>
+    </div>
   );
 }
 
