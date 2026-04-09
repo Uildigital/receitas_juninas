@@ -301,7 +301,7 @@ function HomeView({
 }: any) {
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   return (
-    <div className="p-6 max-w-lg mx-auto pb-24 font-sans animate-fade-in">
+    <div className="p-6 max-w-lg mx-auto pb-24 font-sans">
       {/* Sticky Header Bar */}
       <div className="fixed top-0 left-0 right-0 z-40 bg-[#FFF8F0]/95 sm:bg-[#FFF8F0]/80 sm:backdrop-blur-lg border-b border-primary/5 px-6 py-4 flex items-center justify-between">
          <button 
@@ -326,12 +326,12 @@ function HomeView({
       </div>
 
       <header className="mb-10 mt-16 min-h-[160px]">
-        <div className="animate-fade-in-up">
+        <div>
           <span className="text-secondary font-bold text-[10px] uppercase tracking-[0.4em] mb-4 block leading-tight">
             Plataforma de Experiência v1
           </span>
           
-          <div key={activeCategory} className="animate-fade-in">
+          <div key={activeCategory}>
             <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
               {activeCategoryInfo.title}
             </h1>
@@ -478,7 +478,7 @@ function HomeView({
                return <div {...commonProps}>{CardContent}</div>;
             })
           ) : (
-            <div className="py-20 text-center animate-fade-in">
+            <div className="py-20 text-center">
               <div className="inline-block p-6 bg-primary/5 rounded-full mb-4">
                 <Sparkles size={40} className="text-primary/20" />
               </div>
