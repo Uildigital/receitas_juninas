@@ -473,7 +473,8 @@ function HomeView({
                     alt={recipe.titulo}
                     fill
                     priority={idx < 2}
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    unoptimized={idx < 2}
+                    className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
                   {!isVip && !freeIds.includes(recipe.id) && (
