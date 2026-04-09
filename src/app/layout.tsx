@@ -57,6 +57,8 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        <link rel="preconnect" href="https://webbookpro.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
         <noscript>
           <img height="1" width="1" style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1523944362485658&ev=PageView&noscript=1"

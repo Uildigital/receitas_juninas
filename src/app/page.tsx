@@ -329,7 +329,7 @@ function HomeView({
 
          <div className="h-10 w-10 flex items-center justify-center">
             {/* Placeholder for Profile or Progress Mini Icon */}
-            <div className="h-8 w-8 bg-primary/10 rounded-full border border-primary/10 flex items-center justify-center text-[10px] font-black text-primary/60">
+            <div className="h-8 w-8 bg-primary/20 rounded-full border border-primary/20 flex items-center justify-center text-[10px] font-black text-primary/80">
                {recipes.length}
             </div>
          </div>
@@ -352,7 +352,7 @@ function HomeView({
               <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
                 {activeCategoryInfo.title}
               </h1>
-              <p className="text-sm text-primary/50 font-bold leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-primary/70 font-bold leading-relaxed max-w-[280px] mb-8">
                 {activeCategoryInfo.subtitle}
               </p>
             </motion.div>
@@ -418,7 +418,7 @@ function HomeView({
 
         {/* Search Bar - Refined Style */}
         <div className="relative mb-6">
-          <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none text-primary/40">
+          <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none text-primary/60">
             <Search size={14} />
           </div>
           <input 
@@ -427,7 +427,7 @@ function HomeView({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="Buscar receitas"
-            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/30 transition-all text-[10px] uppercase tracking-widest"
+            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/70 transition-all text-[10px] uppercase tracking-widest"
           />
         </div>
       </header>
@@ -530,7 +530,7 @@ function HomeView({
       </AnimatePresence>
 
       <footer className="mt-16 text-center">
-        <p className="text-primary/50 text-[10px] font-black uppercase tracking-[0.4em]">
+        <p className="text-primary/70 text-[10px] font-black uppercase tracking-[0.4em]">
           Handcrafted with Love • 2024
         </p>
       </footer>
@@ -587,9 +587,9 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
     >
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-primary/5">
         <div className="max-w-lg mx-auto px-6 py-4 flex items-center justify-between gap-4">
-          <motion.button whileTap={{ scale: 0.8 }} onClick={onBack} aria-label="Voltar para o menu" className="p-3 bg-primary/5 rounded-2xl text-primary"><ChevronLeft size={24} /></motion.button>
+          <motion.button whileTap={{ scale: 0.8 }} onClick={onBack} aria-label="Voltar para o menu" className="p-3 bg-primary/10 rounded-2xl text-primary"><ChevronLeft size={24} /></motion.button>
           <div className="flex-1 flex flex-col items-center">
-             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60 mb-1">Seu Progresso</span>
+             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/80 mb-1">Seu Progresso</span>
              <div className="h-1.5 w-full max-w-[120px] bg-primary/10 rounded-full overflow-hidden">
                 <motion.div initial={{ width: 0 }} animate={{ width: `${progress}%` }} className="h-full bg-gradient-to-r from-secondary to-accent" />
              </div>
@@ -620,7 +620,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
           ].map((item, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.1 }} className="bg-white/80 backdrop-blur-md p-4 rounded-3xl text-center shadow-lg shadow-primary/5 border border-primary/5">
               <item.icon size={18} className="text-secondary mx-auto mb-2" />
-              <span className="text-[9px] uppercase tracking-wider text-primary/40 block font-black">{item.label}</span>
+              <span className="text-[9px] uppercase tracking-wider text-primary/60 block font-black">{item.label}</span>
               <span className="text-xs font-black text-primary">{item.val}</span>
             </motion.div>
           ))}
@@ -698,7 +698,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
                   return (
                     <motion.div key={i} onClick={() => toggleItem(recipe.id, "ing", i)} className={`group flex items-center gap-5 p-5 rounded-[2rem] transition-all border active:scale-[0.98] cursor-pointer ${isChecked ? "bg-secondary/5 border-secondary/20" : "bg-white border-primary/5 shadow-xl shadow-primary/5"}`}>
                       <div className={`h-9 w-9 rounded-2xl border-2 flex items-center justify-center transition-all ${isChecked ? "bg-secondary border-secondary text-white" : "border-primary/10"}`}>{isChecked ? <CheckCircle2 size={24} /> : <div className="h-2 w-2 rounded-full bg-primary/10" />}</div>
-                      <span className={`text-lg font-bold transition-all ${isChecked ? "text-primary/30 line-through" : "text-primary/80"}`}>{scaleIngredient(ing)}</span>
+                      <span className={`text-lg font-bold transition-all ${isChecked ? "text-primary/40 line-through" : "text-primary/80"}`}>{scaleIngredient(ing)}</span>
                     </motion.div>
                   );
                 })}
@@ -855,7 +855,7 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
         <div className="p-8 pb-4">
           <div className="flex items-center justify-between mb-10">
              <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-primary/20">R</div>
-             <button onClick={onClose} aria-label="Fechar menu" className="p-3 bg-primary/5 rounded-2xl text-primary/50 hover:text-primary transition-colors"><X size={24} /></button>
+             <button onClick={onClose} aria-label="Fechar menu" className="p-3 bg-primary/10 rounded-2xl text-primary/80 hover:text-primary transition-colors"><X size={24} /></button>
           </div>
 
           <div className="bg-primary/[0.03] rounded-[2.5rem] p-7 mb-8 border border-primary/5">
@@ -919,7 +919,7 @@ function SuccessModal({ isOpen, onClose }: any) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/90 backdrop-blur-md">
       <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white rounded-[3rem] p-10 w-full max-w-sm text-center relative overflow-hidden shadow-2xl">
-        <motion.button onClick={onClose} aria-label="Fechar" className="absolute top-6 right-6 p-2 text-primary/50"><X size={32} /></motion.button>
+        <motion.button onClick={onClose} aria-label="Fechar" className="absolute top-6 right-6 p-2 text-primary/80"><X size={32} /></motion.button>
         <div className="mb-8 p-6 bg-secondary/10 rounded-[2.5rem] inline-block"><PartyPopper size={64} className="text-secondary" /></div>
         <h2 className="text-4xl font-black text-primary mb-4 leading-tight">UAI, QUE <br />ORGULHO!</h2>
         <p className="text-lg text-primary/70 mb-10 font-bold px-2">Você finalizou com perfeição. Que tal descobrir o próximo prato de elite do nosso Arraiá?</p>
@@ -972,7 +972,7 @@ function UpsellModal({ isOpen, onClose, checkoutUrl }: any) {
           <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
         </a>
         
-        <button onClick={onClose} className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-primary/50 hover:text-primary transition-colors">Voltar e ver receitas grátis</button>
+        <button onClick={onClose} className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-primary/80 hover:text-primary transition-colors">Voltar e ver receitas grátis</button>
       </motion.div>
     </div>
   );
