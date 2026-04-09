@@ -57,10 +57,8 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        <link rel="preconnect" href="https://webbookpro.com" />
+      <link rel="preconnect" href="https://webbookpro.com" />
       <link rel="preconnect" href="https://images.unsplash.com" />
-      <link rel="preload" as="image" href="https://webbookpro.com/imagens/Bolo_de_Milho_de_Latinha.avif" type="image/avif" />
-      <link rel="preload" as="image" href="https://webbookpro.com/imagens/Pamonha_de_Forno_Gratinada.avif" type="image/avif" />
         <noscript>
           <img height="1" width="1" style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1523944362485658&ev=PageView&noscript=1"

@@ -26,6 +26,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 // import confetti from "canvas-confetti"; // Dynamic import used below
 import recipesData from "@/data/receitas.json";
+import dynamic from "next/dynamic";
+
+const SidebarDrawer = dynamic(() => Promise.resolve(SidebarDrawerComponent), { ssr: false });
+const UpsellModal = dynamic(() => Promise.resolve(UpsellModalComponent), { ssr: false });
+const SuccessModal = dynamic(() => Promise.resolve(SuccessModalComponent), { ssr: false });
 
 interface Recipe {
   id: number;
@@ -209,8 +214,6 @@ export default function RecipeApp() {
   // Or just total recipes completed? Let's use recipes completed.
   const completedRecipesCount = Array.from(new Set(Object.keys(completedItems).map(k => k.split('-')[0]))).length;
   const globalProgress = Math.round((completedRecipesCount / recipesData.length) * 100);
-
-  if (!isMounted) return null;
 
   return (
     <main className="min-h-screen bg-[#FFF8F0] selection:bg-secondary/30 antialiased overflow-x-hidden">
@@ -831,7 +834,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
   );
 }
 
-function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCategory, globalProgress, completedCount, totalCount }: any) {
+function SidebarDrawerComponent({ isOpen, onClose, categories, activeCategory, onSelectCategory, globalProgress, completedCount, totalCount }: any) {
   return (
     <div className="fixed inset-0 z-[110] flex overflow-hidden">
       <motion.div 
@@ -911,7 +914,7 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
   );
 }
 
-function SuccessModal({ isOpen, onClose }: any) {
+function SuccessModalComponent({ isOpen, onClose }: any) {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/90 backdrop-blur-md">
@@ -932,7 +935,7 @@ function SuccessModal({ isOpen, onClose }: any) {
   );
 }
 
-function UpsellModal({ isOpen, onClose, checkoutUrl }: any) {
+function UpsellModalComponent({ isOpen, onClose, checkoutUrl }: any) {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-primary/90 backdrop-blur-md">
