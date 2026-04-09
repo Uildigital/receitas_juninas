@@ -198,20 +198,8 @@ export default function RecipeApp() {
 
   // Filter Logic
   const filteredRecipes = useMemo(() => {
-    return (recipesData as Recipe[]).filter(recipe => {
-      const matchesSearch = recipe.titulo.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = activeCategory === "Todas" || recipe.categoria === activeCategory;
-      return matchesSearch && matchesCategory;
-    });
-  }, [searchQuery, activeCategory]);
-
-  const visibleRecipes = useMemo(() => {
-    return filteredRecipes.slice(0, isMounted ? filteredRecipes.length : 10);
-  }, [filteredRecipes, isMounted]);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showUpsellModal, setShowUpsellModal] = useState(false);
-
 
   const totalCompleted = Object.values(completedItems).filter(v => v).length;
   // Total possible items: 40 recipes * (Average 5 ingredients + 5 steps) = 400 approx.
@@ -242,7 +230,7 @@ export default function RecipeApp() {
       <AnimatePresence mode="wait">
         {!selectedRecipe ? (
           <HomeView 
-            recipes={visibleRecipes} 
+            recipes={filteredRecipes} 
             categories={categories}
             activeCategoryInfo={categoryInfo[activeCategory] || { title: activeCategory, subtitle: "" }}
             activeCategory={activeCategory}
@@ -360,7 +348,7 @@ function HomeView({
               <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
                 {activeCategoryInfo.title}
               </h1>
-              <p className="text-sm text-primary font-bold leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-primary font-black leading-relaxed max-w-[280px] mb-8">
                 {activeCategoryInfo.subtitle}
               </p>
             </motion.div>
@@ -435,82 +423,95 @@ function HomeView({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="Buscar receitas"
-            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/80 transition-all text-[10px] uppercase tracking-widest"
+            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-black placeholder:text-primary transition-all text-[10px] uppercase tracking-widest"
           />
         </div>
       </header>
       
       <div className="grid gap-6">
           {recipes.length > 0 ? (
-            recipes.map((recipe: Recipe, idx: number) => (
-              <motion.div
-                key={recipe.id}
-                initial={idx < 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.2 }}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => {
-                  const isLocked = !isVip && !freeIds.includes(recipe.id);
-                  if (isLocked) {
-                    // Track InitiateCheckout when trying to access locked content
-                    if (typeof window !== 'undefined' && (window as any).fbq) {
-                      (window as any).fbq('track', 'InitiateCheckout', { content_name: recipe.titulo });
-                    }
-                    trackServerEvent('InitiateCheckout', { content_name: recipe.titulo });
-                    setShowUpsellModal(true);
-                  } else {
-                    onSelect(recipe);
-                  }
-                }}
-                className={`group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all
-                  ${!isVip && !freeIds.includes(recipe.id) ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`}
-                role="button"
-                aria-label={`Ver receita: ${recipe.titulo}`}
-              >
-                <div className="relative h-64 w-full">
-                  <Image 
-                    src={recipe.imagem} 
-                    alt={recipe.titulo}
-                    fill
-                    priority={idx < 2}
-                    quality={idx < 2 ? 50 : 75}
-                    className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
-                    sizes="512px"
-                  />
-                  {!isVip && !freeIds.includes(recipe.id) && (
-                    <div className="absolute inset-0 bg-primary/40 backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center transition-all group-hover:backdrop-blur-[6px]">
-                       <div className="p-4 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30 shadow-2xl">
-                         <Lock size={32} className="text-secondary drop-shadow-lg" />
-                       </div>
-                       <span className="bg-white px-4 py-2 rounded-full text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">Conteúdo Premium</span>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/20">
-                      {recipe.categoria}
-                    </span>
-                  </div>
+            recipes.map((recipe: Recipe, idx: number) => {
+               const isLocked = !isVip && !freeIds.includes(recipe.id);
+               const commonProps = {
+                 key: recipe.id,
+                 onClick: () => {
+                   if (isLocked) {
+                     if (typeof window !== 'undefined' && (window as any).fbq) {
+                       (window as any).fbq('track', 'InitiateCheckout', { content_name: recipe.titulo });
+                     }
+                     trackServerEvent('InitiateCheckout', { content_name: recipe.titulo });
+                     setShowUpsellModal(true);
+                   } else {
+                     onSelect(recipe);
+                   }
+                 },
+                 className: `group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all ${isLocked ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`,
+                 role: "button",
+                 "aria-label": `Ver receita: ${recipe.titulo}`
+               };
 
-                  {isDone(recipe.id) && (
-                    <div className="absolute top-6 right-6 bg-success text-white px-4 py-2 rounded-full text-xs font-black flex items-center gap-2 shadow-xl backdrop-blur-md animate-pulse">
-                      <CheckCircle2 size={16} /> CONCLUÍDO
-                    </div>
-                  )}
-                  
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h2 className="text-2xl font-black mb-3 leading-[1.1] tracking-tight drop-shadow-md">{recipe.titulo}</h2>
-                    <div className="flex gap-4 text-xs font-black uppercase tracking-widest text-white/95">
-                      <span className="flex items-center gap-1.5"><Clock size={14} className="text-milho" /> {recipe.tempo}</span>
-                      <span className="flex items-center gap-1.5"><ChefHat size={14} className="text-milho" /> {recipe.dificuldade}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))
+               const CardContent = (
+                 <>
+                   <div className="relative h-64 w-full">
+                     <Image 
+                       src={recipe.imagem} 
+                       alt={recipe.titulo}
+                       fill
+                       priority={idx < 2}
+                       className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
+                       sizes="(max-width: 768px) 100vw, 500px"
+                     />
+                     {isLocked && (
+                       <div className="absolute inset-0 bg-primary/40 backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center transition-all group-hover:backdrop-blur-[6px]">
+                          <div className="p-4 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30 shadow-2xl">
+                            <Lock size={32} className="text-secondary drop-shadow-lg" />
+                          </div>
+                          <span className="bg-white px-4 py-2 rounded-full text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">Conteúdo Premium</span>
+                       </div>
+                     )}
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                     
+                     <div className="absolute top-6 left-6">
+                       <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/20">
+                         {recipe.categoria}
+                       </span>
+                     </div>
+   
+                     {isDone(recipe.id) && (
+                       <div className="absolute top-6 right-6 bg-success text-white px-4 py-2 rounded-full text-xs font-black flex items-center gap-2 shadow-xl backdrop-blur-md animate-pulse">
+                         <CheckCircle2 size={16} /> CONCLUÍDO
+                       </div>
+                     )}
+                     
+                     <div className="absolute bottom-6 left-6 right-6 text-white">
+                       <h2 className="text-2xl font-black mb-3 leading-[1.1] tracking-tight drop-shadow-md">{recipe.titulo}</h2>
+                       <div className="flex gap-4 text-xs font-black uppercase tracking-widest text-white">
+                         <span className="flex items-center gap-1.5"><Clock size={14} className="text-milho" /> {recipe.tempo}</span>
+                         <span className="flex items-center gap-1.5"><ChefHat size={14} className="text-milho" /> {recipe.dificuldade}</span>
+                       </div>
+                     </div>
+                   </div>
+                 </>
+               );
+
+               if (idx < 2) {
+                 return <div {...commonProps}>{CardContent}</div>;
+               }
+
+               return (
+                 <motion.div
+                   {...commonProps}
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.3 }}
+                   whileHover={{ y: -5 }}
+                   whileTap={{ scale: 0.97 }}
+                 >
+                   {CardContent}
+                 </motion.div>
+               );
+            })
           ) : (
             <motion.div 
               initial={{ opacity: 0 }}
