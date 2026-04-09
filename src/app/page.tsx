@@ -352,7 +352,7 @@ function HomeView({
               <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
                 {activeCategoryInfo.title}
               </h1>
-              <p className="text-sm text-primary/70 font-bold leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-primary/80 font-bold leading-relaxed max-w-[280px] mb-8">
                 {activeCategoryInfo.subtitle}
               </p>
             </motion.div>
@@ -427,7 +427,7 @@ function HomeView({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="Buscar receitas"
-            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/70 transition-all text-[10px] uppercase tracking-widest"
+            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/80 transition-all text-[10px] uppercase tracking-widest"
           />
         </div>
       </header>
@@ -435,17 +435,15 @@ function HomeView({
       {/* Grid of Recipes */}
       <AnimatePresence mode="popLayout">
         <motion.div 
-          layout
           className="grid gap-6"
         >
           {recipes.length > 0 ? (
             recipes.map((recipe: Recipe, idx: number) => (
               <motion.div
                 key={recipe.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.97 }}
@@ -500,7 +498,7 @@ function HomeView({
                   
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <h2 className="text-2xl font-black mb-3 leading-[1.1] tracking-tight">{recipe.titulo}</h2>
-                    <div className="flex gap-4 text-xs font-bold uppercase tracking-widest opacity-80">
+                    <div className="flex gap-4 text-xs font-black uppercase tracking-widest text-white/90">
                       <span className="flex items-center gap-1.5"><Clock size={14} className="text-milho" /> {recipe.tempo}</span>
                       <span className="flex items-center gap-1.5"><ChefHat size={14} className="text-milho" /> {recipe.dificuldade}</span>
                     </div>
@@ -861,11 +859,11 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
           <div className="bg-primary/[0.03] rounded-[2.5rem] p-7 mb-8 border border-primary/5">
              <div className="flex items-center gap-3 mb-5">
                 <div className="p-2.5 bg-secondary/10 rounded-xl"><Trophy size={20} className="text-secondary" /></div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60">Sua Jornada</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/80">Sua Jornada</span>
              </div>
              <div className="flex items-end justify-between mb-3">
                 <span className="text-3xl font-black text-primary">{globalProgress}%</span>
-                <span className="text-[10px] font-bold text-primary/50 uppercase tracking-widest">{completedCount}/{totalCount} Feitas</span>
+                <span className="text-[10px] font-bold text-primary/75 uppercase tracking-widest">{completedCount}/{totalCount} Feitas</span>
              </div>
              <div className="h-2.5 w-full bg-primary/5 rounded-full overflow-hidden">
                 <motion.div initial={{ width: 0 }} animate={{ width: `${globalProgress}%` }} transition={{ duration: 1, ease: "easeOut" }} className="h-full bg-gradient-to-r from-secondary to-accent" />
@@ -874,7 +872,7 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 space-y-1 custom-scrollbar">
-           <span className="px-5 text-[10px] font-black uppercase tracking-[0.3em] text-primary/50 py-4 block">Livro de Receitas</span>
+           <span className="px-5 text-[10px] font-black uppercase tracking-[0.3em] text-primary/75 py-4 block">Livro de Receitas</span>
            {categories.map((cat: string) => (
              <button
                key={cat}
@@ -897,7 +895,7 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
               <Sparkles size={28} className="text-white mx-auto opacity-70 group-hover:scale-125 transition-transform" />
               <div>
                 <h4 className="text-white font-black text-sm uppercase tracking-wider leading-tight">Torne-se um Mestre</h4>
-                <p className="text-white/60 text-[10px] mt-1 font-bold">Acesso a conteúdos exclusivos</p>
+                <p className="text-white text-[10px] mt-1 font-bold">Acesso a conteúdos exclusivos</p>
               </div>
               <button className="w-full h-12 bg-white text-secondary rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all">
                 CONHECER GUIA VIP
@@ -905,8 +903,8 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
            </div>
            
            <div className="flex items-center justify-around">
-              <button aria-label="Suporte" className="p-3 text-primary/50 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><MessageCircle size={22} /></button>
-              <button aria-label="Configurações" className="p-3 text-primary/50 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><Settings size={22} /></button>
+              <button aria-label="Suporte" className="p-3 text-primary/80 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><MessageCircle size={22} /></button>
+              <button aria-label="Configurações" className="p-3 text-primary/80 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><Settings size={22} /></button>
            </div>
         </div>
       </motion.div>
