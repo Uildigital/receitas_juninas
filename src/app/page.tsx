@@ -435,10 +435,8 @@ function HomeView({
           />
         </div>
       </header>
-
-      {/* Grid of Recipes */}
-      <AnimatePresence>
-        <div className="grid gap-6">
+      
+      <div className="grid gap-6">
           {recipes.length > 0 ? (
             recipes.map((recipe: Recipe, idx: number) => (
               <motion.div
@@ -473,7 +471,7 @@ function HomeView({
                     alt={recipe.titulo}
                     fill
                     priority={idx < 2}
-                    unoptimized={idx < 2}
+                    quality={idx < 2 ? 65 : 75}
                     className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
@@ -527,8 +525,7 @@ function HomeView({
               </button>
             </motion.div>
           )}
-        </div>
-      </AnimatePresence>
+      </div>
 
       <footer className="mt-16 text-center">
         <p className="text-primary/70 text-[10px] font-black uppercase tracking-[0.4em]">
