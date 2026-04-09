@@ -227,7 +227,7 @@ export default function RecipeApp() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence mode="wait">
+      <>
         {!selectedRecipe ? (
           <HomeView 
             recipes={filteredRecipes} 
@@ -263,7 +263,7 @@ export default function RecipeApp() {
             onUnlock={() => setShowUpsellModal(true)}
           />
         )}
-      </AnimatePresence>
+      </>
 
       <UpsellModal 
         isOpen={showUpsellModal} 
@@ -433,22 +433,15 @@ function HomeView({
                const CardContent = (
                  <>
                    <div className="relative h-64 w-full">
-                     {idx < 2 ? (
-                       <img 
-                         src={recipe.imagem} 
-                         alt={recipe.titulo}
-                         fetchPriority="high"
-                         className="absolute inset-0 w-full h-full object-cover"
-                       />
-                     ) : (
-                       <Image 
-                         src={recipe.imagem} 
-                         alt={recipe.titulo}
-                         fill
-                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                         sizes="(max-width: 768px) 100vw, 500px"
-                       />
-                     )}
+                     <Image 
+                       src={recipe.imagem} 
+                       alt={recipe.titulo}
+                       fill
+                       priority={idx < 2}
+                       quality={idx < 2 ? 60 : 75}
+                       className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
+                       sizes="(max-width: 512px) 100vw, 512px"
+                     />
                      {isLocked && (
                        <div className="absolute inset-0 bg-primary/40 backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center transition-all group-hover:backdrop-blur-[6px]">
                           <div className="p-4 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30 shadow-2xl">
