@@ -445,7 +445,7 @@ function HomeView({
                      onSelect(recipe);
                    }
                  },
-                 className: `group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all ${isLocked ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`,
+                 className: `group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all duration-300 hover:-translate-y-1 active:scale-[0.98] ${isLocked ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`,
                  role: "button",
                  "aria-label": `Ver receita: ${recipe.titulo}`
                };
@@ -458,6 +458,7 @@ function HomeView({
                        alt={recipe.titulo}
                        fill
                        priority={idx < 2}
+                       quality={idx < 2 ? 60 : 75}
                        className={`object-cover ${idx < 2 ? '' : 'group-hover:scale-110 transition-transform duration-700 ease-out'}`}
                        sizes="(max-width: 768px) 100vw, 500px"
                      />
@@ -494,23 +495,7 @@ function HomeView({
                  </>
                );
 
-               if (idx < 2) {
-                 return <div {...commonProps}>{CardContent}</div>;
-               }
-
-               return (
-                 <motion.div
-                   {...commonProps}
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.3 }}
-                   whileHover={{ y: -5 }}
-                   whileTap={{ scale: 0.97 }}
-                 >
-                   {CardContent}
-                 </motion.div>
-               );
+               return <div {...commonProps}>{CardContent}</div>;
             })
           ) : (
             <motion.div 
