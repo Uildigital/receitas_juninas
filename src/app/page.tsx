@@ -23,8 +23,8 @@ import {
   Settings,
   Lock
 } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import confetti from "canvas-confetti";
+import { motion, AnimatePresence } from "framer-motion";
+// import confetti from "canvas-confetti"; // Dynamic import used below
 import recipesData from "@/data/receitas.json";
 
 interface Recipe {
@@ -164,7 +164,8 @@ export default function RecipeApp() {
     }
   };
 
-  const triggerSuccess = () => {
+  const triggerSuccess = async () => {
+    const confetti = (await import("canvas-confetti")).default;
     const scalar = 2;
     const triangle = confetti.shapeFromPath({ path: 'M0 10 L5 0 L10 10z' });
     confetti({
@@ -352,7 +353,7 @@ function HomeView({
               <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
                 {activeCategoryInfo.title}
               </h1>
-              <p className="text-sm text-primary/80 font-bold leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-primary font-bold leading-relaxed max-w-[280px] mb-8">
                 {activeCategoryInfo.subtitle}
               </p>
             </motion.div>
@@ -395,7 +396,7 @@ function HomeView({
                            setIsCategoryMenuOpen(false);
                          }}
                          className={`w-full flex items-center justify-between p-5 rounded-2xl transition-all ${
-                           isActive ? "bg-primary/5 text-primary" : "text-primary/40 hover:bg-primary/[0.02]"
+                           isActive ? "bg-primary/5 text-primary" : "text-primary hover:bg-primary/[0.02]"
                          }`}
                        >
                          <div className="flex items-center gap-4">
@@ -433,15 +434,13 @@ function HomeView({
       </header>
 
       {/* Grid of Recipes */}
-      <AnimatePresence mode="popLayout">
-        <motion.div 
-          className="grid gap-6"
-        >
+      <AnimatePresence>
+        <div className="grid gap-6">
           {recipes.length > 0 ? (
             recipes.map((recipe: Recipe, idx: number) => (
               <motion.div
                 key={recipe.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={idx < 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.2 }}
@@ -482,7 +481,7 @@ function HomeView({
                        <span className="bg-white px-4 py-2 rounded-full text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">Conteúdo Premium</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
                   <div className="absolute top-6 left-6">
                     <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/20">
@@ -497,8 +496,8 @@ function HomeView({
                   )}
                   
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h2 className="text-2xl font-black mb-3 leading-[1.1] tracking-tight">{recipe.titulo}</h2>
-                    <div className="flex gap-4 text-xs font-black uppercase tracking-widest text-white/90">
+                    <h2 className="text-2xl font-black mb-3 leading-[1.1] tracking-tight drop-shadow-md">{recipe.titulo}</h2>
+                    <div className="flex gap-4 text-xs font-black uppercase tracking-widest text-white/95">
                       <span className="flex items-center gap-1.5"><Clock size={14} className="text-milho" /> {recipe.tempo}</span>
                       <span className="flex items-center gap-1.5"><ChefHat size={14} className="text-milho" /> {recipe.dificuldade}</span>
                     </div>
@@ -524,7 +523,7 @@ function HomeView({
               </button>
             </motion.div>
           )}
-        </motion.div>
+        </div>
       </AnimatePresence>
 
       <footer className="mt-16 text-center">
