@@ -212,7 +212,7 @@ export default function RecipeApp() {
   if (!isMounted) return null;
 
   return (
-    <div className="min-h-screen bg-[#FFF8F0] selection:bg-secondary/30 antialiased overflow-x-hidden">
+    <main className="min-h-screen bg-[#FFF8F0] selection:bg-secondary/30 antialiased overflow-x-hidden">
       <AnimatePresence>
         {isMenuOpen && (
           <SidebarDrawer 
@@ -282,7 +282,7 @@ export default function RecipeApp() {
           setSelectedRecipe(null);
         }} 
       />
-    </div>
+    </main>
   );
 }
 
@@ -316,6 +316,7 @@ function HomeView({
          <motion.button 
            whileTap={{ scale: 0.9 }}
            onClick={onOpenMenu}
+           aria-label="Abrir menu lateral"
            className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/5 active:bg-primary active:text-white transition-all"
          >
            <Menu size={20} />
@@ -328,7 +329,7 @@ function HomeView({
 
          <div className="h-10 w-10 flex items-center justify-center">
             {/* Placeholder for Profile or Progress Mini Icon */}
-            <div className="h-8 w-8 bg-primary/5 rounded-full border border-primary/5 flex items-center justify-center text-[10px] font-black text-primary/30">
+            <div className="h-8 w-8 bg-primary/10 rounded-full border border-primary/10 flex items-center justify-center text-[10px] font-black text-primary/60">
                {recipes.length}
             </div>
          </div>
@@ -351,7 +352,7 @@ function HomeView({
               <h1 className="text-4xl font-black text-primary mb-2 tracking-tight">
                 {activeCategoryInfo.title}
               </h1>
-              <p className="text-sm text-primary/30 font-bold leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-primary/50 font-bold leading-relaxed max-w-[280px] mb-8">
                 {activeCategoryInfo.subtitle}
               </p>
             </motion.div>
@@ -362,6 +363,7 @@ function HomeView({
         <div className="relative mb-10">
           <motion.button 
             onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
+            aria-label="Selecionar categoria"
             className="w-full h-16 bg-primary text-white rounded-[1.5rem] px-8 flex items-center justify-between shadow-2xl shadow-primary/20 z-10 relative"
           >
             <div className="flex items-center gap-3">
@@ -403,7 +405,7 @@ function HomeView({
                             </span>
                          </div>
                          {cat !== "Todas" && (
-                           <span className="text-[9px] font-bold opacity-30">{count} ITENS</span>
+                           <span className="text-[9px] font-bold opacity-60">{count} ITENS</span>
                          )}
                        </button>
                      );
@@ -416,7 +418,7 @@ function HomeView({
 
         {/* Search Bar - Refined Style */}
         <div className="relative mb-6">
-          <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none text-primary/10">
+          <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none text-primary/40">
             <Search size={14} />
           </div>
           <input 
@@ -424,7 +426,8 @@ function HomeView({
             placeholder="Encontre uma receita específica..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/10 transition-all text-[10px] uppercase tracking-widest"
+            aria-label="Buscar receitas"
+            className="w-full h-12 bg-white rounded-2xl pl-12 pr-4 border border-primary/5 focus:ring-2 focus:ring-secondary/20 outline-none text-primary font-bold placeholder:text-primary/30 transition-all text-[10px] uppercase tracking-widest"
           />
         </div>
       </header>
@@ -461,12 +464,15 @@ function HomeView({
                 }}
                 className={`group relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 cursor-pointer border border-primary/5 transition-all
                   ${!isVip && !freeIds.includes(recipe.id) ? "opacity-60 saturate-0 grayscale" : "opacity-100"}`}
+                role="button"
+                aria-label={`Ver receita: ${recipe.titulo}`}
               >
                 <div className="relative h-64 w-full">
                   <Image 
                     src={recipe.imagem} 
                     alt={recipe.titulo}
                     fill
+                    priority={idx < 2}
                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
@@ -524,7 +530,7 @@ function HomeView({
       </AnimatePresence>
 
       <footer className="mt-16 text-center">
-        <p className="text-primary/30 text-[10px] font-black uppercase tracking-[0.4em]">
+        <p className="text-primary/50 text-[10px] font-black uppercase tracking-[0.4em]">
           Handcrafted with Love • 2024
         </p>
       </footer>
@@ -581,9 +587,9 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
     >
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-primary/5">
         <div className="max-w-lg mx-auto px-6 py-4 flex items-center justify-between gap-4">
-          <motion.button whileTap={{ scale: 0.8 }} onClick={onBack} className="p-3 bg-primary/5 rounded-2xl text-primary"><ChevronLeft size={24} /></motion.button>
+          <motion.button whileTap={{ scale: 0.8 }} onClick={onBack} aria-label="Voltar para o menu" className="p-3 bg-primary/5 rounded-2xl text-primary"><ChevronLeft size={24} /></motion.button>
           <div className="flex-1 flex flex-col items-center">
-             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/40 mb-1">Seu Progresso</span>
+             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60 mb-1">Seu Progresso</span>
              <div className="h-1.5 w-full max-w-[120px] bg-primary/10 rounded-full overflow-hidden">
                 <motion.div initial={{ width: 0 }} animate={{ width: `${progress}%` }} className="h-full bg-gradient-to-r from-secondary to-accent" />
              </div>
@@ -677,9 +683,9 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
                   <div><h4 className="font-black text-primary text-sm uppercase tracking-wider">Rendimento</h4><p className="text-xs text-primary/50 font-medium">Calcular ingredientes</p></div>
                 </div>
                 <div className="flex items-center gap-4 bg-white/50 p-2 rounded-2xl">
-                  <button onClick={() => setYieldMultiplier(Math.max(0.5, yieldMultiplier - 0.5))} className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary disabled:opacity-30" disabled={yieldMultiplier <= 0.5}><Minus size={18} /></button>
+                  <button onClick={() => setYieldMultiplier(Math.max(0.5, yieldMultiplier - 0.5))} aria-label="Diminuir rendimento" className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary disabled:opacity-30" disabled={yieldMultiplier <= 0.5}><Minus size={18} /></button>
                   <span className="font-black text-xl text-primary min-w-[3rem] text-center">{yieldMultiplier}x</span>
-                  <button onClick={() => setYieldMultiplier(yieldMultiplier + 0.5)} className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary"><Plus size={18} /></button>
+                  <button onClick={() => setYieldMultiplier(yieldMultiplier + 0.5)} aria-label="Aumentar rendimento" className="h-10 w-10 bg-white rounded-xl flex items-center justify-center text-primary"><Plus size={18} /></button>
                 </div>
               </div>
             </section>
@@ -754,12 +760,12 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
 
             <div className="bg-white rounded-[2.5rem] p-8 shadow-2xl shadow-primary/10 border border-primary/5 space-y-6">
                <div className="flex justify-between items-center pb-4 border-b border-primary/5">
-                  <span className="text-sm font-bold text-primary/40 uppercase tracking-widest">Custo de Produção</span>
+                  <span className="text-sm font-bold text-primary/60 uppercase tracking-widest">Custo de Produção</span>
                   <span className="text-xl font-black text-primary">R$ {totalCost.toFixed(2)}</span>
                </div>
 
                <div className="space-y-3">
-                  <div className="flex justify-between items-center text-xs font-bold text-primary/40 uppercase tracking-widest">
+                  <div className="flex justify-between items-center text-xs font-bold text-primary/60 uppercase tracking-widest">
                     <span>Multiplicador (Markup)</span>
                     <span className="text-secondary">{markup}x</span>
                   </div>
@@ -849,17 +855,17 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
         <div className="p-8 pb-4">
           <div className="flex items-center justify-between mb-10">
              <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-primary/20">R</div>
-             <button onClick={onClose} className="p-3 bg-primary/5 rounded-2xl text-primary/20 hover:text-primary transition-colors"><X size={24} /></button>
+             <button onClick={onClose} aria-label="Fechar menu" className="p-3 bg-primary/5 rounded-2xl text-primary/50 hover:text-primary transition-colors"><X size={24} /></button>
           </div>
 
           <div className="bg-primary/[0.03] rounded-[2.5rem] p-7 mb-8 border border-primary/5">
              <div className="flex items-center gap-3 mb-5">
                 <div className="p-2.5 bg-secondary/10 rounded-xl"><Trophy size={20} className="text-secondary" /></div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">Sua Jornada</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60">Sua Jornada</span>
              </div>
              <div className="flex items-end justify-between mb-3">
                 <span className="text-3xl font-black text-primary">{globalProgress}%</span>
-                <span className="text-[10px] font-bold text-primary/30 uppercase tracking-widest">{completedCount}/{totalCount} Feitas</span>
+                <span className="text-[10px] font-bold text-primary/50 uppercase tracking-widest">{completedCount}/{totalCount} Feitas</span>
              </div>
              <div className="h-2.5 w-full bg-primary/5 rounded-full overflow-hidden">
                 <motion.div initial={{ width: 0 }} animate={{ width: `${globalProgress}%` }} transition={{ duration: 1, ease: "easeOut" }} className="h-full bg-gradient-to-r from-secondary to-accent" />
@@ -868,7 +874,7 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 space-y-1 custom-scrollbar">
-           <span className="px-5 text-[10px] font-black uppercase tracking-[0.3em] text-primary/20 py-4 block">Livro de Receitas</span>
+           <span className="px-5 text-[10px] font-black uppercase tracking-[0.3em] text-primary/50 py-4 block">Livro de Receitas</span>
            {categories.map((cat: string) => (
              <button
                key={cat}
@@ -899,8 +905,8 @@ function SidebarDrawer({ isOpen, onClose, categories, activeCategory, onSelectCa
            </div>
            
            <div className="flex items-center justify-around">
-              <button className="p-3 text-primary/20 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><MessageCircle size={22} /></button>
-              <button className="p-3 text-primary/20 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><Settings size={22} /></button>
+              <button aria-label="Suporte" className="p-3 text-primary/50 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><MessageCircle size={22} /></button>
+              <button aria-label="Configurações" className="p-3 text-primary/50 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"><Settings size={22} /></button>
            </div>
         </div>
       </motion.div>
@@ -913,10 +919,10 @@ function SuccessModal({ isOpen, onClose }: any) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/90 backdrop-blur-md">
       <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white rounded-[3rem] p-10 w-full max-w-sm text-center relative overflow-hidden shadow-2xl">
-        <motion.button onClick={onClose} className="absolute top-6 right-6 p-2 text-primary/20"><X size={32} /></motion.button>
+        <motion.button onClick={onClose} aria-label="Fechar" className="absolute top-6 right-6 p-2 text-primary/50"><X size={32} /></motion.button>
         <div className="mb-8 p-6 bg-secondary/10 rounded-[2.5rem] inline-block"><PartyPopper size={64} className="text-secondary" /></div>
         <h2 className="text-4xl font-black text-primary mb-4 leading-tight">UAI, QUE <br />ORGULHO!</h2>
-        <p className="text-lg text-primary/60 mb-10 font-bold px-2">Você finalizou com perfeição. Que tal descobrir o próximo prato de elite do nosso Arraiá?</p>
+        <p className="text-lg text-primary/70 mb-10 font-bold px-2">Você finalizou com perfeição. Que tal descobrir o próximo prato de elite do nosso Arraiá?</p>
         <button 
           className="group w-full h-20 bg-gradient-to-br from-secondary to-accent text-white rounded-[2rem] font-black text-xl shadow-2xl flex items-center justify-center gap-4 relative overflow-hidden" 
           onClick={onClose}
@@ -938,7 +944,7 @@ function UpsellModal({ isOpen, onClose, checkoutUrl }: any) {
           <Trophy size={64} className="text-secondary" />
         </div>
         <h2 className="text-4xl font-black text-primary mb-4 leading-tight uppercase tracking-tight">Desbloqueie <br />o Arraiá de Elite!</h2>
-        <p className="text-sm text-primary/60 mb-10 font-bold px-4 leading-relaxed">
+        <p className="text-sm text-primary/70 mb-10 font-bold px-4 leading-relaxed">
            Você descobriu o segredo das receitas de elite. Mas ainda temos 35 técnicas guardadas a sete chaves que vão te transformar em um mestre das festas juninas.
         </p>
         
@@ -966,7 +972,7 @@ function UpsellModal({ isOpen, onClose, checkoutUrl }: any) {
           <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
         </a>
         
-        <button onClick={onClose} className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-primary/20 hover:text-primary transition-colors">Voltar e ver receitas grátis</button>
+        <button onClick={onClose} className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-primary/50 hover:text-primary transition-colors">Voltar e ver receitas grátis</button>
       </motion.div>
     </div>
   );
