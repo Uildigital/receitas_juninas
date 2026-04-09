@@ -198,6 +198,13 @@ export default function RecipeApp() {
 
   // Filter Logic
   const filteredRecipes = useMemo(() => {
+    return (recipesData as Recipe[]).filter(recipe => {
+      const matchesSearch = recipe.titulo.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = activeCategory === "Todas" || recipe.categoria === activeCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchQuery, activeCategory]);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showUpsellModal, setShowUpsellModal] = useState(false);
 
@@ -387,7 +394,7 @@ function HomeView({
                      );
                    })}
                 </div>
-              </motion.div>
+
               </div>
           </div>
         </div>
@@ -489,7 +496,7 @@ function HomeView({
               >
                 Limpar Filtros
               </button>
-            </motion.div>
+            </div>
           )}
       </div>
 
