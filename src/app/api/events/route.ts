@@ -19,6 +19,8 @@ export async function POST(req: NextRequest) {
           user_data: {
             client_ip_address: req.headers.get("x-forwarded-for") || "127.0.0.1",
             client_user_agent: req.headers.get("user-agent") || "",
+            fbp: data.fbp,
+            fbc: data.fbc,
           },
           custom_data: data.custom_data || {},
         },

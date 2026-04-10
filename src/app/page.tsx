@@ -91,15 +91,29 @@ export default function RecipeApp() {
   const freeIds = [1, 2, 4, 21, 31]; // Recipes to showcase for free
   const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK"; // REAL ELITE CHECKOUT
 
+  // Client-side cookie helper
+  const getCookie = (name: string) => {
+    if (typeof document === 'undefined') return undefined;
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(';').shift();
+    return undefined;
+  };
+
   // Server-side Event Helper (CAPI)
   const trackServerEvent = async (eventName: string, customData: any = {}) => {
     try {
+      const fbp = getCookie('_fbp');
+      const fbc = getCookie('_fbc');
+
       await fetch('/api/events', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           event_name: eventName, 
           url: window.location.href,
+          fbp,
+          fbc,
           custom_data: customData 
         })
       });
@@ -108,8 +122,17 @@ export default function RecipeApp() {
 
   // Load from localStorage
   useEffect(() => {
-    // Check for VIP access in URL
+    // Capture fbclid if present in URL and set _fbc cookie if Meta doesn't
     const urlParams = new URLSearchParams(window.location.search);
+    const fbclid = urlParams.get('fbclid');
+    if (fbclid && typeof document !== 'undefined') {
+      document.cookie = `_fbc=fb.1.${Date.now()}.${fbclid}; path=/; max-age=7776000`;
+    }
+
+    // Track PageView on Server (CAPI) for deduplication and coverage
+    trackServerEvent('PageView');
+
+    // Check for VIP access in URL
     if (urlParams.get("vip") === "true") {
       setIsVip(true);
       if (!localStorage.getItem("webbook-purchase-tracked")) {
