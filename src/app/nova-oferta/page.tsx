@@ -475,22 +475,22 @@ export default function LandingPageEliteFinal() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { 
-                text: "Eu achava que sabia fazer milho, mas o segredo da cremosidade estava nesse guia. Vendi 42 pamonhas no primeiro dia!", 
-                author: "Luciana Alves", 
-                loc: "Produtora em Campinas", 
-                img: "https://i.pravatar.cc/100?u=luciana2"
+                text: "Eu achava que já dominava as receitas juninas, mas o segredo da cremosidade estava nesse guia. Vendi 42 pamonhas só no primeiro dia do Arraiá!", 
+                author: "Eduardo Silva", 
+                loc: "Produtor em Campinas/SP", 
+                img: "https://webbookpro.com/imagens/eduardo.avif"
               },
               { 
-                text: "A calculadora é sensacional. Descobri que estava tendo prejuízo nas canjicas. Ajustei o preço e agora o lucro é real.", 
-                author: "Ricardo Mendes", 
-                loc: "Gourmet Home, SP", 
-                img: "https://i.pravatar.cc/100?u=ricardo"
+                text: "A calculadora é sensacional. Descobri que estava tendo prejuízo nas canjicas há anos. Ajustei o preço e agora o lucro é real e previsível.", 
+                author: "Roberto Cavalcanti", 
+                loc: "Gourmet Home, Recife/PE", 
+                img: "https://webbookpro.com/imagens/roberto.avif"
               },
               { 
-                text: "Embalagem é tudo. O bônus de apresentação mudou meu jogo. Meus produtos triplicaram de valor visual no Instagram.", 
-                author: "Beatriz Sousa", 
-                loc: "Confeiteira em BH", 
-                img: "https://i.pravatar.cc/100?u=beatriz"
+                text: "Embalagem é tudo. O bônus de apresentação mudou meu jogo. Meus produtos triplicaram de valor visual no Instagram e as vendas explodiram.", 
+                author: "Neide Ferreira", 
+                loc: "Doces da Vovó, BH", 
+                img: "https://webbookpro.com/imagens/neide.avif"
               }
             ].map((test, i) => (
               <motion.div 
