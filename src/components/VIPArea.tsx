@@ -34,6 +34,7 @@ const UpsellModal = dynamic(() => import("./Modals").then(m => m.UpsellModal), {
 const SuccessModal = dynamic(() => import("./Modals").then(m => m.SuccessModal), { ssr: false });
 const SidebarDrawer = dynamic(() => import("./Modals").then(m => m.SidebarDrawer), { ssr: false });
 const ScriptsWhatsApp = dynamic(() => import("./bonuses/ScriptsWhatsApp"));
+const GuiaEmbalagens = dynamic(() => import("./bonuses/GuiaEmbalagens"));
 
 interface Recipe {
   id: number;
@@ -153,6 +154,8 @@ export default function VIPArea() {
           />
         ) : activeTab === 'bonuses' && activeBonus === 'scripts' ? (
             <ScriptsWhatsApp onBack={() => setActiveBonus(null)} />
+        ) : activeTab === 'bonuses' && activeBonus === 'embalagens' ? (
+            <GuiaEmbalagens onBack={() => setActiveBonus(null)} />
         ) : (
             <BonusesView 
               onBack={() => setActiveTab('dashboard')} 
@@ -277,10 +280,10 @@ function BonusesView({ onBack, onSelect }: any) {
     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 max-w-lg mx-auto pb-32 pt-12">
       <header className="mb-10 flex items-center gap-4"><button onClick={onBack} className="p-2 bg-primary/10 rounded-xl"><ChevronLeft /></button><h1 className="text-4xl font-black text-primary tracking-tight">Meus Bônus</h1></header>
       
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl mb-6 opacity-60">
-        <Package size={32} className="text-secondary mb-6" />
-        <h3 className="text-xl font-black mb-2 flex items-center justify-between">Guia de Embalagens <span className="text-[10px] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-widest text-primary/60">Em Breve</span></h3>
-        <p className="text-sm text-primary/60 font-medium">Sua guia completa de como valorizar o produto.</p>
+      <div onClick={() => onSelect('embalagens')} className="bg-gradient-to-br from-white to-amber-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl mb-6 cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
+        <Package size={32} className="text-secondary mb-6 relative z-10" />
+        <h3 className="text-xl font-black mb-2 flex items-center justify-between relative z-10">Guia de Embalagens <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
+        <p className="text-sm text-primary/60 font-medium relative z-10">Sua checklist interativa para valorizar o produto.</p>
       </div>
 
       <div onClick={() => onSelect('scripts')} className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl mb-6 cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
