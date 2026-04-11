@@ -218,7 +218,7 @@ export default function LandingPageEliteFinal() {
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{viewers} Pessoas Vendo Isso Agora</span>
             </motion.div>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[ -0.04em] mb-8">
+            <h1 className="text-[2.6rem] sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[-0.04em] mb-8">
               Transforme a <br />
               <span className="text-secondary italic">Culinária Junina</span> <br />
               em Lucro de Verdade.

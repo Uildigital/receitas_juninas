@@ -339,7 +339,7 @@ function LandingPageEliteFinal() {
               <span className="relative flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span></span>
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{viewers} Pessoas Vendo Isso Agora</span>
             </motion.div>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[ -0.04em] mb-8">Transforme a <br /><span className="text-secondary italic">Culinária Junina</span> <br />em Lucro de Verdade.</h1>
+            <h1 className="text-[2.6rem] sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[-0.04em] mb-8">Transforme a <br /><span className="text-secondary italic">Culinária Junina</span> <br />em Lucro de Verdade.</h1>
             <p className="text-lg sm:text-xl text-white/60 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">Venda o equivalente a 3 meses de faturamento em apenas 30 dias com o método passo a passo de receitas profissionais e calculadora de custos integrada.</p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
               <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={handleCTA} className="group relative px-10 py-6 bg-secondary text-white rounded-[2rem] font-black text-xl shadow-[0_20px_50px_-10px_rgba(210,105,30,0.5)] overflow-hidden transition-all"><div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" /><span className="relative flex items-center justify-center gap-3">QUERO COMEÇAR AGORA <ArrowRight className="group-hover:translate-x-2 transition-transform" /></span></motion.button>
@@ -401,6 +401,32 @@ function LandingPageEliteFinal() {
             ))}
          </div>
       </section>
+
+      {/* MOBILE STICKY CTA BAR */}
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.div 
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            exit={{ y: 100 }}
+            className="fixed bottom-0 left-0 right-0 z-[100] p-4 sm:hidden"
+          >
+            <div className="bg-[#1C1816]/90 backdrop-blur-xl border border-white/10 rounded-[2rem] p-4 flex items-center justify-between shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black text-white/40 uppercase tracking-widest leading-none mb-1">Oferta Final</span>
+                <span className="text-xl font-black text-secondary">R$ 47,00</span>
+              </div>
+              <button 
+                onClick={handleCTA}
+                className="bg-secondary text-white px-8 py-4 rounded-2xl font-black text-sm shadow-lg shadow-secondary/20 active:scale-95 transition-all"
+              >
+                QUERO AGORA
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <footer className="py-20 text-center relative overflow-hidden"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" /><div className="max-w-6xl mx-auto px-6"><div className="mb-10 opacity-30 grayscale inline-block"><ChefHat size={32} /></div><p className="text-[10px] text-white/20 font-black uppercase tracking-[0.5em] mb-4">Elite Gourmet Digital &copy; {new Date().getFullYear()}</p><div className="flex items-center justify-center gap-6 text-[10px] text-white/40 font-bold uppercase tracking-widest"><a href="#" className="hover:text-secondary transition-colors">Termos de Uso</a><span className="w-1 h-1 bg-white/10 rounded-full" /><a href="#" className="hover:text-secondary transition-colors">Privacidade</a></div><p className="mt-12 text-[8px] text-white/10 max-w-lg mx-auto uppercase leading-loose">Este site não faz parte do Google Inc. ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Google ou pelo Facebook de nenhuma maneira. GOOGLE é uma marca comercial da GOOGLE Inc. FACEBOOK é uma marca comercial da FACEBOOK Inc.</p></div></footer>
     </div>
   );
