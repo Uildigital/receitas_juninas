@@ -35,6 +35,7 @@ const SuccessModal = dynamic(() => import("./Modals").then(m => m.SuccessModal),
 const SidebarDrawer = dynamic(() => import("./Modals").then(m => m.SidebarDrawer), { ssr: false });
 const ScriptsWhatsApp = dynamic(() => import("./bonuses/ScriptsWhatsApp"));
 const GuiaEmbalagens = dynamic(() => import("./bonuses/GuiaEmbalagens"));
+const ControleEstoque = dynamic(() => import("./bonuses/ControleEstoque"));
 
 interface Recipe {
   id: number;
@@ -156,6 +157,8 @@ export default function VIPArea() {
             <ScriptsWhatsApp onBack={() => setActiveBonus(null)} />
         ) : activeTab === 'bonuses' && activeBonus === 'embalagens' ? (
             <GuiaEmbalagens onBack={() => setActiveBonus(null)} />
+        ) : activeTab === 'bonuses' && activeBonus === 'estoque' ? (
+            <ControleEstoque onBack={() => setActiveBonus(null)} />
         ) : (
             <BonusesView 
               onBack={() => setActiveTab('dashboard')} 
@@ -292,10 +295,10 @@ function BonusesView({ onBack, onSelect }: any) {
         <p className="text-sm text-primary/60 font-medium">Clique para acessar e copiar as mensagens prontas que vendem de verdade.</p>
       </div>
 
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl opacity-60">
-        <Target size={32} className="text-secondary mb-6" />
-        <h3 className="text-xl font-black mb-2 flex items-center justify-between">Organização de Estoque <span className="text-[10px] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-widest text-primary/60">Em Breve</span></h3>
-        <p className="text-sm text-primary/60 font-medium">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
+      <div onClick={() => onSelect('estoque')} className="bg-gradient-to-br from-white to-green-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
+        <Target size={32} className="text-secondary mb-6 relative z-10" />
+        <h3 className="text-xl font-black mb-2 flex items-center justify-between relative z-10">Organização de Estoque <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
+        <p className="text-sm text-primary/60 font-medium relative z-10">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
       </div>
     </motion.div>
   );
