@@ -269,7 +269,7 @@ export default function LandingPageEliteFinal() {
               {/* Main Mockup Container with Glassmorphism Border */}
               <div className="relative w-full h-full rounded-[4rem] p-4 bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
                 <Image 
-                  src="https://receitas-juninas.webbookpro.com/imagens/mockup.avif"
+                  src="https://webbookpro.com/imagens/mockup.avif"
                   alt="Guia Junino Interativo Mockup"
                   fill
                   className="object-contain p-8 group-hover:scale-105 transition-transform duration-1000"
