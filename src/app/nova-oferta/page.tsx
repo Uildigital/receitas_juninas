@@ -25,7 +25,7 @@ import {
   Rocket,
   ArrowUpRight,
   Check,
-  Infinite
+  Infinity
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
