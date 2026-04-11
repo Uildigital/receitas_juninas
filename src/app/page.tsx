@@ -34,8 +34,7 @@ import {
   Target,
   Rocket,
   ArrowUpRight,
-  Check,
-  Infinity
+  Check
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import recipesData from "@/data/receitas.json";
