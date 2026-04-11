@@ -62,7 +62,8 @@ export default function LandingPageEliteFinal() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
   const [isScrolled, setIsScrolled] = useState(false);
-  const [itemsSold, setItemsSold] = useState(1242);
+  const [itemsSold, setItemsSold] = useState(1421);
+  const [viewers, setViewers] = useState(Math.floor(Math.random() * (365 - 280 + 1)) + 280);
   
   // Tracking Logic
   const getCookie = (name: string) => {
