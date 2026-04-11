@@ -564,7 +564,7 @@ export default function LandingPageEliteFinal() {
                 <span className="text-[8px] font-black uppercase tracking-widest">Cartão</span>
               </div>
               <div className="flex flex-col items-center gap-2 text-secondary">
-                <Zap size={32} weight="fill" />
+                <Zap size={32} fill="currentColor" />
                 <span className="text-[8px] font-black uppercase tracking-widest">Pix</span>
               </div>
               <div className="flex flex-col items-center gap-2">
