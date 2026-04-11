@@ -221,7 +221,7 @@ export default function LandingPage() {
             {[
               { id: 1, title: "Guia de Embalagens Lucrativas", desc: "Como valorizar seu produto em até 5x gastando quase nada em apresentação. O segredo do visual 'Elite'.", icon: Package, value: "R$ 97,00", img: "/images/recipe_premium.png" },
               { id: 2, title: "Scripts de Venda WhatsApp", desc: "Textos prontos e gatilhos mentais para você copiar e colar e esgotar sua produção em poucas horas.", icon: ScrollText, value: "R$ 147,00", img: "https://webbookpro.com/imagens/scrpts.avif" },
-              { id: 3, title: "Lista de Fornecedores VIP", desc: "Onde comprar insumos profissionais com preço de atacado e frete grátis, direto da fonte.", icon: Users, value: "R$ 67,00", img: "https://webbookpro.com/imagens/fornecedores.avif" }
+              { id: 3, title: "Organização de Estoque", desc: "Aprenda a gerenciar os seus insumos para acabar com desperdícios e maximizar o seu lucro diário.", icon: Target, value: "R$ 67,00", img: "https://webbookpro.com/imagens/fornecedores.avif" }
             ].map((bonus, i) => (
               <div key={i} className="bg-[#1C1816] rounded-[3rem] border border-white/5 overflow-hidden flex flex-col group shadow-2xl">
                 <div className="relative h-64 w-full">
@@ -250,7 +250,7 @@ export default function LandingPage() {
                     { item: "Calculadora de Custos & Precificação", val: "R$ 67,00" },
                     { item: "Bônus 1: Guia de Embalagens Lucrativas", val: "R$ 97,00" },
                     { item: "Bônus 2: Scripts de Venda WhatsApp", val: "R$ 147,00" },
-                    { item: "Bônus 3: Lista de Fornecedores VIP", val: "R$ 67,00" }
+                    { item: "Bônus 3: Organização de Estoque", val: "R$ 67,00" }
                 ].map((row, i) => (
                     <div key={i} className="flex items-center justify-between py-4 border-b border-white/5">
                         <span className="text-sm font-bold text-white/80">{row.item}</span>

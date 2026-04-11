@@ -22,7 +22,8 @@ import {
   Calculator,
   Package,
   ScrollText,
-  ArrowUpRight
+  ArrowUpRight,
+  Target
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import recipesData from "@/data/receitas.json";
@@ -273,10 +274,15 @@ function BonusesView({ onBack }: any) {
         <h3 className="text-xl font-black mb-2">Guia de Embalagens</h3>
         <p className="text-sm text-primary/60 font-medium">Sua guia completa de como valorizar o produto.</p>
       </div>
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl">
+      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl mb-6">
         <ScrollText size={32} className="text-accent mb-6" />
         <h3 className="text-xl font-black mb-2">Scripts WhatsApp</h3>
         <p className="text-sm text-primary/60 font-medium">Copy prontas para vender todos os dias.</p>
+      </div>
+      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl">
+        <Target size={32} className="text-secondary mb-6" />
+        <h3 className="text-xl font-black mb-2">Organização de Estoque</h3>
+        <p className="text-sm text-primary/60 font-medium">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
       </div>
     </motion.div>
   );
