@@ -9,16 +9,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
-      {
-        protocol: "https",
-        hostname: "webbookpro.com",
-      },
     ],
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-  /*
   async headers() {
     return [
       {
@@ -73,7 +68,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/:path*((?:png|jpg|jpeg|gif|webp|svg|ico|webmanifest|json|txt))',
+        source: '/:path*((?:png|jpg|jpeg|gif|webp|svg|ico|webmanifest|json|txt|avif))',
         headers: [
           {
             key: 'Cache-Control',
@@ -92,7 +87,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  */
 };
 
 export default nextConfig;

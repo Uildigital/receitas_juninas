@@ -24,7 +24,9 @@ import {
   Target,
   Rocket,
   ArrowUpRight,
-  Check
+  Check,
+  Package,
+  ScrollText
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
@@ -413,50 +415,70 @@ export default function LandingPageEliteFinal() {
         </div>
       </section>
 
-      {/* Bonus Section with Glass Interaction */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#1C1917] to-[#0A0807] rounded-[4rem] p-8 sm:p-16 border border-white/10 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full" />
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-              <div className="flex items-center gap-2 text-accent mb-4">
-                <Sparkles size={20} />
-                <span className="font-black text-xs uppercase tracking-[0.2em]">Bônus Exclusivo de Lançamento</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-black mb-8 tracking-tight">Guia de Embalagens que <span className="text-secondary">Valorizam o Produto</span> em 5x.</h2>
-              <ul className="space-y-4 mb-10">
-                {[
-                  "Como criar marcas artesanais sem gastar",
-                  "Fornecedores de embalagens premium",
-                  "Dicas de fotografia para redes sociais"
-                ].map((li, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white/70 font-medium">
-                    <div className="w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-                      <Check size={12} strokeWidth={4} />
-                    </div>
-                    {li}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex items-center gap-4 px-6 py-4 bg-black/40 rounded-2xl border border-white/5 inline-flex">
-                 <span className="text-xs font-bold text-white/30 uppercase tracking-widest">Valor do Bônus:</span>
-                 <span className="text-lg font-black text-white/80 line-through">R$ 97,00</span>
-                 <span className="text-sm font-black text-secondary">GRÁTIS HOJE</span>
-              </div>
+      {/* Triple Bonus Stack Section */}
+      <section className="py-32 px-6 bg-[#0E0C0B]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center gap-2 text-accent mb-4 px-4 py-2 bg-accent/5 border border-accent/10 rounded-full">
+              <Sparkles size={16} />
+              <span className="font-black text-[10px] uppercase tracking-[0.2em]">Presentes Exclusivos de Lançamento</span>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-               <Image 
-                 src="/images/recipe_premium.png" 
-                 alt="Premium Bonus" 
-                 fill 
-                 className="object-cover"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-                  <p className="text-xs font-black text-secondary uppercase tracking-[0.3em]">Módulo Premium</p>
-                  <p className="text-xl font-bold">Apresentação Profissional</p>
-               </div>
-            </div>
+            <h2 className="text-4xl sm:text-6xl font-black mb-6 tracking-tight">O Que Você Leva de <span className="text-secondary italic">Graça</span></h2>
+            <p className="text-white/40 text-lg max-w-2xl mx-auto font-medium">Se você agir agora, além das 40 receitas e da calculadora, você desbloqueia esses 3 bônus premium.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                id: 1,
+                title: "Guia de Embalagens Lucrativas",
+                desc: "Aprenda a valorizar seu produto em até 5x gastando quase nada em apresentação. O segredo do visual 'Elite'.",
+                icon: Package,
+                value: "R$ 97,00",
+                img: "/images/recipe_premium.png"
+              },
+              {
+                id: 2,
+                title: "Scripts de Venda WhatsApp",
+                desc: "Textos prontos e gatilhos mentais para você copiar e colar e esgotar sua produção em poucas horas.",
+                icon: ScrollText,
+                value: "R$ 147,00",
+                img: "https://webbookpro.com/imagens/scrpts.avif"
+              },
+              {
+                id: 3,
+                title: "Lista de Fornecedores VIP",
+                desc: "Onde comprar insumos profissionais com preço de atacado e frete grátis, direto da fonte.",
+                icon: Users,
+                value: "R$ 67,00",
+                img: "https://webbookpro.com/imagens/fornecedores.avif"
+              }
+            ].map((bonus, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-[#1C1816] rounded-[3rem] border border-white/5 overflow-hidden flex flex-col group shadow-2xl"
+              >
+                <div className="relative h-64 w-full">
+                  <Image src={bonus.img} alt={bonus.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1816] to-transparent" />
+                  <div className="absolute top-6 right-6 bg-secondary text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Grátis Hoje</div>
+                </div>
+                <div className="p-10 flex-1 flex flex-col">
+                  <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-secondary mb-6 border border-white/10 group-hover:bg-secondary group-hover:text-white transition-all">
+                    <bonus.icon size={24} />
+                  </div>
+                  <h3 className="text-2xl font-black mb-4 leading-tight">{bonus.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed mb-8 flex-1">{bonus.desc}</p>
+                  <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-[10px] font-black text-white/20 uppercase tracking-widest">Valor Individual:</span>
+                    <span className="text-sm font-black text-white/60 line-through">{bonus.value}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -511,6 +533,53 @@ export default function LandingPageEliteFinal() {
                  </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Stack Section - Value Anchoring */}
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#14110F] border border-white/5 rounded-[4rem] overflow-hidden shadow-2xl relative">
+             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-accent to-secondary" />
+             <div className="p-10 sm:p-20">
+                <div className="text-center mb-16">
+                   <h2 className="text-3xl sm:text-5xl font-black mb-4 tracking-tighter uppercase">Vamos Resumir Tudo</h2>
+                   <p className="text-white/40 font-bold text-xs uppercase tracking-widest">Veja exatamente o que você recebe ao clicar no botão abaixo</p>
+                </div>
+
+                <div className="space-y-6 mb-16">
+                   {[
+                      { item: "40+ Receitas Profissionais (Arraiá Elite)", val: "R$ 97,00" },
+                      { item: "Calculadora de Custos & Precificação", val: "R$ 67,00" },
+                      { item: "Bônus 1: Guia de Embalagens Lucrativas", val: "R$ 97,00" },
+                      { item: "Bônus 2: Scripts de Venda WhatsApp", val: "R$ 147,00" },
+                      { item: "Bônus 3: Lista de Fornecedores VIP", val: "R$ 67,00" },
+                      { item: "Acesso Vitalício & Suporte Premium", val: "Incalculável" }
+                   ].map((row, i) => (
+                     <div key={i} className="flex items-center justify-between py-6 border-b border-white/5 group">
+                        <div className="flex items-center gap-4">
+                           <div className="h-6 w-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                              <Check size={14} strokeWidth={4} />
+                           </div>
+                           <span className="text-sm sm:text-lg font-black text-white/80 group-hover:text-white transition-colors uppercase tracking-tight">{row.item}</span>
+                        </div>
+                        <span className="text-sm sm:text-lg font-black text-white/20 group-hover:text-secondary transition-colors italic">{row.val}</span>
+                     </div>
+                   ))}
+                </div>
+
+                <div className="bg-white/5 rounded-3xl p-8 border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+                   <div className="text-center sm:text-left">
+                      <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-1">Valor Total de Entrega:</p>
+                      <p className="text-3xl font-black text-white/60 line-through">R$ 475,00</p>
+                   </div>
+                   <div className="text-center sm:text-right">
+                      <p className="text-[10px] font-black text-secondary uppercase tracking-[0.3em] mb-1">Preço Público Sugerido:</p>
+                      <p className="text-4xl font-black text-secondary">R$ 47,00</p>
+                   </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
