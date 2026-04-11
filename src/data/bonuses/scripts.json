@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lancamento",
+    "titulo": "🚀 Lançamento do Cardápio Junino",
+    "descricao": "Use na primeira semana para avisar seus contatos que você abriu a agenda do Arraiá.",
+    "texto": "Oi [Nome do Cliente]! Preparada(o) para a melhor época do ano? 🎉🔥\n\nEstou passando pra avisar em primeira mão que acabei de lançar o meu *Cardápio de Elite Junino*! Temos desde o tradicional Bolo de Milho da roça, até as fatias gourmet que estão sendo um sucesso.\n\nComo você já é meu cliente especial, liberei as encomendas pra você antes de postar no Instagram.\n\nPosso te mandar o cardápio com os valores?"
+  },
+  {
+    "id": "escassez",
+    "titulo": "🔥 Gatilho de Escassez (Fechamento)",
+    "descricao": "Envie quando o cliente pediu o cardápio mas ainda não finalizou a encomenda.",
+    "texto": "Oi [Nome]! Tudo bem? Passando rapidinho pra avisar que eu só tenho *mais 3 vagas* de encomendas para este fim de semana por conta da alta demanda das festas juninas! 🏃‍♀️💨\n\nVocê vai querer garantir a sua Pamona Gratinada e o Bolo de Milho? Me avisa pra eu segurar sua vaga na agenda de produção, por favor!"
+  },
+  {
+    "id": "corporativo",
+    "titulo": "🏢 Venda Corporativa/Empresas",
+    "descricao": "Ofereça kits juninos (caixas de doces) como presente para funcionários de empresas locais.",
+    "texto": "Olá, [Nome do Responsável/RH]! Tudo bem?\n\nSabemos que a Festa Junina engaja muito as equipes nas empresas! Eu trabalho com doces e salgados juninos premium aqui na cidade e montei *Kits Corporativos* (Caixas Juninas Individuais) para as empresas presentearem os funcionários agora em Junho.\n\nNossa agenda já está com os últimos dias abertos. Você teria interesse em receber nossa tabela com preços de atacado sem compromisso?"
+  },
+  {
+    "id": "upsell",
+    "titulo": "💰 Upsell (Aumentar o Ticket)",
+    "descricao": "Quando o cliente pedir apenas um item, use essa mensagem para tentar vender outro complemento.",
+    "texto": "Pedido anotado, [Nome]! Fica pronto sexta às 16h.\n\nAproveitando... Eu acabei de tirar uma fornada recém-assada da nossa *Canjica Branca Imperial com Amendoim*, que combina perfeitamente com o que você pediu. O cheirinho aqui tá incrível!\n\nA unidade custa só R$ [Preço], quer que eu adicione uma no seu pedido pra você experimentar?"
+  },
+  {
+    "id": "recuperacao",
+    "titulo": "♻️ Recuperação de Clientes Antigos",
+    "descricao": "Envie para quem comprou com você nos últimos 6 meses, mas deu uma sumida.",
+    "texto": "Oi [Nome]! Quanto tempo! Senti falta dos seus pedidos por aqui. 😊\n\nEsse mês nós revolucionamos o cardápio com as receitas de São João. Modéstia à parte, os sabores estão absurdos de bons. Tem até receita que era segredo de família!\n\nVocê quer que eu te mande o cardápio novo só pra você dar uma espiadinha nas fotos? (Cuidado que dá água na boca!) 🤤"
+  }
+]

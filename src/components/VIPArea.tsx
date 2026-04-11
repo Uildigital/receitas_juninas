@@ -33,6 +33,7 @@ import dynamic from "next/dynamic";
 const UpsellModal = dynamic(() => import("./Modals").then(m => m.UpsellModal), { ssr: false });
 const SuccessModal = dynamic(() => import("./Modals").then(m => m.SuccessModal), { ssr: false });
 const SidebarDrawer = dynamic(() => import("./Modals").then(m => m.SidebarDrawer), { ssr: false });
+const ScriptsWhatsApp = dynamic(() => import("./bonuses/ScriptsWhatsApp"));
 
 interface Recipe {
   id: number;
@@ -49,6 +50,7 @@ interface Recipe {
 
 export default function VIPArea() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'recipes' | 'bonuses'>('dashboard');
+  const [activeBonus, setActiveBonus] = useState<string | null>(null);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [completedItems, setCompletedItems] = useState<Record<string, boolean>>({});
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -149,8 +151,13 @@ export default function VIPArea() {
             onSelect={(r: Recipe) => { setYieldMultiplier(1); setSelectedRecipe(r); }} 
             isDone={(id: number) => Object.keys(completedItems).filter(k => k.startsWith(`${id}-`) && completedItems[k]).length === 100} // Simplified
           />
+        ) : activeTab === 'bonuses' && activeBonus === 'scripts' ? (
+            <ScriptsWhatsApp onBack={() => setActiveBonus(null)} />
         ) : (
-            <BonusesView onBack={() => setActiveTab('dashboard')} />
+            <BonusesView 
+              onBack={() => setActiveTab('dashboard')} 
+              onSelect={(bonusId: string) => setActiveBonus(bonusId)} 
+            />
         )}
       </AnimatePresence>
 
@@ -265,23 +272,26 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
     );
 }
 
-function BonusesView({ onBack }: any) {
+function BonusesView({ onBack, onSelect }: any) {
   return (
     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 max-w-lg mx-auto pb-32 pt-12">
       <header className="mb-10 flex items-center gap-4"><button onClick={onBack} className="p-2 bg-primary/10 rounded-xl"><ChevronLeft /></button><h1 className="text-4xl font-black text-primary tracking-tight">Meus Bônus</h1></header>
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl mb-6">
+      
+      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl mb-6 opacity-60">
         <Package size={32} className="text-secondary mb-6" />
-        <h3 className="text-xl font-black mb-2">Guia de Embalagens</h3>
+        <h3 className="text-xl font-black mb-2 flex items-center justify-between">Guia de Embalagens <span className="text-[10px] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-widest text-primary/60">Em Breve</span></h3>
         <p className="text-sm text-primary/60 font-medium">Sua guia completa de como valorizar o produto.</p>
       </div>
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl mb-6">
+
+      <div onClick={() => onSelect('scripts')} className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl mb-6 cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
         <ScrollText size={32} className="text-accent mb-6" />
-        <h3 className="text-xl font-black mb-2">Scripts WhatsApp</h3>
-        <p className="text-sm text-primary/60 font-medium">Copy prontas para vender todos os dias.</p>
+        <h3 className="text-xl font-black mb-2 flex items-center justify-between">Scripts WhatsApp <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
+        <p className="text-sm text-primary/60 font-medium">Clique para acessar e copiar as mensagens prontas que vendem de verdade.</p>
       </div>
-      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl">
+
+      <div className="bg-white p-8 rounded-[3rem] border border-primary/5 shadow-2xl opacity-60">
         <Target size={32} className="text-secondary mb-6" />
-        <h3 className="text-xl font-black mb-2">Organização de Estoque</h3>
+        <h3 className="text-xl font-black mb-2 flex items-center justify-between">Organização de Estoque <span className="text-[10px] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-widest text-primary/60">Em Breve</span></h3>
         <p className="text-sm text-primary/60 font-medium">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
       </div>
     </motion.div>
