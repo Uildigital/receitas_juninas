@@ -252,6 +252,8 @@ function LandingPageEliteFinal() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
   const [isScrolled, setIsScrolled] = useState(false);
+  const [viewers, setViewers] = useState(Math.floor(Math.random() * (365 - 280 + 1)) + 280);
+  const [itemsSold, setItemsSold] = useState(1421);
   
   const getCookie = (name: string) => {
     if (typeof document === 'undefined') return undefined;
@@ -281,10 +283,27 @@ function LandingPageEliteFinal() {
         return prev;
       });
     }, 1000);
+    const itemsInterval = setInterval(() => {
+      setItemsSold(prev => prev + Math.floor(Math.random() * 2));
+    }, 30000);
+
+    const viewersInterval = setInterval(() => {
+      setViewers(prev => {
+        const change = Math.floor(Math.random() * 7) - 3; // -3 to +3
+        const newValue = prev + change;
+        return newValue < 250 ? 250 : newValue > 400 ? 400 : newValue;
+      });
+    }, 5000);
+
     const handleScroll = () => setIsScrolled(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll);
     trackServerEvent('PageView');
-    return () => { clearInterval(timer); window.removeEventListener("scroll", handleScroll); };
+    return () => { 
+      clearInterval(timer); 
+      clearInterval(itemsInterval);
+      clearInterval(viewersInterval);
+      window.removeEventListener("scroll", handleScroll); 
+    };
   }, []);
 
   const handleCTA = () => {
@@ -318,7 +337,7 @@ function LandingPageEliteFinal() {
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="text-center lg:text-left">
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span></span>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">325 Pessoas Vendo Isso Agora</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{viewers} Pessoas Vendo Isso Agora</span>
             </motion.div>
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[ -0.04em] mb-8">Transforme a <br /><span className="text-secondary italic">Culinária Junina</span> <br />em Lucro de Verdade.</h1>
             <p className="text-lg sm:text-xl text-white/60 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">Venda o equivalente a 3 meses de faturamento em apenas 30 dias com o método passo a passo de receitas profissionais e calculadora de custos integrada.</p>

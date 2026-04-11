@@ -106,22 +106,23 @@ export default function LandingPageEliteFinal() {
       setItemsSold(prev => prev + Math.floor(Math.random() * 2));
     }, 30000);
 
+    const viewersInterval = setInterval(() => {
+      setViewers(prev => {
+        const change = Math.floor(Math.random() * 7) - 3; // -3 to +3
+        const newValue = prev + change;
+        return newValue < 250 ? 250 : newValue > 400 ? 400 : newValue;
+      });
+    }, 5000);
+
     // Scroll Observer
     const handleScroll = () => setIsScrolled(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll);
-
-    // Initial Tracking
-    const urlParams = new URLSearchParams(window.location.search);
-    const fbclid = urlParams.get('fbclid');
-    if (fbclid && typeof document !== 'undefined') {
-      document.cookie = `_fbc=fb.1.${Date.now()}.${fbclid}; path=/; max-age=7776000`;
-    }
     trackServerEvent('PageView');
-
-    return () => {
-      clearInterval(timer);
+    return () => { 
+      clearInterval(timer); 
       clearInterval(itemsInterval);
-      window.removeEventListener("scroll", handleScroll);
+      clearInterval(viewersInterval);
+      window.removeEventListener("scroll", handleScroll); 
     };
   }, []);
 
@@ -213,7 +214,7 @@ export default function LandingPageEliteFinal() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
               </span>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">325 Pessoas Vendo Isso Agora</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{viewers} Pessoas Vendo Isso Agora</span>
             </motion.div>
 
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-[ -0.04em] mb-8">
