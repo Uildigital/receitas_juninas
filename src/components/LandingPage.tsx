@@ -34,6 +34,8 @@ export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [viewers, setViewers] = useState(287);
   
+  const [isMounted, setIsMounted] = useState(false);
+  
   const trackServerEvent = async (eventName: string, customData: any = {}) => {
     try {
       await fetch('/api/events', {
@@ -45,6 +47,7 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
+    setIsMounted(true);
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
@@ -68,12 +71,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0807] text-white font-sans selection:bg-accent/30 overflow-x-hidden">
+    <main className="min-h-screen bg-[#0A0807] text-white font-sans selection:bg-accent/30 overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
-      <div className="bg-gradient-to-r from-[#8B4513] via-[#D2691E] to-[#FF8C00] py-2 relative z-[70] overflow-hidden">
+      <div className="bg-gradient-to-r from-[#70360F] via-[#A8551A] to-[#D2691E] py-2 relative z-[70] overflow-hidden">
         <div className="text-center text-[10px] sm:text-xs font-black uppercase tracking-[0.2em]">
-          🎁 OPORTUNIDADE: ACESSO VITALÍCIO COM 76% DE DESCONTO ACABA EM: {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+          🎁 OPORTUNIDADE: ACESSO VITALÍCIO COM 76% DE DESCONTO ACABA EM: {isMounted ? `${timeLeft.minutes.toString().padStart(2, '0')}:${timeLeft.seconds.toString().padStart(2, '0')}` : "14:59"}
         </div>
       </div>
 
@@ -266,9 +269,9 @@ export default function LandingPage() {
       {/* Checkout Section with improved accessibility (contrast) */}
       <section id="checkout" className="py-32 px-6 text-center">
           <h2 className="text-5xl sm:text-8xl font-black mb-12 tracking-tighter leading-[0.9]">Comece Sua <br /> <span className="text-secondary italic">Nova Jornada</span> Agora.</h2>
-          <div className="max-w-xl mx-auto bg-[#1C1816] p-10 rounded-[3rem] border border-white/5">
+            <div className="max-w-xl mx-auto bg-[#1C1816] p-10 rounded-[3rem] border border-white/5">
             <div className="text-6xl sm:text-8xl font-black mb-10 tracking-tighter">R$ 47</div>
-            <button onClick={handleCTA} className="w-full bg-secondary text-white py-8 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all">GARANTIR MEU ACESSO</button>
+            <button onClick={handleCTA} className="w-full bg-[#A8551A] hover:bg-[#8B4513] text-white py-8 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all">GARANTIR MEU ACESSO</button>
             <div className="mt-8 text-[10px] text-white/40 font-black uppercase tracking-widest flex items-center justify-center gap-4">
                 <span className="flex items-center gap-1"><ShieldCheck size={14} /> 7 Dias de Garantia</span>
                 <span className="flex items-center gap-1"><Zap size={14} /> Acesso Imediato</span>
@@ -276,9 +279,9 @@ export default function LandingPage() {
           </div>
       </section>
 
-      <footer className="py-20 text-center border-t border-white/5 opacity-40">
+      <footer className="py-20 text-center border-t border-white/5 opacity-60">
         <p className="text-[10px] font-black uppercase tracking-[0.5em] mb-4">Elite Gourmet Digital &copy; {new Date().getFullYear()}</p>
-        <div className="flex items-center justify-center gap-6 text-[10px] font-bold uppercase tracking-widest">
+        <div className="flex items-center justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-white/80">
             <a href="#">Termos</a>
             <a href="#">Privacidade</a>
         </div>
@@ -291,7 +294,7 @@ export default function LandingPage() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }
 

@@ -10,8 +10,7 @@ const VIPArea = dynamic(() => import("@/components/VIPArea"), {
 });
 
 const LandingPage = dynamic(() => import("@/components/LandingPage"), { 
-  loading: () => <div className="min-h-screen bg-[#0A0807] animate-pulse" />,
-  ssr: false
+  ssr: true
 });
 
 export default function SmartRootPage() {
