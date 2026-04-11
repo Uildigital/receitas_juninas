@@ -241,9 +241,14 @@ export default function LandingPageEliteFinal() {
               
               <div className="flex flex-col items-center lg:items-start justify-center gap-2">
                 <div className="flex -space-x-3">
-                  {[1,2,3,4].map(i => (
+                  {[
+                    { name: 'Eduardo', url: 'https://webbookpro.com/imagens/eduardo.avif' },
+                    { name: 'Roberto', url: 'https://webbookpro.com/imagens/roberto.avif' },
+                    { name: 'Neide', url: 'https://webbookpro.com/imagens/neide.avif' },
+                    { name: 'Maria', url: 'https://webbookpro.com/imagens/maria.avif' }
+                  ].map((user, i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0A0807] overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer">
-                      <Image src={`https://i.pravatar.cc/100?u=${i+20}`} alt="user" width={40} height={40} />
+                      <Image src={user.url} alt={user.name} width={40} height={40} />
                     </div>
                   ))}
                   <div className="w-10 h-10 rounded-full border-2 border-[#0A0807] bg-white/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black">
