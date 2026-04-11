@@ -467,7 +467,7 @@ function LandingPageEliteFinal() {
             <div className="relative aspect-square w-full max-w-[550px] mx-auto group">
               <div className="absolute inset-0 bg-secondary/30 blur-[120px] rounded-full scale-75 group-hover:scale-100 transition-transform duration-1000" />
               <div className="relative w-full h-full rounded-[4rem] p-4 bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
-                <Image src="https://webbookpro.com/imagens/mockup.avif" alt="Guia Junino Interativo Mockup" fill className="object-contain p-8 group-hover:scale-105 transition-transform duration-1000" priority />
+                <Image src="/images/mockup.avif" alt="Guia Junino Interativo Mockup" fill className="object-contain p-8 group-hover:scale-105 transition-transform duration-1000" priority />
               </div>
 
               <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-8 -right-8 bg-[#1C1917]/80 backdrop-blur-xl border border-white/10 p-5 rounded-[2.5rem] shadow-2xl z-20">
