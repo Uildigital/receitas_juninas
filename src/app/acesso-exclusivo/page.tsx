@@ -488,6 +488,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, progress
                 ))}
               </div>
             </section>
+            <section className="mb-12"><h3 className="text-2xl font-black text-primary mb-6">Modo de Preparo</h3><div className="space-y-6">{recipe.preparo.map((step: string, i: number) => (<div key={i} onClick={() => toggleItem(recipe.id, "step", i)} className={`flex gap-5 p-5 rounded-[2rem] border transition-all cursor-pointer ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary/5 border-secondary/20 opacity-50" : "bg-white border-primary/5 shadow-xl"}`}><div className={`h-10 w-10 shrink-0 rounded-2xl border-2 flex items-center justify-center font-black ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary border-secondary text-white" : "border-primary/10 text-primary/40"}`}>{i + 1}</div><p className="text-lg font-bold leading-relaxed pt-1 text-primary">{step}</p></div>))}</div></section>
           </>
         ) : (
           <section className="pb-20">
