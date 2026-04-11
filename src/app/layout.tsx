@@ -43,7 +43,8 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Script id="fb-pixel" strategy="lazyOnload">
+        <link rel="preload" href="/images/mockup.avif" as="image" type="image/avif" />
+        <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -57,7 +58,7 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-      <link rel="preconnect" href="https://webbookpro.com" />
+      <link rel="preconnect" href="https://webbookpro.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://images.unsplash.com" />
         <noscript>
           <img height="1" width="1" style={{ display: "none" }}
