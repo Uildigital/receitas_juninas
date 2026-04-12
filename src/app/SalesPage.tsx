@@ -41,7 +41,16 @@ export default function SalesPage() {
         return prev;
       });
     }, 1000);
-    return () => clearInterval(timer);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => { 
+      clearInterval(timer); 
+      window.removeEventListener("scroll", handleScroll); 
+    };
   }, []);
 
   const handleCTA = () => { window.location.href = checkoutUrl; };
@@ -56,6 +65,24 @@ export default function SalesPage() {
           🔥 OFERTA DE SÃO JOÃO: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
         </div>
       </div>
+
+      {/* Floating Header - Re-activated with Smooth CSS transition */}
+      <header 
+        className={`fixed top-0 left-0 right-0 z-[65] px-6 py-4 transition-all duration-500 transform ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
+      >
+        <div className="max-w-6xl mx-auto bg-[#1C1816]/90 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-3 flex items-center justify-between shadow-2xl">
+          <div className="flex items-center gap-2">
+            <Smartphone size={18} className="text-secondary" />
+            <span className="font-black tracking-tighter text-[10px] sm:text-xs uppercase">Guia Junino</span>
+          </div>
+          <button 
+            onClick={handleCTA}
+            className="bg-secondary hover:brightness-110 text-white px-5 py-2.5 rounded-xl font-black text-[10px] sm:text-xs transition-all uppercase"
+          >
+            Garantir Minha Vaga
+          </button>
+        </div>
+      </header>
 
       {/* Hero Section - RESTORED ELITE COPY & PROOF */}
       <section className="relative pt-16 pb-24 px-6 overflow-hidden min-h-[85vh] flex flex-col justify-center">
