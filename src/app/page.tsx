@@ -2,13 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-
-// Carregamento ultrarrápido da SalesPage (apenas o topo)
-// As seções pesadas foram movidas para componentes dinâmicos dentro da SalesPage
-const SalesPage = dynamic(() => import("./SalesPage"), {
-  loading: () => <div className="min-h-screen bg-[#0A0807]" />,
-  ssr: true // Ativado para garantir que o conteúdo inicial apareça no primeiro frame
-});
+import SalesPage from "./SalesPage";
 
 const VIPArea = dynamic(() => import("@/components/VIPArea"), { 
   loading: () => <div className="min-h-screen bg-[#0A0807] animate-pulse" />,
@@ -21,8 +15,7 @@ export default function SmartRootPage() {
 
   useEffect(() => {
     setIsClient(true);
-    const urlParams = new URLSearchParams(window.location.search);
-    const isVipParam = urlParams.get("vip") === "true";
+    const isVipParam = new URLSearchParams(window.location.search).get("vip") === "true";
     const isVipStored = localStorage.getItem("webbook-isvip") === "true";
 
     if (isVipParam || isVipStored) {
@@ -31,10 +24,10 @@ export default function SmartRootPage() {
     }
   }, []);
 
-  // No servidor, sempre renderizamos a SalesPage para melhor LCP/SEO
-  if (!isClient) {
-    return <SalesPage />;
+  // Use a simple conditional render. Direct SalesPage for best FCP.
+  if (isVipUser) {
+    return <VIPArea />;
   }
 
-  return isVipUser ? <VIPArea /> : <SalesPage />;
+  return <SalesPage />;
 }
