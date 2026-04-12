@@ -23,7 +23,8 @@ import {
   Package,
   ScrollText,
   ArrowUpRight,
-  Target
+  Target,
+  Activity
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import recipesData from "@/data/receitas.json";
