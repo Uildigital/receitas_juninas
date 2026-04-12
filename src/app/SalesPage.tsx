@@ -143,44 +143,64 @@ export default function SalesPage() {
         </div>
       </section>
 
-      {/* Differentiation Section - RESTORED */}
+      {/* Differentiation Section - ELITE RE-DESIGNED */}
       <section className="py-24 px-6 bg-[#0E0C0B]">
-        <div className="max-w-6xl mx-auto border border-white/5 rounded-[4rem] p-10 sm:p-20 overflow-hidden relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-black mb-8 leading-tight tracking-tighter uppercase">Chega de E-books <br/><span className="text-secondary opacity-50">estáticos e sem vida.</span></h2>
-              <div className="space-y-6">
-                <div className="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
-                  <Zap size={28} className="text-secondary shrink-0" />
-                  <div>
-                    <h3 className="font-black text-white text-lg uppercase">Inteligência de São João</h3>
-                    <p className="text-white/40 text-sm font-medium">O preço do milho ou amendoim subiu? Altere uma vez e o lucro de todas as suas receitas atualiza na hora.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
-                  <Target size={28} className="text-secondary shrink-0" />
-                  <div>
-                    <h3 className="font-black text-white text-lg uppercase">Simulador de Metas ROI</h3>
-                    <p className="text-white/40 text-sm font-medium">Diga quanto quer ganhar e nós te dizemos exatamente quanto você precisa vender de cada doce ou caldo.</p>
-                  </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-5xl font-black mb-4 uppercase tracking-tighter">Por que não é apenas <span className="text-secondary italic">mais um e-book?</span></h2>
+            <p className="text-white/40 text-sm sm:text-base font-medium">A diferença entre um PDF jogado no celular e um sistema de lucro real.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+            {/* Common E-book card */}
+            <div className="bg-white/[0.02] border border-white/10 rounded-[2.5rem] p-8 sm:p-12 opacity-50 relative overflow-hidden group">
+              <div className="relative z-10">
+                <p className="text-[10px] font-black uppercase text-white/40 tracking-[0.3em] mb-8">E-book Comum (PDF)</p>
+                <div className="space-y-6">
+                  {[
+                    "Receitas Estáticas",
+                    "Sem Cálculo de Lucro",
+                    "Difícil de achar no celular",
+                    "Informação desatualizada",
+                    "Suporte Inexistente"
+                  ].map((text, i) => (
+                    <div key={i} className="flex items-center gap-4 text-xs sm:text-sm font-bold text-white/40">
+                      <span className="w-5 h-5 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-[10px]">✕</span>
+                      <span>{text}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-            
-            <div className="bg-white/5 p-8 rounded-[3rem] border border-white/10">
-               <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="p-6 opacity-30 line-through text-xs font-bold space-y-4">
-                     <p>Estático</p>
-                     <p>Sem Calculadora</p>
-                     <p>Layout Confuso</p>
-                  </div>
-                  <div className="p-6 bg-white/5 rounded-2xl text-xs font-black space-y-4">
-                     <p className="text-secondary">PRODUTO ELITE</p>
-                     <p className="flex items-center justify-center gap-2"><Check size={14} className="text-success"/> Interativo</p>
-                     <p className="flex items-center justify-center gap-2"><Check size={14} className="text-success"/> ROI Simulator</p>
-                     <p className="flex items-center justify-center gap-2"><Check size={14} className="text-success"/> Smart Memory</p>
-                  </div>
-               </div>
+
+            {/* Elite System card */}
+            <div className="bg-gradient-to-br from-[#1C1816] to-[#0A0807] border-2 border-secondary/30 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-0 p-6 opacity-10"><Zap size={100} className="text-secondary" /></div>
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-8">
+                   <p className="text-[10px] font-black uppercase text-secondary tracking-[0.3em]">Plataforma Elite Junina</p>
+                   <span className="bg-success/20 text-success text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Tecnologia 2024</span>
+                </div>
+                <div className="space-y-6">
+                  {[
+                    { t: "Calculadora de Lucro em Tempo Real", d: "Mude o preço do milho e veja o lucro mudar na hora." },
+                    { t: "Simulador de Metas ROI", d: "Saiba exatamente quanto vender para bater sua meta." },
+                    { t: "Memória Inteligente de Preços", d: "Cadastre um insumo uma vez e use em 40+ receitas." },
+                    { t: "Layout App-Gourmet", d: "Fácil de usar na cozinha, como um app nativo." },
+                    { t: "Suporte VIP & Comunidade", d: "Você nunca estará sozinha na sua jornada." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-6 h-6 shrink-0 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                        <Check size={14} />
+                      </div>
+                      <div>
+                        <p className="text-xs sm:text-sm font-black text-white uppercase tracking-tight mb-1">{item.t}</p>
+                        <p className="text-[10px] sm:text-xs text-white/40 font-medium leading-relaxed">{item.d}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
