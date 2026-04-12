@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Guia Junino Interativo | A Web-App que Calcula seu Lucro 🌽",
+  title: "Guia Junino Interativo | Receitas que Calculam seu Lucro 🌽",
   description: "Garanta seu acesso vitalício ao Guia Junino Interativo com 76% de desconto. 40+ receitas lucrativas com calculadora de custos e simulador de metas.",
   manifest: "/manifest.json",
   openGraph: {

@@ -161,7 +161,7 @@ export default function LandingPageEliteFinal() {
               <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
                 <Smartphone size={18} className="text-white" />
               </div>
-              <span className="font-black tracking-tighter text-lg hidden sm:block uppercase">Web-App Junino</span>
+              <span className="font-black tracking-tighter text-lg hidden sm:block uppercase">Guia Interativo Junino</span>
             </div>
             <div className="flex items-center gap-4">
               <button 
@@ -188,7 +188,7 @@ export default function LandingPageEliteFinal() {
 
             <h1 className="text-[2.6rem] sm:text-7xl lg:text-[5.5rem] font-black leading-[0.95] tracking-[-0.04em] mb-8">
               A Única <br />
-              <span className="text-secondary italic">Web-App</span> de Doces <br />
+              <span className="text-secondary italic">Plataforma</span> <br />
               que Calcula seu Lucro.
             </h1>
 
@@ -253,7 +253,7 @@ export default function LandingPageEliteFinal() {
         <div className="max-w-6xl mx-auto border border-white/5 rounded-[4rem] p-8 sm:p-20 overflow-hidden relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl sm:text-5xl font-black mb-8 leading-tight tracking-tighter uppercase">Chega de E-books <br/><span className="text-secondary opacity-50">que ficam perdidos.</span></h2>
+              <h2 className="text-3xl sm:text-5xl font-black mb-8 leading-tight tracking-tighter uppercase">Chega de E-books <br/><span className="text-secondary opacity-50">estáticos e sem vida.</span></h2>
               <div className="space-y-6">
                 <div className="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
                   <div className="h-10 w-10 shrink-0 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary"><Zap size={20}/></div>
@@ -324,7 +324,7 @@ export default function LandingPageEliteFinal() {
       <section className="py-32 px-6 bg-[#0E0C0B]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
-            <h2 className="text-4xl sm:text-6xl font-black mb-6 tracking-tight uppercase">Módulos de <span className="text-secondary italic">Consultoria</span></h2>
+            <h2 className="text-4xl sm:text-6xl font-black mb-6 tracking-tight uppercase">Módulos de <span className="text-secondary italic">Bônus</span></h2>
             <p className="text-white/40 text-lg max-w-2xl mx-auto font-medium">Bônus exclusivos que seriam vendidos separadamente por mais de R$ 300,00.</p>
           </div>
 
@@ -356,7 +356,7 @@ export default function LandingPageEliteFinal() {
                 <div className="relative h-64 w-full">
                   <Image src={bonus.img} alt={bonus.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1C1816] to-transparent" />
-                  <div className="absolute top-6 right-6 bg-secondary text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest italic animate-bounce">Acesso Masterclass</div>
+                  <div className="absolute top-6 right-6 bg-secondary text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest italic animate-bounce">Acesso Liberado</div>
                 </div>
                 <div className="p-10 flex-1 flex flex-col">
                   <h3 className="text-xl font-black mb-4 uppercase tracking-tighter leading-none">{bonus.title}</h3>
@@ -423,11 +423,11 @@ export default function LandingPageEliteFinal() {
       <section id="checkout" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-transparent to-[#120D0B]">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-5xl sm:text-7xl font-black mb-12 tracking-tighter leading-[0.9] uppercase">
-            A Última Vaga <br /> com <span className="text-secondary italic">Acesso Master.</span>
+            A última vaga <br /> com <span className="text-secondary italic">preço promocional.</span>
           </h2>
           
           <div className="bg-[#1C1816] border border-secondary/20 rounded-[4rem] p-8 sm:p-20 mb-16 shadow-2xl relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-secondary text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.4em] shadow-xl z-20">PLATAFORMA LIBERADA</div>
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-secondary text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.4em] shadow-xl z-20">ACESSO VITALÍCIO</div>
             
             <div className="flex flex-col items-center gap-2 mb-8">
               <span className="text-2xl text-white/20 line-through font-bold tracking-tight">De R$ 197,90</span>
