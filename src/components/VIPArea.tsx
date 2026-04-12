@@ -254,16 +254,47 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
     const [extraCosts, setExtraCosts] = useState({ gas: '2', labor: '5', energy: '1', packaging: '3', sellMultiplier: '3' });
     const [monthlyGoal, setMonthlyGoal] = useState('2000');
 
-    // Inicializa pesos sugeridos do JSON se vazio
+    // --- LÓGICA DE PERSISTÊNCIA GLOBAL ---
+    
+    // Função para salvar preço globalmente por nome do ingrediente
+    const saveGlobalPrice = (ingName: string, price: string, totalQty: string) => {
+        const saved = localStorage.getItem('webbook-global-prices');
+        const prices = saved ? JSON.parse(saved) : {};
+        // Limpa o nome do ingrediente (remove parênteses com pesos para busca genérica)
+        const cleanName = ingName.split('(')[0].trim().toLowerCase();
+        prices[cleanName] = { price, totalQty };
+        localStorage.setItem('webbook-global-prices', JSON.stringify(prices));
+    };
+
+    // Inicializa dados com base no JSON e na Memória Global
     useEffect(() => {
+        const saved = localStorage.getItem('webbook-global-prices');
+        const globalPrices = saved ? JSON.parse(saved) : {};
         const initial: any = {};
+
         recipe.ingredientes.forEach((ing: string, i: number) => {
+            const cleanName = ing.split('(')[0].trim().toLowerCase();
             const match = ing.match(/(\d+)(g|ml)/i);
-            initial[i] = { price: '', totalQty: match ? match[1] : '1000', usedQty: match ? match[1] : '100' };
+            
+            // Prioriza o que está na memória global, senão usa padrão do JSON
+            initial[i] = { 
+                price: globalPrices[cleanName]?.price || '', 
+                totalQty: globalPrices[cleanName]?.totalQty || (match ? match[1] : '1000'), 
+                usedQty: match ? match[1] : '100' 
+            };
         });
         setCalcData(initial);
     }, [recipe]);
 
+    const handlePriceUpdate = (index: number, field: 'price' | 'totalQty', value: string) => {
+        const newData = { ...calcData, [index]: { ...calcData[index], [field]: value } };
+        setCalcData(newData);
+        
+        // Salva na memória global para outras receitas usarem
+        saveGlobalPrice(recipe.ingredientes[index], newData[index].price, newData[index].totalQty);
+    };
+
+    // --- CÁLCULOS ROI ---
     const totalIngCost = Object.values(calcData).reduce((acc, item) => {
         const p = parseFloat(item.price.replace(',', '.'));
         const t = parseFloat(item.totalQty.replace(',', '.'));
@@ -272,7 +303,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
         return acc + (p / t) * u;
     }, 0);
 
-    const extrasSum = parseFloat(extraCosts.gas) + parseFloat(extraCosts.labor) + parseFloat(extraCosts.energy) + parseFloat(extraCosts.packaging);
+    const extrasSum = (parseFloat(extraCosts.gas) || 0) + (parseFloat(extraCosts.labor) || 0) + (parseFloat(extraCosts.energy) || 0) + (parseFloat(extraCosts.packaging) || 0);
     const costPerRecipe = (totalIngCost + extrasSum) * yieldMultiplier;
     const sellPrice = costPerRecipe * parseFloat(extraCosts.sellMultiplier);
     const profitPerRecipe = sellPrice - costPerRecipe;
@@ -281,7 +312,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
     return (
       <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="pb-48 bg-[#FFF8F0] min-h-screen">
         {/* Header Elite */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between shadow-sm">
+        <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
             <button onClick={onBack} className="p-2.5 bg-primary/10 rounded-xl text-primary active:scale-90 transition-transform"><ChevronLeft size={20} /></button>
             <h2 className="font-black text-[13px] text-primary truncate max-w-[150px] leading-tight tracking-tight">{recipe.titulo}</h2>
@@ -292,7 +323,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                 { id: 'lucro', icon: Calculator, label: 'ROI' },
                 { id: 'dicas', icon: Sparkles, label: 'Dicas' }
               ].map((t: any) => (
-                  <button key={t.id} onClick={() => setDetailTab(t.id)} className={`flex items-center justify-center p-3 rounded-xl transition-all ${detailTab === t.id ? "bg-primary text-white shadow-xl scale-110" : "text-primary/30 hover:text-primary/60"}`}>
+                  <button key={t.id} onClick={() => setDetailTab(t.id as any)} className={`flex items-center justify-center p-3 rounded-xl transition-all ${detailTab === t.id ? "bg-primary text-white shadow-xl scale-110" : "text-primary/30 hover:text-primary/60"}`}>
                       <t.icon size={20}/>
                   </button>
               ))}
@@ -307,9 +338,6 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
         <div className="px-5 -mt-8 relative z-10 max-w-lg mx-auto">
           <AnimatePresence mode="wait">
             
-            {/* ======================================================== */}
-            {/* ABA: COZINHA (PREPARO) */}
-            {/* ======================================================== */}
             {detailTab === 'cozinha' && (
               <motion.div key="cozinha" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6">
                 <section className="bg-primary text-white p-6 rounded-[2.5rem] shadow-2xl relative overflow-hidden border-b-4 border-secondary/50">
@@ -355,15 +383,12 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
               </motion.div>
             )}
 
-            {/* ======================================================== */}
-            {/* ABA: LUCRO REAL (SIMULADOR AVANÇADO) */}
-            {/* ======================================================== */}
             {detailTab === 'lucro' && (
               <motion.div key="lucro" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
                 <div className="bg-success text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden">
                     <div className="relative z-10">
                         <h3 className="text-2xl font-black mb-1 flex items-center gap-2"><Calculator size={24} /> Simulador ROI Expert</h3>
-                        <p className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Sua empresa, seus números.</p>
+                        <p className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Memória inteligente de preços ativa ✅</p>
                     </div>
                     <div className="absolute top-[-40%] right-[-10%] w-48 h-48 bg-white/10 blur-[50px] rounded-full" />
                 </div>
@@ -377,11 +402,11 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                                 <div className="grid grid-cols-2 gap-3">
                                     <div className="bg-white p-3 rounded-xl border border-primary/10">
                                         <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Preço Pago (R$)</span>
-                                        <input type="text" value={calcData[i]?.price || ''} onChange={(e) => setCalcData({...calcData, [i]: {...calcData[i], price: e.target.value}})} className="w-full bg-transparent outline-none font-black text-xs" placeholder="0,00" />
+                                        <input type="text" value={calcData[i]?.price || ''} onChange={(e) => handlePriceUpdate(i, 'price', e.target.value)} className="w-full bg-transparent outline-none font-black text-xs" placeholder="0,00" />
                                     </div>
                                     <div className="bg-white p-3 rounded-xl border border-primary/10">
                                         <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Peso Total (g/ml)</span>
-                                        <input type="text" value={calcData[i]?.totalQty || ''} onChange={(e) => setCalcData({...calcData, [i]: {...calcData[i], totalQty: e.target.value}})} className="w-full bg-transparent outline-none font-black text-xs" placeholder="1000" />
+                                        <input type="text" value={calcData[i]?.totalQty || ''} onChange={(e) => handlePriceUpdate(i, 'totalQty', e.target.value)} className="w-full bg-transparent outline-none font-black text-xs" placeholder="1000" />
                                     </div>
                                 </div>
                             </div>
@@ -433,13 +458,11 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                             </div>
                         </div>
                     </div>
+                    <div className="absolute top-[-30%] left-[-10%] w-48 h-48 bg-white/5 blur-[50px] rounded-full" />
                 </section>
               </motion.div>
             )}
 
-            {/* ======================================================== */}
-            {/* ABA: DICAS MASTER (CHEF'S CORNER) */}
-            {/* ======================================================== */}
             {detailTab === 'dicas' && (
               <motion.div key="dicas" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
                 <div className="bg-secondary p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
@@ -454,21 +477,19 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                     <div className="space-y-4">
                         <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Zap size={18}/> O Grande Segredo</h4>
                         <p className="text-[15px] leading-relaxed font-bold italic border-l-4 border-secondary pl-6 py-2 bg-secondary/5 rounded-r-2xl">
-                            "{recipe.segredo || "O segredo desta receita está no tempo exato de descanso para que a textura atinja o ponto de corte perfeito."}"
+                            "{recipe.segredo || "O segredo desta receita está no tempo exato de descanso."}"
                         </p>
                     </div>
-
                     <div className="space-y-6 pt-10 border-t border-primary/5">
                         <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Activity size={18}/> Harmonização Premium</h4>
                         <p className="text-[14px] leading-relaxed text-primary/80 font-medium">
-                            {recipe.harmonizacao || "Sugira aos seus clientes acompanhar com um café gourmet de torra média ou um chá de canela intenso para elevar o valor percebido do kit."}
+                            {recipe.harmonizacao || "Sugira aos seus clientes acompanhar com um café gourmet ou chá de canela."}
                         </p>
                     </div>
-
                     <div className="p-8 bg-primary text-white rounded-[3rem] shadow-xl space-y-4">
                         <h4 className="flex items-center gap-3 text-secondary font-black text-sm uppercase tracking-widest leading-none mt-1"><Target size={18} /> Engenharia de Produto</h4>
                         <p className="text-[12px] text-white/60 leading-relaxed font-medium">
-                            {recipe.diferencial || "Esta receita foi otimizada para manter a umidade por até 48 horas em temperatura ambiente, ideal para delivery e encomendas antecipadas."}
+                            {recipe.diferencial || "Receita otimizada para manter a umidade por até 48 horas em temperatura ambiente."}
                         </p>
                     </div>
                 </div>
