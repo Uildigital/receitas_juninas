@@ -205,9 +205,28 @@ export default function LandingPageEliteFinal() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 <span className="relative flex items-center justify-center gap-3 uppercase tracking-tighter">
-                  Ver Minha Meta de Lucro <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                  Acessar Minha Meta de Lucro <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                 </span>
               </motion.button>
+
+              <div className="flex flex-col items-center lg:items-start justify-center gap-2">
+                <div className="flex -space-x-3">
+                  {[
+                    { name: 'User 1', url: 'https://i.pravatar.cc/100?u=1' },
+                    { name: 'User 2', url: 'https://i.pravatar.cc/100?u=2' },
+                    { name: 'User 3', url: 'https://i.pravatar.cc/100?u=3' },
+                    { name: 'User 4', url: 'https://i.pravatar.cc/100?u=4' }
+                  ].map((user, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0A0807] overflow-hidden transition-all bg-white/10">
+                      <Image src={user.url} alt={user.name} width={40} height={40} className="object-cover" />
+                    </div>
+                  ))}
+                  <div className="w-10 h-10 rounded-full border-2 border-[#0A0807] bg-white/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-secondary">
+                    +3k
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">+3.242 alunos faturando</span>
+              </div>
             </div>
           </motion.div>
 
@@ -348,6 +367,53 @@ export default function LandingPageEliteFinal() {
                   </div>
                 </div>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials - Elite Proof */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center mb-20 text-center">
+            <div className="flex items-center justify-center gap-1 mb-6">
+               {[1,2,3,4,5].map(s => <Star key={s} size={18} className="text-secondary fill-secondary" />)}
+            </div>
+            <h2 className="text-4xl sm:text-6xl font-black mb-4 uppercase tracking-tighter">Resultados de Quem Fez</h2>
+            <p className="text-white/40 font-medium tracking-wide italic">Mais de 3.200 vidas transformadas em todo o Brasil apenas neste Arraiá.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                text: "A calculadora é sensacional. Descobri que estava tendo prejuízo nas canjicas há anos. Em junho passado faturei R$ 4.200,00 só com as estratégias de embalagem.", 
+                author: "Luciana Santos", 
+                loc: "Gourmet Home, Recife/PE", 
+                img: "https://i.pravatar.cc/150?u=luciana"
+              },
+              { 
+                text: "Meus produtos triplicaram de valor visual no Instagram e as vendas explodiram usando os scripts de WhatsApp prontos. O retorno veio em 2 dias.", 
+                author: "Neide Ferreira", 
+                loc: "Doces da Vovó, BH", 
+                img: "https://i.pravatar.cc/150?u=neide"
+              },
+              { 
+                text: "Não é um livro de receitas, é uma empresa pronta. O controle de estoque mudou meu jogo. Agora sei exatamente onde está meu lucro. Recomendo demais!", 
+                author: "Eduardo Silva", 
+                loc: "Chef Confeiteiro", 
+                img: "https://i.pravatar.cc/150?u=eduardo"
+              }
+            ].map((test, i) => (
+              <div key={i} className="bg-[#14110F] p-8 rounded-[2.5rem] border border-white/5 relative flex flex-col justify-between hover:border-secondary/20 transition-all group">
+                 <p className="text-base text-white/80 font-bold mb-12 leading-relaxed italic group-hover:text-white transition-colors">"{test.text}"</p>
+                 <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary/20"><Image src={test.img} alt={test.author} width={48} height={48} className="object-cover" /></div>
+                    <div>
+                       <p className="text-sm font-black text-white uppercase tracking-tight">{test.author}</p>
+                       <p className="text-[10px] text-white/30 font-black uppercase tracking-widest">{test.loc}</p>
+                    </div>
+                 </div>
+              </div>
             ))}
           </div>
         </div>
