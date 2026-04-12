@@ -273,8 +273,8 @@ export default function SalesPage() {
              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40">ELITE GOURMET PLATFORM &copy; 2024</p>
              
              <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-white/20">
-               <a href="#" className="hover:text-secondary transition-colors">Termos de Uso</a>
-               <a href="#" className="hover:text-secondary transition-colors">Política de Privacidade</a>
+               <a href="/termos" className="hover:text-secondary transition-colors" target="_blank">Termos de Uso</a>
+               <a href="/privacidade" className="hover:text-secondary transition-colors" target="_blank">Política de Privacidade</a>
                <a href="#" className="hover:text-secondary transition-colors">Contato</a>
              </div>
 
