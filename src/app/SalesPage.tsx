@@ -287,13 +287,35 @@ export default function SalesPage() {
          <div className="space-y-4">
             {[
               { q: "O acesso é um app ou um livro?", a: "É uma plataforma interativa protegida por login e senha. Você acessa receitas, bônus e calculadoras pelo celular ou computador." },
-              { q: "Como a memória de preços funciona?", a: "Ao digitar o preço de um insumo, ele salva globalmente. Todas as receitas que usam esse ingrediente atualizam o custo sozinhas." }
+              { q: "Como a memória de preços funciona?", a: "Ao digitar o preço de um insumo, ele salva globalmente. Todas as receitas que usam esse ingrediente atualizam o custo sozinhas." },
+              { q: "O acesso é imediato?", a: "Sim! Assim que o pagamento for aprovado, você receberá os dados de acesso instantaneamente no seu e-mail. Pagamentos via PIX e Cartão são liberados na hora." },
+              { q: "Por quanto tempo terei acesso?", a: "Seu acesso é vitalício. Você paga uma única vez e terá o guia para sempre, inclusive com todas as atualizações e novas receitas que adicionarmos." },
+              { q: "Preciso entender de matemática ou planilhas?", a: "De jeito nenhum! O sistema foi criado para ser mais simples que o WhatsApp. Você só preenche os preços e ele calcula seu lucro automaticamente." },
+              { q: "Funciona em qualquer celular?", a: "Sim! A plataforma é totalmente responsiva. Funciona perfeitamente em Android, iPhone, tablets e computadores." },
+              { q: "Tenho suporte se tiver dúvidas?", a: "Com certeza. Temos uma equipe pronta para te ajudar com qualquer dúvida técnica ou de acesso que você possa ter." },
+              { q: "Só serve para a época de São João?", a: "De jeito nenhum! Embora sejam receitas típicas, elas são campeãs de vendas o ano todo. Canjica, amendoim e milho são paixões nacionais que vendem em qualquer estação." },
+              { q: "Posso imprimir as receitas?", a: "Sim! A plataforma é otimizada para celular, mas você também pode acessar pelo computador e imprimir suas receitas favoritas se preferir o papel na cozinha." },
+              { q: "O pagamento é seguro?", a: "Totalmente. Processamos nossos pagamentos através da Kiwify, uma das maiores e mais seguras plataformas do Brasil. Seus dados estão 100% protegidos." },
+              { q: "E se eu não gostar do conteúdo?", a: "Você tem 7 dias de garantia incondicional. Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu dinheiro sem burocracia." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white/5 border border-white/5 rounded-3xl overflow-hidden cursor-pointer" onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
-                 <button className="w-full p-8 flex items-center justify-between text-left font-black text-white/80 uppercase text-[10px] tracking-widest leading-relaxed">
-                   {faq.q} <ChevronDown size={14} className={activeFaq === i ? "rotate-180" : ""} />
+              <div 
+                key={i} 
+                className={`group transition-all duration-500 ${activeFaq === i ? "bg-white/10 ring-1 ring-white/20 shadow-2xl" : "bg-white/5 hover:bg-white/[0.08]"} border border-white/5 rounded-[2rem] overflow-hidden cursor-pointer`}
+                onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+              >
+                 <button className="w-full p-7 sm:p-8 flex items-center justify-between text-left font-black text-white/90 uppercase text-[10px] sm:text-[11px] tracking-[0.2em] leading-relaxed transition-colors">
+                   <span className={activeFaq === i ? "text-secondary" : "group-hover:text-white"}>{faq.q}</span>
+                   <div className={`p-2 rounded-xl transition-all duration-500 ${activeFaq === i ? "bg-secondary text-white rotate-180" : "bg-white/5 text-white/20"}`}>
+                      <ChevronDown size={14} />
+                   </div>
                  </button>
-                 {activeFaq === i && <p className="p-8 pt-0 text-sm text-white/40 font-medium leading-relaxed">{faq.a}</p>}
+                 <div className={`grid transition-all duration-500 ease-in-out ${activeFaq === i ? "grid-rows-[1fr] opacity-100 pb-8" : "grid-rows-[0fr] opacity-0"}`}>
+                    <div className="overflow-hidden">
+                       <p className="px-8 pt-6 text-xs sm:text-sm text-white/50 font-medium leading-relaxed border-t border-white/5">
+                          {faq.a}
+                       </p>
+                    </div>
+                 </div>
               </div>
             ))}
          </div>
