@@ -70,7 +70,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         <Image src="/images/bonus_embalagens.png" alt="Embalagens Elite" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] via-[#FFF8F0]/30 to-transparent" />
         <div className="absolute bottom-10 left-6 right-6">
-          <span className="bg-secondary/20 backdrop-blur-md text-secondary text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block border border-secondary/20 shadow-sm">
+          <span className="bg-secondary text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] mb-4 inline-block shadow-xl">
             <Sparkles size={10} className="inline mr-1 mb-0.5" /> Bônus Master Expert
           </span>
           <h1 className="text-4xl font-black text-primary tracking-tighter leading-[0.85] mb-2 text-balance">
