@@ -212,10 +212,10 @@ export default function LandingPageEliteFinal() {
               <div className="flex flex-col items-center lg:items-start justify-center gap-2">
                 <div className="flex -space-x-3">
                   {[
-                    { name: 'User 1', url: 'https://i.pravatar.cc/100?u=1' },
-                    { name: 'User 2', url: 'https://i.pravatar.cc/100?u=2' },
-                    { name: 'User 3', url: 'https://i.pravatar.cc/100?u=3' },
-                    { name: 'User 4', url: 'https://i.pravatar.cc/100?u=4' }
+                    { name: 'Eduardo', url: '/imagens/eduardo.avif' },
+                    { name: 'Roberto', url: '/imagens/roberto.avif' },
+                    { name: 'Neide', url: '/imagens/neide.avif' },
+                    { name: 'Maria', url: '/imagens/maria.avif' }
                   ].map((user, i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0A0807] overflow-hidden transition-all bg-white/10">
                       <Image src={user.url} alt={user.name} width={40} height={40} className="object-cover" />
@@ -389,19 +389,19 @@ export default function LandingPageEliteFinal() {
                 text: "A calculadora é sensacional. Descobri que estava tendo prejuízo nas canjicas há anos. Em junho passado faturei R$ 4.200,00 só com as estratégias de embalagem.", 
                 author: "Luciana Santos", 
                 loc: "Gourmet Home, Recife/PE", 
-                img: "https://i.pravatar.cc/150?u=luciana"
+                img: "/imagens/maria.avif"
               },
               { 
                 text: "Meus produtos triplicaram de valor visual no Instagram e as vendas explodiram usando os scripts de WhatsApp prontos. O retorno veio em 2 dias.", 
                 author: "Neide Ferreira", 
                 loc: "Doces da Vovó, BH", 
-                img: "https://i.pravatar.cc/150?u=neide"
+                img: "/imagens/neide.avif"
               },
               { 
                 text: "Não é um livro de receitas, é uma empresa pronta. O controle de estoque mudou meu jogo. Agora sei exatamente onde está meu lucro. Recomendo demais!", 
                 author: "Eduardo Silva", 
                 loc: "Chef Confeiteiro", 
-                img: "https://i.pravatar.cc/150?u=eduardo"
+                img: "/imagens/eduardo.avif"
               }
             ].map((test, i) => (
               <div key={i} className="bg-[#14110F] p-8 rounded-[2.5rem] border border-white/5 relative flex flex-col justify-between hover:border-secondary/20 transition-all group">
