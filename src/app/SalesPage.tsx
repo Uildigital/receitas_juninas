@@ -145,7 +145,7 @@ export default function LandingPageEliteFinal() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="text-center text-[10px] sm:text-xs font-black uppercase tracking-[0.2em]"
         >
-          🎁 OPORTUNIDADE: ACESSO VITALÍCIO À PLATAFORMA COM 76% OFF ACABA EM: {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+          🔥 OPORTUNIDADE: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
         </motion.div>
       </div>
 
@@ -193,7 +193,7 @@ export default function LandingPageEliteFinal() {
             </h1>
 
             <p className="text-lg sm:text-xl text-white/60 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium italic">
-              "Pare de gastar dinheiro com ingredientes e começar a lucrar centavo por centavo com a nossa calculadora dinâmica blindada contra a inflação."
+              "Transforme a tradição do São João em um negócio previsível. Calcule o custo exato de cada espiga de milho e cada litro de quentão para garantir que o seu Arraiá termine com lucro no bolso."
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
@@ -258,8 +258,8 @@ export default function LandingPageEliteFinal() {
                 <div className="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
                   <div className="h-10 w-10 shrink-0 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary"><Zap size={20}/></div>
                   <div>
-                    <h4 className="font-black text-white text-lg">Atualização em Tempo Real</h4>
-                    <p className="text-white/40 text-sm font-medium">Mudou o preço do leite no mercado? Digite uma vez e a plataforma ajusta o lucro de todas as receitas na hora.</p>
+                    <h4 className="font-black text-white text-lg">Inteligência de São João</h4>
+                    <p className="text-white/40 text-sm font-medium">O preço do milho ou do amendoim subiu no mercado? Altere em um lugar e o lucro de todas as suas receitas (bolos, caldos e doces) atualiza na hora.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
@@ -302,7 +302,7 @@ export default function LandingPageEliteFinal() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
              <h2 className="text-4xl sm:text-6xl font-black mb-6 uppercase tracking-tight">O Cérebro do Seu Negócio</h2>
-             <p className="text-white/40 max-w-xl mx-auto">Você cozinha, nós fazemos a matemática. Blindagem total contra prejuízos.</p>
+             <p className="text-white/40 max-w-xl mx-auto">Dos caldos quentes aos bolos tradicionais: nós fazemos a matemática para você focar no sabor e nas vendas.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
              {[
@@ -325,7 +325,7 @@ export default function LandingPageEliteFinal() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-4xl sm:text-6xl font-black mb-6 tracking-tight uppercase">Módulos de <span className="text-secondary italic">Bônus</span></h2>
-            <p className="text-white/40 text-lg max-w-2xl mx-auto font-medium">Bônus exclusivos que seriam vendidos separadamente por mais de R$ 300,00.</p>
+            <p className="text-white/40 text-lg max-w-2xl mx-auto font-medium">Tudo o que você precisa para dominar a temporada de São João e não deixar dinheiro na mesa.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -454,8 +454,8 @@ export default function LandingPageEliteFinal() {
             </motion.button>
           </div>
           
-          <p className="text-white/20 text-xs font-black uppercase tracking-[0.4em] leading-relaxed">
-             RISCO ZERO: 07 DIAS DE GARANTIA INCONDICIONAL <br/> SE NÃO LUCRAR NA PRIMEIRA SEMANA, DEVOLVEMOS CADA CENTAVO.
+          <p className="text-white/20 text-xs font-black uppercase tracking-widest leading-relaxed">
+             GARANTIA DO ARRAIÁ: 07 DIAS DE SEGURANÇA TOTAL <br/> SE VOCÊ NÃO SENTIR QUE SEU NEGÓCIO JUNINO ESTÁ MAIS LUCRATIVO, DEVOLVEMOS CADA CENTAVO.
           </p>
         </div>
       </section>
