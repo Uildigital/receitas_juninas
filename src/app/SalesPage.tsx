@@ -268,8 +268,25 @@ export default function SalesPage() {
         </div>
       </section>
 
-      <footer className="py-12 text-center opacity-20 text-[10px] font-black uppercase tracking-[0.5em]">
-           ELITE GOURMET PLATFORM &copy; 2024
+      <footer className="py-20 px-6 text-center bg-[#080605] border-t border-white/5">
+           <div className="max-w-4xl mx-auto space-y-8">
+             <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40">ELITE GOURMET PLATFORM &copy; 2024</p>
+             
+             <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-white/20">
+               <a href="#" className="hover:text-secondary transition-colors">Termos de Uso</a>
+               <a href="#" className="hover:text-secondary transition-colors">Política de Privacidade</a>
+               <a href="#" className="hover:text-secondary transition-colors">Contato</a>
+             </div>
+
+             <div className="space-y-4 max-w-2xl mx-auto">
+               <p className="text-[9px] text-white/20 leading-relaxed font-medium">
+                 ESTE SITE NÃO FAZ PARTE DO SITE DO FACEBOOK OU DO FACEBOOK INC. ALÉM DISSO, ESTE SITE NÃO É ENDOSSADO PELO FACEBOOK DE NENHUMA MANEIRA. FACEBOOK É UMA MARCA COMERCIAL DA FACEBOOK, INC.
+               </p>
+               <p className="text-[9px] text-white/10 leading-relaxed font-normal">
+                 Os resultados podem variar de pessoa para pessoa. As informações aqui contidas não são garantias de lucro. Todo esforço foi feito para representar com precisão este produto e seu potencial.
+               </p>
+             </div>
+           </div>
       </footer>
     </main>
   );
