@@ -97,13 +97,13 @@ export default function SalesPage() {
             </div>
 
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter mb-8 italic">
-              A Única <br />
-              <span className="text-secondary">Plataforma</span> <br />
-              de Lucro Junino.
+              Pare de Perder <br />
+              <span className="text-secondary">Dinheiro</span> no <br />
+              São João.
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/60 mb-12 max-w-xl leading-relaxed italic border-l-4 border-secondary/30 pl-8">
-              "Transforme a tradição do São João em um negócio previsível. Calcule o custo exato de cada espiga de milho e litro de quentão para lucrar centavo por centavo."
+            <p className="text-lg sm:text-xl text-white/60 mb-12 max-w-xl leading-relaxed italic border-l-4 border-secondary/30 pl-8 font-medium">
+              "70% das doceiras perdem lucro sem perceber no preço do milho e do gás. Nossa inteligência faz a matemática para você lucrar em cada espiga vendida."
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 items-center lg:items-start">
@@ -147,8 +147,8 @@ export default function SalesPage() {
       <section className="py-24 px-6 bg-[#0E0C0B]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl font-black mb-4 uppercase tracking-tighter">Por que não é apenas <span className="text-secondary italic">mais um e-book?</span></h2>
-            <p className="text-white/40 text-sm sm:text-base font-medium">A diferença entre um PDF jogado no celular e um sistema de lucro real.</p>
+            <h2 className="text-3xl sm:text-5xl font-black mb-4 uppercase tracking-tighter">O Guia Junino <span className="text-secondary italic">Não é um E-book comum</span></h2>
+            <p className="text-white/40 text-sm sm:text-base font-medium max-w-2xl mx-auto italic">"Um erro de R$ 0,50 no cálculo de um pote de canjica pode custar R$ 500,00 de prejuízo no final do mês. Não deixe isso acontecer com você."</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
@@ -183,11 +183,11 @@ export default function SalesPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    { t: "Calculadora de Lucro em Tempo Real", d: "Mude o preço do milho e veja o lucro mudar na hora." },
-                    { t: "Simulador de Metas ROI", d: "Saiba exatamente quanto vender para bater sua meta." },
-                    { t: "Memória Inteligente de Preços", d: "Cadastre um insumo uma vez e use em 40+ receitas." },
-                    { t: "Layout App-Gourmet", d: "Fácil de usar na cozinha, como um app nativo." },
-                    { t: "Suporte VIP & Comunidade", d: "Você nunca estará sozinha na sua jornada." }
+                    { t: "Fácil como usar o WhatsApp", d: "Sem planilhas chatas. Se você sabe enviar mensagem, sabe usar o sistema." },
+                    { t: "Calculadora de Lucro Real", d: "Mude o preço do amendoim e veja seu lucro mudar na hora." },
+                    { t: "Simulador de Metas de Ouro", d: "Diga quanto quer faturar e receba seu roteiro de vendas." },
+                    { t: "Memória de Preços Inteligente", d: "Cadastre um ingrediente uma vez e use em todo o cardápio." },
+                    { t: "Suporte VIP no Arraiá", d: "Dúvidas resolvidas em minutos pela nossa equipe." }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-6 h-6 shrink-0 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
@@ -209,24 +209,24 @@ export default function SalesPage() {
       {/* Bonus - RESTORED RICH DESCRIPTIONS */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-6xl font-black mb-6 uppercase tracking-tight">Conteúdo <span className="text-secondary italic">Exclusivo</span></h2>
-          <p className="text-white/40 text-lg mb-20">Tudo o que você precisa para dominar a temporada de São João.</p>
+          <h2 className="text-4xl sm:text-6xl font-black mb-6 uppercase tracking-tight">Potencializadores de <span className="text-secondary italic">Lucro</span></h2>
+          <p className="text-white/40 text-lg mb-20">Acelere seus resultados com estratégias que os amadores desconhecem.</p>
           
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {[
               { 
-                title: "Neurociência das Embalagens", 
-                desc: "Como valorizar seu produto em até 5x usando materiais simples e design estratégico.",
+                title: "Acelerador de Valor Individual", 
+                desc: "Neurociência das Embalagens: Como cobrar 3x mais pelo mesmo doce apenas mudando a apresentação.",
                 img: "/imagens/bonus_embalagens.png" 
               },
               { 
                 title: "Máquina de Vendas WhatsApp", 
-                desc: "Scripts de Neuromarketing categoria 'Elite' para fechar pedidos em segundos.",
+                desc: "Scripts de Neuromarketing prontos para copiar e colar. Transforme curiosos em clientes em segundos.",
                 img: "/imagens/bonus_whatsapp.png" 
               },
               { 
-                title: "Engenharia de Estoque", 
-                desc: "Protocolo industrial para eliminar desperdícios e organizar seus insumos.",
+                title: "O Guardião do Lucro (Estoque)", 
+                desc: "Engenharia de Estoque: O protocolo para eliminar 100% dos desperdícios de ingredientes no Arraiá.",
                 img: "/imagens/bonus_estoque.png" 
               }
             ].map((bonus, i) => (
