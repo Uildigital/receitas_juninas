@@ -2,8 +2,8 @@
 
 @theme {
   --color-primary: #8B4513;
-  --color-secondary: #D2691E;
-  --color-accent: #FF8C00;
+  --color-secondary: #B75317;
+  --color-accent: #E67E22;
   --color-milho: #FFD700;
   --color-cream: #FFF8F0;
   --color-success: #22C55E;
@@ -13,8 +13,8 @@
   --background: #FFF8F0;
   --foreground: #2D1A12;
   --primary: #8B4513;
-  --secondary: #D2691E;
-  --accent: #FF8C00;
+  --secondary: #B75317;
+  --accent: #E67E22;
 }
 
 body {

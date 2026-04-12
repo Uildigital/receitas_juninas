@@ -3,14 +3,16 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
-const VIPArea = dynamic(() => import("@/components/VIPArea"), { 
-  loading: () => <div className="min-h-screen bg-[#FFF8F0] animate-pulse" />,
-  ssr: false 
+// Carregamento ultrarrápido da SalesPage (apenas o topo)
+// As seções pesadas foram movidas para componentes dinâmicos dentro da SalesPage
+const SalesPage = dynamic(() => import("./SalesPage"), {
+  loading: () => <div className="min-h-screen bg-[#0A0807]" />,
+  ssr: true // Ativado para garantir que o conteúdo inicial apareça no primeiro frame
 });
 
-const SalesPage = dynamic(() => import("./SalesPage"), {
+const VIPArea = dynamic(() => import("@/components/VIPArea"), { 
   loading: () => <div className="min-h-screen bg-[#0A0807] animate-pulse" />,
-  ssr: false
+  ssr: false 
 });
 
 export default function SmartRootPage() {
@@ -29,8 +31,9 @@ export default function SmartRootPage() {
     }
   }, []);
 
+  // No servidor, sempre renderizamos a SalesPage para melhor LCP/SEO
   if (!isClient) {
-    return <div className="min-h-screen bg-[#0A0807]" />;
+    return <SalesPage />;
   }
 
   return isVipUser ? <VIPArea /> : <SalesPage />;
