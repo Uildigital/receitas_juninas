@@ -19,7 +19,9 @@ import {
   Sparkles,
   Layers,
   ThermometerSun,
-  HandHelping
+  HandHelping,
+  Paintbrush,
+  Crown
 } from "lucide-react";
 
 export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
@@ -47,14 +49,11 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         <div className="relative h-[300px] w-full">
             <Image src="/images/bonus_embalagens.png" alt="Embalagens Elite" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] to-transparent/10" />
-            <div className="absolute top-4 left-0 right-0 flex justify-center">
-                <span className="bg-primary/20 backdrop-blur-md text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.3em] border border-white/10">Bônus Master Expert</span>
-            </div>
         </div>
         <div className="px-5 -mt-20 relative z-20">
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5 text-center">
-                <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3">Embalagens que<br/><span className="text-secondary italic">Vendem Sozinhas</span></h1>
-                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em]">Manual técnico detalhado de experiência e branding.</p>
+                <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Branding & <span className="text-secondary italic font-outfit">Psicologia</span></h1>
+                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em] font-inter">A ciência por trás do desejo visual.</p>
             </motion.div>
         </div>
       </div>
@@ -75,20 +74,47 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         <AnimatePresence mode="wait">
           <motion.div key={activeCategory} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.4 }}>
             
+            {/* --- CONCEITO EXPERT: ENRIQUECIMENTO MONUMENTAL --- */}
             {activeCategory === 'conceito' && (
               <div className="space-y-12">
-                <section className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10">
-                    <div className="relative h-60 w-full"><Image src="/images/bonus_embalagens.png" alt="Kraft Elite" fill className="object-cover" /></div>
-                    <div className="p-8">
-                        <div className="flex items-center gap-4 mb-8">
-                            <div className="h-10 w-10 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary"><Layers size={22} /></div>
-                            <div><h3 className="text-xl font-black text-primary tracking-tight">Arquitetura de Marca</h3></div>
+                <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/10">
+                    <div className="relative h-64 w-full"><Image src="/images/bonus_embalagens.png" alt="Kraft Elite" fill className="object-cover" /></div>
+                    <div className="p-10">
+                        <div className="flex items-center gap-4 mb-10">
+                            <div className="h-12 w-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary shadow-inner"><Crown size={24} /></div>
+                            <div>
+                                <h3 className="text-2xl font-black text-primary tracking-tight font-outfit">O Conceito Loft-Rural</h3>
+                                <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em]">Branding Gastronômico de Elite</p>
+                            </div>
                         </div>
-                        <div className="space-y-8 text-[14px] text-primary leading-relaxed font-medium">
-                            <p>O segredo da elite é a <strong>consistência</strong>. Ao usar o papel kraft de <span className="text-secondary font-black">240g</span>, você não está entregando apenas um doce, está entregando um presente. A caixa deve ter resistência estrutural para que o cliente sinta o "peso" da qualidade.</p>
-                            <div className="p-6 bg-amber-50 rounded-[2.5rem] border border-amber-200">
-                                <h4 className="font-black text-amber-900 text-[11px] uppercase mb-2">A Tática do Papel Manteiga Plissado:</h4>
-                                <p className="text-amber-900/70 text-[13px]">Ao dobrar o papel manteiga em pequenas pregas (efeito plissado), você cria um colchão de ar que isola o calor do doce, impedindo que a gordura atinja a caixa de kraft e cause manchas visíveis que matam a estética do unboxing.</p>
+                        
+                        <div className="space-y-12 text-[15px] text-primary/90 leading-relaxed font-medium">
+                            <div className="space-y-4">
+                                <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Paintbrush size={16}/> A Regra de Design 60-30-10</h4>
+                                <p>Para que sua embalagem não pareça um "projeto escolar", aplique a regra de equilíbrio visual das grandes grifes:</p>
+                                <ul className="space-y-3 font-bold text-primary/70">
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">60% Rústico (Papel Kraft):</strong> É a sua cor dominante. Ela comunica origem, cuidado artesanal e sustentabilidade.</span></li>
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">30% Gourmet (Cor de Marca):</strong> Use em fitas de cetim ou adesivos. Sugerimos tons de Terra ou Azul Petróleo para um contraste de luxo.</span></li>
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">10% Ouro (Detalhe Final):</strong> O fecho em sisal fino, um carimbo dourado ou um raminho de alecrim seco. É o "brilho" que justifica o ticket alto.</span></li>
+                                </ul>
+                            </div>
+
+                            <div className="relative p-8 bg-primary text-white rounded-[3rem] shadow-2xl overflow-hidden">
+                                <div className="relative z-10">
+                                    <h4 className="font-black text-[13px] uppercase mb-4 text-secondary tracking-widest">Neurociência: O Valor da Espessura</h4>
+                                    <p className="text-[14px] leading-relaxed mb-6 opacity-80">Nosso cérebro associa <strong>resistência mecânica à qualidade de conteúdo</strong>. Embalagens moles ou finas (abaixo de 200g) transmitem a ideia de produto industrializado e barato. Ao usar o Kraft de 240g, o som da caixa ao ser aberta emite uma frequência que o subconsciente do cliente interpreta como "Produto de Elite".</p>
+                                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-3">
+                                        <Layers size={20} className="text-secondary" />
+                                        <p className="text-[11px] font-bold">DICA: Peça sempre Kraft 'Pardo', que possui fibras mais longas e visual mais rústico que o Kraft 'Simples'.</p>
+                                    </div>
+                                </div>
+                                <div className="absolute top-[-30%] right-[-20%] w-64 h-64 bg-secondary/10 blur-[60px] rounded-full" />
+                            </div>
+
+                            <div className="space-y-4">
+                                <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Zap size={16}/> Camadas de Antecipação (Unboxing)</h4>
+                                <p>O erro do iniciante é mostrar o doce logo de cara. O Expert cria uma jornada de descoberta:</p>
+                                <p className="p-6 border-l-4 border-secondary bg-secondary/5 italic font-bold text-primary/70">"O prazer do unboxing não está no produto final, mas no tempo que levamos para chegar até ele. Use papel de seda branco ou pardo dentro da caixa, fechado com um simples adesivo circular. Isso força o cliente a interagir com a marca por mais 5 segundos antes de ver o doce, aumentando o nível de dopamina."</p>
                             </div>
                         </div>
                     </div>
@@ -96,59 +122,38 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
               </div>
             )}
 
+            {/* --- KITS STRATEGY --- */}
             {activeCategory === 'kits' && (
-              <div className="space-y-12">
+              <div className="space-y-12 text-primary">
                 <section className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10">
                     <div className="relative h-64 w-full"><Image src="/images/box_degustacao.png" alt="Box" fill className="object-cover" /></div>
                     <div className="p-9">
-                        <h4 className="text-2xl font-black text-primary mb-6">Kit "Degustação Estratégica"</h4>
-                        <div className="space-y-6 text-[14px] text-primary/80 leading-relaxed">
-                            <p>Muitos erram ao vender apenas porções grandes. O segredo para escalar é a **Box de 80g**. Este tamanho é matematicamente perfeito: o cliente mata o desejo de provar todos os sabores sem se sentir saciado demais, o que gera o desejo de repetir a compra no dia seguinte.</p>
-                            <div className="p-6 bg-secondary/10 rounded-3xl border border-secondary/20">
-                                <h5 className="font-black text-secondary text-[10px] uppercase mb-2">ROI de Experiência:</h5>
-                                <p className="text-primary font-bold text-[13px]">Venda um combo de 4 boxes (80g cada) por um valor 20% menor que o doce individual. Isso ancora o cérebro do cliente na economia e eleva o seu volume de venda diário.</p>
-                            </div>
+                        <h4 className="text-2xl font-black mb-6">Kit "Degustação Estratégica"</h4>
+                        <p className="text-[14px] leading-relaxed mb-8">O segredo para escalar é a **Box de 80g**. Este tamanho é matematicamente perfeito: o cliente mata o desejo de provar todos os sabores sem se sentir saciado demais, gerando o desejo de repetir a compra.</p>
+                        <div className="p-6 bg-secondary/10 rounded-3xl border border-secondary/20">
+                            <h5 className="font-black text-secondary text-[10px] uppercase mb-2">ROI de Experiência:</h5>
+                            <p className="font-bold text-[13px]">Venda um combo de 4 boxes por um valor 20% menor que o individual. Isso ancora o cérebro na economia e eleva o volume diário.</p>
                         </div>
                     </div>
                 </section>
               </div>
             )}
 
+            {/* --- LOGISTICS --- */}
             {activeCategory === 'entrega' && (
               <div className="space-y-12">
                 <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/5">
                     <div className="relative h-72 w-full"><Image src="/images/delivery_safe.png" alt="Delivery" fill className="object-cover" /></div>
                     <div className="p-10">
-                        <div className="flex items-center gap-4 mb-8"><MessageSquareHeart size={32} className="text-secondary" /><h3 className="text-2xl font-black text-primary tracking-tight leading-none">Logística de<br/>Alta Performance</h3></div>
+                        <div className="flex items-center gap-4 mb-8"><MessageSquareHeart size={32} className="text-secondary" /><h3 className="text-2xl font-black text-primary tracking-tight">Logística Elite</h3></div>
                         
                         <div className="space-y-12">
-                            {/* REAQUECIMENTO DETALHADO */}
-                            <div className="bg-primary text-white p-8 rounded-[3rem] shadow-xl relative overflow-hidden">
-                                <div className="relative z-10">
-                                    <h4 className="flex items-center gap-2 font-black text-lg mb-6 text-secondary uppercase tracking-tighter"><ThermometerSun size={24} /> O Segredo do Reaquecimento Técnico</h4>
-                                    
-                                    <div className="space-y-8">
-                                        <div className="space-y-2">
-                                            <h5 className="font-black text-[12px] text-white uppercase border-b border-white/10 pb-2">Bolo de Milho e Pamonha (Maciez Máxima)</h5>
-                                            <p className="text-[13px] text-white/70 leading-relaxed font-medium">Jamais aqueça o bolo sozinho. O micro-ondas retira a umidade da massa, deixando-a "elástica". <strong>A técnica:</strong> Coloque o bolo em um prato e, ao lado dele, coloque um pequeno copo com 50ml de água. O vapor gerado atuará como uma mini camâra de hidratação, mantendo o bolo fofinho e com aspecto de recém-saído do forno por 15 segundos.</p>
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <h5 className="font-black text-[12px] text-white uppercase border-b border-white/10 pb-2">Canjica, Curau e Cremes (Cremosidade de Colher)</h5>
-                                            <p className="text-[13px] text-white/70 leading-relaxed font-medium">Após o resfriamento, o amido do milho endurece. Para reativar a textura sedosa, adicione uma colher de sopa de leite (ou leite de coco) sobre o creme e aqueça por 30 segundos. Após retirar, misture vigorosamente por 5 segundos. O leite novo se fundirá ao creme aquecido, removendo qualquer aspecto granulado.</p>
-                                        </div>
-                                    </div>
+                            <div className="bg-primary text-white p-8 rounded-[3rem] shadow-xl">
+                                <h4 className="font-black text-lg mb-6 text-secondary uppercase"><ThermometerSun size={24} className="inline mr-2"/> Reaquecimento Técnico</h4>
+                                <div className="space-y-6 text-[13px] leading-relaxed">
+                                    <p><strong>Bolo e Pamonha:</strong> Use a técnica do copo com 50ml de água ao lado no micro-ondas por 15s. O vapor hidrata a massa instantaneamente.</p>
+                                    <p><strong>Cremes:</strong> Adicione uma colher de leite frio antes de aquecer por 30s. Ao mexer, a cremosidade original será reativada.</p>
                                 </div>
-                                <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-secondary/10 blur-[80px] rounded-full" />
-                            </div>
-
-                            {/* MIME E BRANDING OLFATIVO */}
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-4">
-                                    <div className="h-10 w-10 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary"><HandHelping size={20} /></div>
-                                    <h4 className="font-black text-lg text-primary tracking-tight">O Fator "UAU" na Entrega</h4>
-                                </div>
-                                <p className="text-[14px] text-primary/80 leading-relaxed font-medium"><strong>Branding Olfativo Técnico:</strong> Não borrife perfume. Misture 100ml de álcool de cereais com 3 gotas de essência de baunilha e 1 cravo-da-índia. Borrife exclusivamente na alça da sacola kraft. O álcool evaporará, mas a essência fixará na alça. Assim que o entregador estender a mão, o aroma ativará o paladar do cliente de forma inconsciente.</p>
                             </div>
                         </div>
                     </div>
