@@ -20,7 +20,18 @@ export default function SmartRootPage() {
 
     if (isVipParam || isVipStored) {
       setIsVipUser(true);
-      if (isVipParam) localStorage.setItem("webbook-isvip", "true");
+      if (isVipParam) {
+        localStorage.setItem("webbook-isvip", "true");
+        // Track Purchase on Meta Pixel
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', { 
+            value: 47.00, 
+            currency: 'BRL',
+            content_name: 'Guia Junino Interativo',
+            content_category: 'Webbook'
+          });
+        }
+      }
     }
   }, []);
 

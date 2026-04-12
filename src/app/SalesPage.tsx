@@ -54,7 +54,12 @@ export default function SalesPage() {
     };
   }, []);
 
-  const handleCTA = () => { window.location.href = checkoutUrl; };
+  const handleCTA = () => { 
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout');
+    }
+    window.location.href = checkoutUrl; 
+  };
 
   return (
     <main className="min-h-screen bg-[#0A0807] text-white font-sans selection:bg-secondary/30 overflow-x-hidden">
