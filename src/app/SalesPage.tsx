@@ -32,6 +32,7 @@ export default function SalesPage() {
   const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK";
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
+  const [isScrolled, setIsScrolled] = useState(false);
   
   useEffect(() => {
     const timer = setInterval(() => {
