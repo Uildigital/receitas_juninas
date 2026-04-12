@@ -161,9 +161,45 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                     <div className="relative h-72 w-full"><Image src="/images/delivery_safe.png" alt="Delivery" fill className="object-cover" /></div>
                     <div className="p-10">
                         <div className="flex items-center gap-4 mb-8"><MessageSquareHeart size={32} className="text-secondary" /><h3 className="text-2xl font-black text-primary tracking-tight leading-none">Logística Elite</h3></div>
-                        <div className="bg-primary text-white p-8 rounded-[3rem] shadow-xl">
-                            <h4 className="font-black text-lg mb-6 text-secondary uppercase"><ThermometerSun size={24} className="inline mr-2"/> Reaquecimento Técnico</h4>
-                            <p className="text-[13px] leading-relaxed text-white/70">A técnica do copo de água e do leite para reativar a cremosidade garante a satisfação total no pós-venda.</p>
+                        
+                        <div className="space-y-12">
+                            {/* REAQUECIMENTO DETALHADO */}
+                            <div className="bg-primary text-white p-8 rounded-[3rem] shadow-xl relative overflow-hidden">
+                                <div className="relative z-10">
+                                    <h4 className="flex items-center gap-2 font-black text-lg mb-6 text-secondary uppercase tracking-tighter"><ThermometerSun size={24} /> O Segredo do Reaquecimento Técnico</h4>
+                                    
+                                    <div className="space-y-8">
+                                        <div className="space-y-2">
+                                            <h5 className="font-black text-[12px] text-white uppercase border-b border-white/10 pb-2">Bolo de Milho e Pamonha (Maciez Máxima)</h5>
+                                            <p className="text-[13px] text-white/70 leading-relaxed font-medium">Jamais aqueça o bolo sozinho. O micro-ondas retira a umidade da massa, deixando-a "elástica". <strong>A técnica:</strong> Coloque o bolo em um prato e, ao lado dele, coloque um pequeno copo com 50ml de água. O vapor gerado atuará como uma mini camâra de hidratação, mantendo o bolo fofinho e com aspecto de recém-saído do forno por 15 segundos.</p>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <h5 className="font-black text-[12px] text-white uppercase border-b border-white/10 pb-2">Canjica, Curau e Cremes (Cremosidade de Colher)</h5>
+                                            <p className="text-[13px] text-white/70 leading-relaxed font-medium">Após o resfriamento, o amido do milho endurece. Para reativar a textura sedosa, adicione uma colher de sopa de leite (ou leite de coco) sobre o creme e aqueça por 30 segundos. Após retirar, misture vigorosamente por 5 segundos. O leite novo se fundirá ao creme aquecido, removendo qualquer aspecto granulado.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-secondary/10 blur-[80px] rounded-full" />
+                            </div>
+
+                            {/* MIME E BRANDING OLFATIVO */}
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-4">
+                                    <div className="h-10 w-10 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary"><HandHelping size={20} /></div>
+                                    <h4 className="font-black text-lg text-primary tracking-tight">O Fator "UAU" na Entrega</h4>
+                                </div>
+                                <p className="text-[14px] text-primary/80 leading-relaxed font-medium"><strong>Branding Olfativo Técnico:</strong> Não borrife perfume. Misture 100ml de álcool de cereais com 3 gotas de essência de baunilha e 1 cravo-da-índia. Borrife exclusivamente na alça da sacola kraft. O álcool evaporará, mas a essência fixará na alça. Assim que o entregador estender a mão, o aroma ativará o paladar do cliente de forma inconsciente.</p>
+
+                                <div className="bg-amber-100 p-8 rounded-[3rem] border-2 border-amber-300 shadow-sm relative overflow-hidden mt-6 flex gap-4 items-center">
+                                    <BookOpenCheck size={36} className="text-amber-600 shrink-0"/>
+                                    <div>
+                                        <h5 className="text-[13px] font-black text-amber-900 uppercase mb-1">O Detalhe do QR Code</h5>
+                                        <p className="text-[14px] text-amber-950 leading-relaxed font-bold">Cole um QR Code que leva para um vídeo rápido seu agradecendo. Isso humaniza a marca e destrói qualquer concorrência por preço.</p>
+                                    </div>
+                                    <div className="absolute right-[-5%] top-[-20%] opacity-10"><BookOpenCheck size={120}/></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
