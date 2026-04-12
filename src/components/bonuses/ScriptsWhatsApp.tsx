@@ -69,7 +69,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
                 
                 <button 
                   onClick={() => handleCopy(script.id, script.texto)}
-                  className={\`w-full py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 \${copiedId === script.id ? "bg-success text-white shadow-success/20" : "bg-primary text-white hover:bg-primary/90"}\`}
+                  className={`w-full py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 ${copiedId === script.id ? "bg-success text-white shadow-success/20" : "bg-primary text-white hover:bg-primary/90"}`}
                 >
                   {copiedId === script.id ? (
                     <><Check size={18} /> COPIADO! VÁ PARA O ZAP</>

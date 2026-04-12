@@ -55,13 +55,13 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
               <div 
                 key={item.id} 
                 onClick={() => toggleItem(item.id)}
-                className={\`flex items-start gap-4 p-5 rounded-3xl border transition-all cursor-pointer shadow-lg \${completedItems[item.id] ? "bg-success/10 border-success opacity-80" : "bg-white border-primary/5 active:scale-95"}\`}
+                className={`flex items-start gap-4 p-5 rounded-3xl border transition-all cursor-pointer shadow-lg ${completedItems[item.id] ? "bg-success/10 border-success opacity-80" : "bg-white border-primary/5 active:scale-95"}`}
               >
-                <div className={\`shrink-0 h-12 w-12 rounded-2xl flex items-center justify-center transition-all \${completedItems[item.id] ? "bg-success text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]" : "bg-primary/5 text-primary"}\`}>
+                <div className={`shrink-0 h-12 w-12 rounded-2xl flex items-center justify-center transition-all ${completedItems[item.id] ? "bg-success text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]" : "bg-primary/5 text-primary"}`}>
                   {completedItems[item.id] ? <CheckCircle2 size={24} /> : <item.icon size={24} />}
                 </div>
-                <div>
-                  <h3 className={\`text-base font-black mb-1 \${completedItems[item.id] ? "text-success" : "text-primary"}\`}>{item.title}</h3>
+                <div className="flex-1">
+                  <h3 className={`text-base font-black mb-1 ${completedItems[item.id] ? "text-success" : "text-primary"}`}>{item.title}</h3>
                   <p className="text-xs text-primary/60 font-medium leading-relaxed">{item.desc}</p>
                 </div>
               </div>
