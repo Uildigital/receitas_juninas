@@ -8,10 +8,13 @@ const VIPArea = dynamic(() => import("@/components/VIPArea"), {
   ssr: false 
 });
 
-import LandingPage from "@/components/LandingPage";
+const SalesPage = dynamic(() => import("./SalesPage"), {
+  loading: () => <div className="min-h-screen bg-[#0A0807] animate-pulse" />,
+  ssr: false
+});
 
 export default function SmartRootPage() {
-  const [isVipUser, setIsVipUser] = useState<boolean | null>(false); // Assume false for SSR to deliver Landing Page immediately
+  const [isVipUser, setIsVipUser] = useState<boolean | null>(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -27,9 +30,8 @@ export default function SmartRootPage() {
   }, []);
 
   if (!isClient) {
-      // Server-side: Always render LandingPage immediately for fast FCP/LCP
-      return <LandingPage />;
+    return <div className="min-h-screen bg-[#0A0807]" />;
   }
 
-  return isVipUser ? <VIPArea /> : <LandingPage />;
+  return isVipUser ? <VIPArea /> : <SalesPage />;
 }

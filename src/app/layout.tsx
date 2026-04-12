@@ -9,9 +9,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Receitas de São João | O Seu Livro de Cozinha Junina",
-  description: "Aprenda a fazer as melhores receitas juninas com um passo a passo interativo e progressivo.",
+  title: "Guia Junino Interativo | A Web-App que Calcula seu Lucro 🌽",
+  description: "Garanta seu acesso vitalício ao Guia Junino Interativo com 76% de desconto. 40+ receitas lucrativas com calculadora de custos e simulador de metas.",
   manifest: "/manifest.json",
+  openGraph: {
+    title: "Guia Junino Interativo | Web-App de Lucro",
+    description: "Transforme sua cozinha em uma fonte de lucro nestas festas juninas.",
+    images: [{ url: "/imagens/mockup.avif", width: 1200, height: 630, alt: "Mockup do Guia Junino" }],
+    type: "website",
+  },
   verification: {
     other: {
       "facebook-domain-verification": ["uebq3kzcd3u1ni8hjupk4iwn8w8hxa"],
@@ -43,7 +49,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <link rel="preload" href="/images/mockup.avif" as="image" type="image/avif" />
+        <link rel="preload" href="/imagens/mockup.avif" as="image" type="image/avif" />
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
