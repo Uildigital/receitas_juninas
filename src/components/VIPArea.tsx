@@ -281,43 +281,50 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
     return (
       <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="pb-48 bg-[#FFF8F0] min-h-screen">
         {/* Header Elite */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button onClick={onBack} className="p-2 bg-primary/10 rounded-xl text-primary active:scale-90 transition-transform"><ChevronLeft size={24} /></button>
-            <h2 className="font-black text-sm text-primary truncate max-w-[200px] leading-tight">{recipe.titulo}</h2>
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between shadow-sm">
+          <div className="flex items-center gap-3">
+            <button onClick={onBack} className="p-2.5 bg-primary/10 rounded-xl text-primary active:scale-90 transition-transform"><ChevronLeft size={20} /></button>
+            <h2 className="font-black text-[13px] text-primary truncate max-w-[150px] leading-tight tracking-tight">{recipe.titulo}</h2>
           </div>
-          <div className="flex bg-primary/5 p-1 rounded-xl border border-primary/10">
-              {['cozinha', 'lucro', 'dicas'].map((t: any) => (
-                  <button key={t} onClick={() => setDetailTab(t)} className={`px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${detailTab === t ? "bg-primary text-white shadow-lg" : "text-primary/40"}`}>
-                      {t === 'cozinha' ? <ChefHat size={14}/> : t === 'lucro' ? <Calculator size={14}/> : <Sparkles size={14}/>}
+          <div className="flex bg-primary/5 p-1.5 rounded-2xl border border-primary/10">
+              {[
+                { id: 'cozinha', icon: ChefHat, label: 'Preparo' },
+                { id: 'lucro', icon: Calculator, label: 'ROI' },
+                { id: 'dicas', icon: Sparkles, label: 'Dicas' }
+              ].map((t: any) => (
+                  <button key={t.id} onClick={() => setDetailTab(t.id)} className={`flex items-center justify-center p-3 rounded-xl transition-all ${detailTab === t.id ? "bg-primary text-white shadow-xl scale-110" : "text-primary/30 hover:text-primary/60"}`}>
+                      <t.icon size={20}/>
                   </button>
               ))}
           </div>
         </header>
 
-        <div className="relative h-[35vh] w-full">
+        <div className="relative h-[30vh] w-full">
             <Image src={recipe.imagem} alt={recipe.titulo} fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] via-transparent to-transparent" />
         </div>
 
-        <div className="px-6 -mt-6 relative z-10 max-w-lg mx-auto">
+        <div className="px-5 -mt-8 relative z-10 max-w-lg mx-auto">
           <AnimatePresence mode="wait">
             
             {/* ======================================================== */}
             {/* ABA: COZINHA (PREPARO) */}
             {/* ======================================================== */}
             {detailTab === 'cozinha' && (
-              <motion.div key="cozinha" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
-                <section className="bg-primary text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden border-b-8 border-secondary">
-                    <div className="relative z-10 flex items-center justify-between">
-                        <div>
-                            <h3 className="text-xl font-black mb-1 flex items-center gap-2 tracking-tight"><Calculator size={22} className="text-secondary" /> Escala de Produção</h3>
-                            <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">Multiplicador Inteligente</p>
+              <motion.div key="cozinha" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6">
+                <section className="bg-primary text-white p-6 rounded-[2.5rem] shadow-2xl relative overflow-hidden border-b-4 border-secondary/50">
+                    <div className="relative z-10 flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                            <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center text-secondary shadow-inner"><Calculator size={18} /></div>
+                            <div>
+                                <h3 className="text-sm font-black tracking-tight leading-none mb-1">Escala</h3>
+                                <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Ajuste Rápido</p>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-1 bg-white/10 p-1.5 rounded-2.5rem">
-                            <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-10 w-10 bg-white/10 rounded-2xl flex items-center justify-center active:scale-90"><Minus size={18} /></button>
-                            <div className="px-4 text-center min-w-[60px]"><span className="text-2xl font-black text-secondary leading-none">{yieldMultiplier}x</span></div>
-                            <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-10 w-10 bg-secondary rounded-2xl flex items-center justify-center text-primary active:scale-90"><Plus size={18} /></button>
+                        <div className="flex items-center gap-1 bg-white/5 p-1 rounded-2xl border border-white/5">
+                            <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center active:scale-90 transition-all"><Minus size={14} /></button>
+                            <div className="px-3 text-center min-w-[50px]"><span className="text-xl font-black text-secondary leading-none">{yieldMultiplier}x</span></div>
+                            <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-8 w-8 bg-secondary rounded-lg flex items-center justify-center text-primary active:scale-90 transition-all font-black"><Plus size={14} /></button>
                         </div>
                     </div>
                 </section>
