@@ -177,7 +177,11 @@ export default function VIPArea() {
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => { setActiveTab(tab.id as any); setSelectedRecipe(null); }}
+              onClick={() => { 
+                setActiveTab(tab.id as any); 
+                setSelectedRecipe(null); 
+                setActiveBonus(null); 
+              }}
               className={`flex items-center gap-2 px-5 py-3 rounded-full transition-all ${activeTab === tab.id ? "bg-secondary text-white shadow-lg" : "text-white/40 hover:text-white"}`}
             >
               <tab.icon size={18} />
