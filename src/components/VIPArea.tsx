@@ -249,150 +249,226 @@ function RecipesListView({ recipes, categories, activeCategory, setActiveCategor
 }
 
 function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMultiplier, setYieldMultiplier }: any) {
-    const [ingredientPrices, setIngredientPrices] = useState<Record<number, string>>({});
+    const [detailTab, setDetailTab] = useState<'cozinha' | 'lucro' | 'dicas'>('cozinha');
+    const [calcData, setCalcData] = useState<Record<number, { price: string; totalQty: string; usedQty: string }>>({});
+    const [extraCosts, setExtraCosts] = useState({ gas: '2', labor: '5', energy: '1', packaging: '3', sellMultiplier: '3' });
+    const [monthlyGoal, setMonthlyGoal] = useState('2000');
 
-    const totalCost = Object.values(ingredientPrices).reduce((acc, price) => {
-        const val = parseFloat(price.replace(',', '.'));
-        return isNaN(val) ? acc : acc + val;
+    // Inicializa pesos sugeridos do JSON se vazio
+    useEffect(() => {
+        const initial: any = {};
+        recipe.ingredientes.forEach((ing: string, i: number) => {
+            const match = ing.match(/(\d+)(g|ml)/i);
+            initial[i] = { price: '', totalQty: match ? match[1] : '1000', usedQty: match ? match[1] : '100' };
+        });
+        setCalcData(initial);
+    }, [recipe]);
+
+    const totalIngCost = Object.values(calcData).reduce((acc, item) => {
+        const p = parseFloat(item.price.replace(',', '.'));
+        const t = parseFloat(item.totalQty.replace(',', '.'));
+        const u = parseFloat(item.usedQty.replace(',', '.'));
+        if (isNaN(p) || isNaN(t) || isNaN(u) || t === 0) return acc;
+        return acc + (p / t) * u;
     }, 0);
 
-    const handlePriceChange = (index: number, val: string) => {
-        setIngredientPrices(prev => ({ ...prev, [index]: val }));
-    };
+    const extrasSum = parseFloat(extraCosts.gas) + parseFloat(extraCosts.labor) + parseFloat(extraCosts.energy) + parseFloat(extraCosts.packaging);
+    const costPerRecipe = (totalIngCost + extrasSum) * yieldMultiplier;
+    const sellPrice = costPerRecipe * parseFloat(extraCosts.sellMultiplier);
+    const profitPerRecipe = sellPrice - costPerRecipe;
+    const unitsToGoal = profitPerRecipe > 0 ? Math.ceil(parseFloat(monthlyGoal) / profitPerRecipe) : 0;
 
     return (
       <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="pb-48 bg-[#FFF8F0] min-h-screen">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between">
+        {/* Header Elite */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-primary/5 p-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button onClick={onBack} className="p-2 bg-primary/10 rounded-xl text-primary active:scale-90 transition-transform"><ChevronLeft size={24} /></button>
-            <div>
-                <h2 className="font-black text-[10px] text-primary/40 uppercase tracking-widest leading-none mb-1">{recipe.categoria}</h2>
-                <h2 className="font-black text-sm text-primary truncate max-w-[180px] leading-none">{recipe.titulo}</h2>
-            </div>
+            <h2 className="font-black text-sm text-primary truncate max-w-[200px] leading-tight">{recipe.titulo}</h2>
           </div>
-          <div className="bg-success/10 px-3 py-1.5 rounded-xl border border-success/20 flex items-center gap-2">
-            <Calculator size={14} className="text-success" />
-            <span className="text-[10px] font-black text-success uppercase tracking-widest">Financeiro Master</span>
+          <div className="flex bg-primary/5 p-1 rounded-xl border border-primary/10">
+              {['cozinha', 'lucro', 'dicas'].map((t: any) => (
+                  <button key={t} onClick={() => setDetailTab(t)} className={`px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${detailTab === t ? "bg-primary text-white shadow-lg" : "text-primary/40"}`}>
+                      {t === 'cozinha' ? <ChefHat size={14}/> : t === 'lucro' ? <Calculator size={14}/> : <Sparkles size={14}/>}
+                  </button>
+              ))}
           </div>
         </header>
 
-        <div className="relative h-[40vh] w-full shadow-2xl">
+        <div className="relative h-[35vh] w-full">
             <Image src={recipe.imagem} alt={recipe.titulo} fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] via-transparent to-transparent" />
-            
-            <div className="absolute bottom-10 left-6 right-6 flex gap-2">
-                <div className="bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20">
-                    <Clock size={14} className="text-secondary" />
-                    <span className="text-[11px] font-black text-primary uppercase">{recipe.tempo}</span>
-                </div>
-                <div className="bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20">
-                    <Trophy size={14} className="text-secondary" />
-                    <span className="text-[11px] font-black text-primary uppercase">{recipe.dificuldade}</span>
-                </div>
-            </div>
         </div>
 
-        <div className="px-6 -mt-6 relative z-10 max-w-lg mx-auto space-y-10">
-          
-          {/* CALCULADORA DE PORÇÕES */}
-          <section className="bg-primary text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden border-b-8 border-secondary">
-            <div className="relative z-10 flex items-center justify-between">
-                <div>
-                    <h3 className="text-xl font-black mb-1 flex items-center gap-2 tracking-tight"><Calculator size={22} className="text-secondary" /> Ajuste de Receita</h3>
-                    <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">Escalar para encomendas</p>
-                </div>
-                <div className="flex items-center gap-1 bg-white/10 p-1.5 rounded-2.5rem border border-white/10">
-                    <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-10 w-10 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white/20 active:scale-90 transition-all font-black"><Minus size={18} /></button>
-                    <div className="px-4 text-center min-w-[60px]"><span className="text-2xl font-black text-secondary leading-none">{yieldMultiplier}x</span><p className="text-[8px] font-black uppercase text-white/40 tracking-widest mt-1">Porção</p></div>
-                    <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-10 w-10 bg-secondary rounded-2xl flex items-center justify-center text-primary hover:bg-secondary/90 active:scale-90 transition-all font-black"><Plus size={18} /></button>
-                </div>
-            </div>
-          </section>
-
-          {/* CHECKLIST DE INGREDIENTES */}
-          <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5">
-            <h3 className="text-2xl font-black text-primary mb-6">Mise en Place</h3>
-            <div className="space-y-3">
-              {recipe.ingredientes.map((ing: string, i: number) => (
-                <div key={i} onClick={() => toggleItem(recipe.id, "ing", i)} className={`flex items-center gap-4 p-5 rounded-2xl border transition-all cursor-pointer ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary/5 opacity-50 grayscale" : "bg-white border-primary/5 shadow-sm active:scale-[0.98]"}`}>
-                  <div className={`h-6 w-6 rounded-lg border-2 flex items-center justify-center shrink-0 transition-colors ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary border-secondary text-white" : "border-primary/10"}`}>{completedItems[`${recipe.id}-ing-${i}`] && <CheckCircle2 size={16} />}</div>
-                  <span className="text-[14px] font-bold text-primary leading-tight">{yieldMultiplier > 1 && <span className="text-secondary mr-2">{yieldMultiplier}x</span>}{ing}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* FICHA TÉCNICA INTERATIVA (NOVO) */}
-          <section className="bg-white p-10 rounded-[4rem] shadow-2xl border border-primary/10 overflow-hidden relative group">
-             <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-10">
-                    <div className="h-12 w-12 bg-success/10 rounded-2xl flex items-center justify-center text-success shadow-inner"><Coins size={26} /></div>
-                    <div>
-                        <h3 className="text-2xl font-black text-primary tracking-tight">Cálculo de Lucro Real</h3>
-                        <p className="text-[10px] font-black text-primary/30 uppercase tracking-[0.3em]">Custo Dinâmico de Insumos</p>
+        <div className="px-6 -mt-6 relative z-10 max-w-lg mx-auto">
+          <AnimatePresence mode="wait">
+            
+            {/* ======================================================== */}
+            {/* ABA: COZINHA (PREPARO) */}
+            {/* ======================================================== */}
+            {detailTab === 'cozinha' && (
+              <motion.div key="cozinha" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <section className="bg-primary text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden border-b-8 border-secondary">
+                    <div className="relative z-10 flex items-center justify-between">
+                        <div>
+                            <h3 className="text-xl font-black mb-1 flex items-center gap-2 tracking-tight"><Calculator size={22} className="text-secondary" /> Escala de Produção</h3>
+                            <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">Multiplicador Inteligente</p>
+                        </div>
+                        <div className="flex items-center gap-1 bg-white/10 p-1.5 rounded-2.5rem">
+                            <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-10 w-10 bg-white/10 rounded-2xl flex items-center justify-center active:scale-90"><Minus size={18} /></button>
+                            <div className="px-4 text-center min-w-[60px]"><span className="text-2xl font-black text-secondary leading-none">{yieldMultiplier}x</span></div>
+                            <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-10 w-10 bg-secondary rounded-2xl flex items-center justify-center text-primary active:scale-90"><Plus size={18} /></button>
+                        </div>
                     </div>
+                </section>
+
+                <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5">
+                    <h3 className="text-2xl font-black text-primary mb-6">Ingredientes</h3>
+                    <div className="space-y-3">
+                    {recipe.ingredientes.map((ing: string, i: number) => (
+                        <div key={i} onClick={() => toggleItem(recipe.id, "ing", i)} className={`flex items-center gap-4 p-5 rounded-2xl border transition-all cursor-pointer ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary/5 opacity-40 grayscale" : "bg-white border-primary/5 shadow-sm active:scale-[0.98]"}`}>
+                        <div className={`h-6 w-6 rounded-lg border-2 flex items-center justify-center shrink-0 ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary border-secondary text-white" : "border-primary/10"}`}>{completedItems[`${recipe.id}-ing-${i}`] && <CheckCircle2 size={16} />}</div>
+                        <span className="text-[14px] font-bold text-primary leading-tight">{yieldMultiplier > 1 && <span className="text-secondary mr-2">{yieldMultiplier}x</span>}{ing}</span>
+                        </div>
+                    ))}
+                    </div>
+                </section>
+
+                <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5">
+                    <h3 className="text-2xl font-black text-primary mb-8 flex items-center gap-3"><ChefHat size={28} className="text-secondary" /> Passo a Passo</h3>
+                    <div className="space-y-8">
+                    {recipe.preparo.map((step: string, i: number) => (
+                        <div key={i} onClick={() => toggleItem(recipe.id, "step", i)} className={`flex gap-5 p-6 rounded-[2.5rem] border transition-all cursor-pointer ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary/5 opacity-40 grayscale" : "bg-white border-primary/5 shadow-sm active:scale-[0.98]"}`}>
+                        <div className={`h-10 w-10 shrink-0 rounded-2xl flex items-center justify-center font-black text-lg ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary text-white" : "bg-primary/5 text-primary"}`}>{i + 1}</div>
+                        <p className="text-[15px] font-bold leading-relaxed text-primary/90">{step}</p>
+                        </div>
+                    ))}
+                    </div>
+                </section>
+              </motion.div>
+            )}
+
+            {/* ======================================================== */}
+            {/* ABA: LUCRO REAL (SIMULADOR AVANÇADO) */}
+            {/* ======================================================== */}
+            {detailTab === 'lucro' && (
+              <motion.div key="lucro" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <div className="bg-success text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                    <div className="relative z-10">
+                        <h3 className="text-2xl font-black mb-1 flex items-center gap-2"><Calculator size={24} /> Simulador ROI Expert</h3>
+                        <p className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Sua empresa, seus números.</p>
+                    </div>
+                    <div className="absolute top-[-40%] right-[-10%] w-48 h-48 bg-white/10 blur-[50px] rounded-full" />
                 </div>
 
-                <div className="space-y-6">
+                <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/10">
+                    <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-6 pl-2">1. Insumos (Preço e Medida Total):</h4>
                     <div className="space-y-4">
-                        <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest pl-2">Preço Pago por Insumo:</h4>
                         {recipe.ingredientes.map((ing: string, i: number) => (
-                            <div key={i} className="flex items-center gap-4 bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
-                                <span className="text-xs font-bold text-primary truncate flex-1">{ing}</span>
-                                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-primary/10 shadow-sm w-28">
-                                    <span className="text-[10px] font-black text-primary/30">R$</span>
-                                    <input 
-                                        type="text" 
-                                        placeholder="0,00" 
-                                        value={ingredientPrices[i] || ""} 
-                                        onChange={(e) => handlePriceChange(i, e.target.value)}
-                                        className="w-full bg-transparent outline-none font-black text-xs text-primary"
-                                    />
+                            <div key={i} className="bg-primary/[0.02] p-6 rounded-[2.5rem] border border-primary/5 space-y-4">
+                                <span className="text-[13px] font-black text-primary block leading-tight">{ing}</span>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div className="bg-white p-3 rounded-xl border border-primary/10">
+                                        <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Preço Pago (R$)</span>
+                                        <input type="text" value={calcData[i]?.price || ''} onChange={(e) => setCalcData({...calcData, [i]: {...calcData[i], price: e.target.value}})} className="w-full bg-transparent outline-none font-black text-xs" placeholder="0,00" />
+                                    </div>
+                                    <div className="bg-white p-3 rounded-xl border border-primary/10">
+                                        <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Peso Total (g/ml)</span>
+                                        <input type="text" value={calcData[i]?.totalQty || ''} onChange={(e) => setCalcData({...calcData, [i]: {...calcData[i], totalQty: e.target.value}})} className="w-full bg-transparent outline-none font-black text-xs" placeholder="1000" />
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+                </section>
 
-                    <div className="pt-8 border-t-2 border-dashed border-primary/10 space-y-6">
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="p-6 bg-primary/5 rounded-[2.5rem] border border-primary/10 shadow-inner">
-                                <span className="text-[9px] font-black text-primary/40 uppercase block mb-1">Custo Produção</span>
-                                <span className="text-xl font-black text-primary leading-none">R$ {totalCost.toFixed(2).replace('.', ',')}</span>
-                            </div>
-                            <div className="p-6 bg-success/10 rounded-[2.5rem] border border-success/20 shadow-inner">
-                                <span className="text-[9px] font-black text-success uppercase block mb-1">Sugestão Venda</span>
-                                <span className="text-xl font-black text-success leading-none">R$ {(totalCost * 3).toFixed(2).replace('.', ',')}</span>
+                <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/10">
+                    <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-6 pl-2">2. Custos Indiretos (Por Receita):</h4>
+                    <div className="grid grid-cols-2 gap-4">
+                        {Object.entries(extraCosts).map(([key, val]) => (
+                            key !== 'sellMultiplier' && (
+                                <div key={key} className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
+                                    <span className="text-[8px] font-black uppercase text-primary/40 block mb-1">{key === 'gas' ? 'Gás/Energia' : key === 'labor' ? 'Mão de Obra' : key === 'energy' ? 'Água/Diversos' : 'Embalagem/Tags'} (R$)</span>
+                                    <input type="text" value={val} onChange={(e) => setExtraCosts({...extraCosts, [key]: e.target.value})} className="w-full bg-transparent outline-none font-black text-xs text-primary" />
+                                </div>
+                            )
+                        ))}
+                    </div>
+                </section>
+
+                <section className="bg-primary text-white p-10 rounded-[4rem] shadow-2xl space-y-8 relative overflow-hidden">
+                    <div className="relative z-10">
+                        <div className="flex justify-between items-center bg-white/10 p-6 rounded-[2rem] border border-white/10 mb-6">
+                            <div><span className="text-[10px] font-black uppercase text-white/50">Custo Total x{yieldMultiplier}</span><p className="text-3xl font-black">R$ {costPerRecipe.toFixed(2).replace('.', ',')}</p></div>
+                            <div className="text-right">
+                                <span className="text-[10px] font-black uppercase text-secondary">Margem Sugerida</span>
+                                <select value={extraCosts.sellMultiplier} onChange={(e) => setExtraCosts({...extraCosts, sellMultiplier: e.target.value})} className="bg-secondary text-primary font-black px-3 py-1 rounded-lg outline-none ml-2 block">
+                                    <option value="2">2x (Baixa)</option>
+                                    <option value="2.5">2.5x (Média)</option>
+                                    <option value="3">3x (Ideal)</option>
+                                    <option value="4">4x (Premium)</option>
+                                </select>
                             </div>
                         </div>
-                        <div className="p-8 bg-primary text-white rounded-[3rem] shadow-2xl flex items-center justify-between">
-                            <div className="flex items-center gap-3"><Zap size={22} className="text-secondary" /><span className="text-[11px] font-black uppercase tracking-widest leading-none mt-1">Lucro Estimado:</span></div>
-                            <span className="text-2xl font-black text-white leading-none">R$ {(totalCost * 2).toFixed(2).replace('.', ',')}</span>
+
+                        <div className="space-y-6">
+                            <h4 className="text-xl font-black text-secondary flex items-center gap-2">🎯 Meta Mensal de Lucro</h4>
+                            <div className="flex items-center gap-4 bg-white/5 p-6 rounded-[2.5rem] border border-white/10">
+                                <div className="flex-1 text-center border-r border-white/10">
+                                    <span className="text-[9px] font-black uppercase text-white/40 block mb-2">Quero Ganhar (Lucro)</span>
+                                    <div className="flex items-center justify-center gap-1"><span className="text-xs font-black opacity-40">R$</span><input type="text" value={monthlyGoal} onChange={(e) => setMonthlyGoal(e.target.value)} className="bg-transparent border-b border-secondary/40 text-2xl font-black outline-none w-24 text-center text-secondary" /></div>
+                                </div>
+                                <div className="flex-1 text-center">
+                                    <span className="text-[9px] font-black uppercase text-white/40 block mb-2">Meta de Vendas</span>
+                                    <p className="text-3xl font-black">{unitsToGoal} un</p>
+                                    <span className="text-[8px] font-black uppercase text-secondary tracking-widest">Desta Receita</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-             </div>
-          </section>
+                </section>
+              </motion.div>
+            )}
 
-          {/* MODO DE PREPARO */}
-          <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5">
-            <h3 className="text-2xl font-black text-primary mb-8 flex items-center gap-3"><ChefHat size={28} className="text-secondary" /> Mão na Massa</h3>
-            <div className="space-y-8">
-              {recipe.preparo.map((step: string, i: number) => (
-                <div key={i} onClick={() => toggleItem(recipe.id, "step", i)} className={`flex gap-5 p-6 rounded-[2.5rem] border transition-all cursor-pointer ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary/5 opacity-50 grayscale" : "bg-white border-primary/5 shadow-sm active:scale-[0.98]"}`}>
-                  <div className={`h-10 w-10 shrink-0 rounded-2xl flex items-center justify-center font-black text-lg shadow-inner ${completedItems[`${recipe.id}-step-${i}`] ? "bg-secondary text-white" : "bg-primary/5 text-primary"}`}>{i + 1}</div>
-                  <p className="text-[15px] font-bold leading-relaxed text-primary/90">{step}</p>
+            {/* ======================================================== */}
+            {/* ABA: DICAS MASTER (CHEF'S CORNER) */}
+            {/* ======================================================== */}
+            {detailTab === 'dicas' && (
+              <motion.div key="dicas" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <div className="bg-secondary p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                    <div className="relative z-10">
+                        <h3 className="text-2xl font-black text-primary mb-1 flex items-center gap-2 tracking-tighter"><Sparkles size={24} /> Chef's Corner</h3>
+                        <p className="text-[10px] font-bold text-primary/50 uppercase tracking-[0.2em]">O diferencial que cobra caro.</p>
+                    </div>
+                    <Activity className="absolute bottom-[-10%] right-[-10%] text-primary/5" size={140} />
                 </div>
-              ))}
-            </div>
-          </section>
 
-          <section className="p-10 bg-primary rounded-[4rem] text-white relative overflow-hidden group">
-             <div className="relative z-10 space-y-4">
-                <h4 className="text-xl font-black flex items-center gap-3 text-secondary"><Activity size={22} /> Engenharia de Cardápio</h4>
-                <p className="text-xs text-white/60 leading-relaxed font-medium">Ao preencher os custos reais acima, você blinda seu lucro contra a inflação dos insumos. Mantenha sua ficha técnica sempre atualizada conforme as compras no mercado.</p>
-             </div>
-             <Activity className="absolute bottom-[-20%] right-[-10%] text-white/5" size={120} />
-          </section>
+                <div className="bg-white p-10 rounded-[4rem] shadow-2xl border border-primary/10 space-y-10 relative overflow-hidden text-primary">
+                    <div className="space-y-4">
+                        <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Zap size={18}/> O Grande Segredo</h4>
+                        <p className="text-[15px] leading-relaxed font-bold italic border-l-4 border-secondary pl-6 py-2 bg-secondary/5 rounded-r-2xl">
+                            "{recipe.segredo || "O segredo desta receita está no tempo exato de descanso para que a textura atinja o ponto de corte perfeito."}"
+                        </p>
+                    </div>
+
+                    <div className="space-y-6 pt-10 border-t border-primary/5">
+                        <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Activity size={18}/> Harmonização Premium</h4>
+                        <p className="text-[14px] leading-relaxed text-primary/80 font-medium">
+                            {recipe.harmonizacao || "Sugira aos seus clientes acompanhar com um café gourmet de torra média ou um chá de canela intenso para elevar o valor percebido do kit."}
+                        </p>
+                    </div>
+
+                    <div className="p-8 bg-primary text-white rounded-[3rem] shadow-xl space-y-4">
+                        <h4 className="flex items-center gap-3 text-secondary font-black text-sm uppercase tracking-widest leading-none mt-1"><Target size={18} /> Engenharia de Produto</h4>
+                        <p className="text-[12px] text-white/60 leading-relaxed font-medium">
+                            {recipe.diferencial || "Esta receita foi otimizada para manter a umidade por até 48 horas em temperatura ambiente, ideal para delivery e encomendas antecipadas."}
+                        </p>
+                    </div>
+                </div>
+              </motion.div>
+            )}
+
+          </AnimatePresence>
         </div>
       </motion.div>
     );
