@@ -335,21 +335,21 @@ export default function LandingPageEliteFinal() {
                 desc: "O guia estratégico para usar a Regra 60-30-10 de cores e o Kraft 240g para dobrar seu preço sem mudar a receita.",
                 icon: Package,
                 value: "R$ 97,00",
-                img: "/images/recipe_premium.png"
+                img: "/images/bonus_embalagens.png"
               },
               {
                 title: "Máquina de Vendas WhatsApp",
                 desc: "Scripts de Neuromarketing categoria 'Elite'. Do atendimento à recuperação de venda em 1 clique.",
                 icon: MessageCircle,
                 value: "R$ 147,00",
-                img: "https://webbookpro.com/imagens/scrpts.avif"
+                img: "/images/bonus_whatsapp.png"
               },
               {
                 title: "Engenharia de Fluxo (Estoque)",
                 desc: "O protocolo industrial de organização para eliminar 100% dos desperdícios e otimizar cada centavo de insumo.",
                 icon: BarChart3,
                 value: "R$ 67,00",
-                img: "https://webbookpro.com/imagens/fornecedores.avif"
+                img: "/images/bonus_estoque.png"
               }
             ].map((bonus, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-[#1C1816] rounded-[3rem] border border-white/5 overflow-hidden flex flex-col group shadow-2xl">
