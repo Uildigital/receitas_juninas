@@ -155,7 +155,7 @@ export default function LandingPage() {
             <div className="relative aspect-square w-full max-w-[550px] mx-auto">
               <div className="absolute inset-0 bg-secondary/20 blur-[100px] rounded-full" />
               <div className="relative w-full h-full rounded-[4rem] p-4 bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <Image src="/images/mockup.avif" alt="Guia Junino Interativo Mockup" fill className="object-contain p-8" priority />
+                <Image src="/imagens/mockup.avif" alt="Guia Junino Interativo Mockup" fill className="object-contain p-8" priority />
               </div>
 
               <div className="absolute -top-8 -right-8 bg-[#1C1917]/90 backdrop-blur-xl border border-white/10 p-5 rounded-[2.5rem] shadow-2xl z-20">
@@ -219,7 +219,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { id: 1, title: "Guia de Embalagens Lucrativas", desc: "Como valorizar seu produto em até 5x gastando quase nada em apresentação. O segredo do visual 'Elite'.", icon: Package, value: "R$ 97,00", img: "/images/recipe_premium.png" },
+              { id: 1, title: "Guia de Embalagens Lucrativas", desc: "Como valorizar seu produto em até 5x gastando quase nada em apresentação. O segredo do visual 'Elite'.", icon: Package, value: "R$ 97,00", img: "/imagens/recipe_premium.png" },
               { id: 2, title: "Scripts de Venda WhatsApp", desc: "Textos prontos e gatilhos mentais para você copiar e colar e esgotar sua produção em poucas horas.", icon: ScrollText, value: "R$ 147,00", img: "https://webbookpro.com/imagens/scrpts.avif" },
               { id: 3, title: "Organização de Estoque", desc: "Aprenda a gerenciar os seus insumos para acabar com desperdícios e maximizar o seu lucro diário.", icon: Target, value: "R$ 67,00", img: "https://webbookpro.com/imagens/fornecedores.avif" }
             ].map((bonus, i) => (

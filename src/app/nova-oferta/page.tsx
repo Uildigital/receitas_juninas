@@ -212,10 +212,10 @@ export default function LandingPageEliteFinal() {
               <div className="flex flex-col items-center lg:items-start justify-center gap-2">
                 <div className="flex -space-x-3">
                   {[
-                    { name: 'Eduardo', url: '/imagens/eduardo.avif' },
-                    { name: 'Roberto', url: '/imagens/roberto.avif' },
-                    { name: 'Neide', url: '/imagens/neide.avif' },
-                    { name: 'Maria', url: '/imagens/maria.avif' }
+                    { name: 'Eduardo', url: '/imagens/eduardo.png' },
+                    { name: 'Roberto', url: '/imagens/roberto.png' },
+                    { name: 'Neide', url: '/imagens/neide.png' },
+                    { name: 'Luciana', url: '/imagens/luciana.png' }
                   ].map((user, i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0A0807] overflow-hidden transition-all bg-white/10">
                       <Image src={user.url} alt={user.name} width={40} height={40} className="object-cover" />
@@ -232,7 +232,7 @@ export default function LandingPageEliteFinal() {
 
           <motion.div initial={{ opacity: 0, scale: 0.9, y: 40 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="relative group">
             <div className="relative aspect-square w-full max-w-[550px] mx-auto rounded-[4rem] p-4 bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
-                <Image src="/images/mockup.avif" alt="Guia Junino Interativo" fill className="object-contain p-8 group-hover:scale-105 transition-transform duration-1000" priority />
+                <Image src="/imagens/mockup.avif" alt="Guia Junino Interativo" fill className="object-contain p-8 group-hover:scale-105 transition-transform duration-1000" priority />
             </div>
             
             <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-8 -right-8 bg-[#1C1917]/90 border border-secondary/30 p-6 rounded-[2.5rem] shadow-2xl z-20">
@@ -335,21 +335,21 @@ export default function LandingPageEliteFinal() {
                 desc: "O guia estratégico para usar a Regra 60-30-10 de cores e o Kraft 240g para dobrar seu preço sem mudar a receita.",
                 icon: Package,
                 value: "R$ 97,00",
-                img: "/images/bonus_embalagens.png"
+                img: "/imagens/bonus_embalagens.png"
               },
               {
                 title: "Máquina de Vendas WhatsApp",
                 desc: "Scripts de Neuromarketing categoria 'Elite'. Do atendimento à recuperação de venda em 1 clique.",
                 icon: MessageCircle,
                 value: "R$ 147,00",
-                img: "/images/bonus_whatsapp.png"
+                img: "/imagens/bonus_whatsapp.png"
               },
               {
                 title: "Engenharia de Fluxo (Estoque)",
                 desc: "O protocolo industrial de organização para eliminar 100% dos desperdícios e otimizar cada centavo de insumo.",
                 icon: BarChart3,
                 value: "R$ 67,00",
-                img: "/images/bonus_estoque.png"
+                img: "/imagens/bonus_estoque.png"
               }
             ].map((bonus, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-[#1C1816] rounded-[3rem] border border-white/5 overflow-hidden flex flex-col group shadow-2xl">
@@ -389,19 +389,19 @@ export default function LandingPageEliteFinal() {
                 text: "A calculadora é sensacional. Descobri que estava tendo prejuízo nas canjicas há anos. Em junho passado faturei R$ 4.200,00 só com as estratégias de embalagem.", 
                 author: "Luciana Santos", 
                 loc: "Gourmet Home, Recife/PE", 
-                img: "/imagens/maria.avif"
+                img: "/imagens/luciana.png"
               },
               { 
                 text: "Meus produtos triplicaram de valor visual no Instagram e as vendas explodiram usando os scripts de WhatsApp prontos. O retorno veio em 2 dias.", 
                 author: "Neide Ferreira", 
                 loc: "Doces da Vovó, BH", 
-                img: "/imagens/neide.avif"
+                img: "/imagens/neide.png"
               },
               { 
                 text: "Não é um livro de receitas, é uma empresa pronta. O controle de estoque mudou meu jogo. Agora sei exatamente onde está meu lucro. Recomendo demais!", 
                 author: "Eduardo Silva", 
                 loc: "Chef Confeiteiro", 
-                img: "/imagens/eduardo.avif"
+                img: "/imagens/eduardo.png"
               }
             ].map((test, i) => (
               <div key={i} className="bg-[#14110F] p-8 rounded-[2.5rem] border border-white/5 relative flex flex-col justify-between hover:border-secondary/20 transition-all group">

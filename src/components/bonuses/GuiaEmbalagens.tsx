@@ -50,7 +50,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
       {/* Hero Section */}
       <div className="relative w-full overflow-hidden pb-12">
         <div className="relative h-[300px] w-full">
-            <Image src="/images/bonus_embalagens.png" alt="Embalagens Elite" fill className="object-cover" priority />
+            <Image src="/imagens/bonus_embalagens.png" alt="Embalagens Elite" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] to-transparent/10" />
         </div>
         <div className="px-5 -mt-20 relative z-20">
@@ -81,7 +81,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
             {activeCategory === 'conceito' && (
               <div className="space-y-12">
                 <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/10">
-                    <div className="relative h-64 w-full"><Image src="/images/bonus_embalagens.png" alt="Kraft Elite" fill className="object-cover" /></div>
+                    <div className="relative h-64 w-full"><Image src="/imagens/bonus_embalagens.png" alt="Kraft Elite" fill className="object-cover" /></div>
                     <div className="p-10">
                         <div className="flex items-center gap-4 mb-10">
                             <div className="h-12 w-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary shadow-inner"><Crown size={24} /></div>
@@ -137,7 +137,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                     <div className="space-y-8">
                         {/* BOX DEGUSTAÇÃO - ENTRADA */}
                         <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10">
-                            <div className="relative h-60 w-full"><Image src="/images/box_degustacao.png" alt="Box" fill className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /><div className="absolute bottom-6 left-6 flex gap-2"><span className="bg-secondary text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Produto Decisionário</span></div></div>
+                            <div className="relative h-60 w-full"><Image src="/imagens/box_degustacao.png" alt="Box" fill className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /><div className="absolute bottom-6 left-6 flex gap-2"><span className="bg-secondary text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Produto Decisionário</span></div></div>
                             <div className="p-10">
                                 <h4 className="text-xl font-black text-primary mb-4">01. O "Peixe do Gancho" (Entry Ticket)</h4>
                                 <p className="text-[14px] text-primary/70 leading-relaxed mb-6 font-medium">Use a Box de 80g para <strong>remover a trava de compra</strong> do cliente novo. Ele não quer arriscar R$ 100 em algo que não conhece. Ao vender a degustação por R$ 45, você inicia um relacionamento. <br/><br/><strong>Insight Elite:</strong> Se ele comprar 3 boxes de uma vez, dê o frete grátis. Você aumenta o volume e o cliente se sente um grande negociador.</p>
@@ -151,7 +151,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                                     <div className="bg-secondary/20 p-4 rounded-3xl border border-secondary/20"><ShoppingCart size={28} className="text-secondary" /></div>
                                     <div className="text-right"><h4 className="text-2xl font-black mb-1">Cesta Arraiá High-End</h4><p className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em]">Estratégia de Presenteáveis</p></div>
                                 </div>
-                                <div className="relative h-56 w-full rounded-[3rem] overflow-hidden border-2 border-white/5"><Image src="/images/cesta_luxo.png" alt="Cesta" fill className="object-cover" /></div>
+                                <div className="relative h-56 w-full rounded-[3rem] overflow-hidden border-2 border-white/5"><Image src="/imagens/cesta_luxo.png" alt="Cesta" fill className="object-cover" /></div>
                                 <div className="space-y-8">
                                     <div>
                                         <h5 className="text-[12px] font-black text-secondary uppercase mb-3 flex items-center gap-2 tracking-[0.2em]"><Zap size={16}/> O Poder da Ancoragem</h5>
@@ -185,7 +185,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
             {activeCategory === 'entrega' && (
               <div className="space-y-12">
                  <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/5">
-                    <div className="relative h-72 w-full"><Image src="/images/delivery_safe.png" alt="Delivery" fill className="object-cover" /></div>
+                    <div className="relative h-72 w-full"><Image src="/imagens/delivery_safe.png" alt="Delivery" fill className="object-cover" /></div>
                     <div className="p-10">
                         <div className="flex items-center gap-4 mb-8"><MessageSquareHeart size={32} className="text-secondary" /><h3 className="text-2xl font-black text-primary tracking-tight leading-none">Logística Elite</h3></div>
                         

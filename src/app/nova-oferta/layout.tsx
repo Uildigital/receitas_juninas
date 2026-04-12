@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Transforme sua cozinha em uma fonte de lucro nestas festas juninas.",
     images: [
       {
-        url: "/images/mockup.png",
+        url: "/imagens/mockup.png",
         width: 1200,
         height: 630,
         alt: "Mockup do Guia Junino",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Guia Junino Interativo - Oferta de Lançamento",
     description: "Receitas profissionais e calculadora de lucro por apenas R$ 47.",
-    images: ["/images/mockup.png"],
+    images: ["/imagens/mockup.png"],
   },
 };
 

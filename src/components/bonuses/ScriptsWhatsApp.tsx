@@ -53,7 +53,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
       {/* Hero Section Masterclass */}
       <div className="relative w-full overflow-hidden pb-12">
         <div className="relative h-[300px] w-full">
-            <Image src="/images/bonus_whatsapp.png" alt="WhatsApp Sales" fill className="object-cover" priority />
+            <Image src="/imagens/bonus_whatsapp.png" alt="WhatsApp Sales" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F0] via-[#FFF8F0]/40 to-transparent" />
             <div className="absolute inset-0 bg-black/20" />
         </div>
