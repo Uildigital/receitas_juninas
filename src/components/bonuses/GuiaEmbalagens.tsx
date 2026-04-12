@@ -77,10 +77,10 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         <AnimatePresence mode="wait">
           <motion.div key={activeCategory} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.4 }}>
             
-            {/* --- CONCEITO EXPERT: BRANDING --- */}
+            {/* --- CONCEITO EXPERT: ENRIQUECIMENTO MONUMENTAL --- */}
             {activeCategory === 'conceito' && (
               <div className="space-y-12">
-                 <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/10">
+                <section className="bg-white rounded-[4rem] overflow-hidden shadow-2xl border border-primary/10">
                     <div className="relative h-64 w-full"><Image src="/images/bonus_embalagens.png" alt="Kraft Elite" fill className="object-cover" /></div>
                     <div className="p-10">
                         <div className="flex items-center gap-4 mb-10">
@@ -90,9 +90,35 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                                 <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em]">Branding Gastronômico de Elite</p>
                             </div>
                         </div>
-                        <div className="space-y-10 text-[15px] text-primary/90 leading-relaxed font-medium">
-                            <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Paintbrush size={16}/> A Regra de Design 60-30-10</h4>
-                            <p>Equilibre sua embalagem como as grandes grifes: <strong>60% Rústico</strong> (Kraft), <strong>30% Gourmet</strong> (Tons de Terra/Marca) e <strong>10% Luxo</strong> (Sisal fino/Ouro).</p>
+                        
+                        <div className="space-y-12 text-[15px] text-primary/90 leading-relaxed font-medium">
+                            <div className="space-y-4">
+                                <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Paintbrush size={16}/> A Regra de Design 60-30-10</h4>
+                                <p>Para que sua embalagem não pareça um "projeto escolar", aplique a regra de equilíbrio visual das grandes grifes:</p>
+                                <ul className="space-y-3 font-bold text-primary/70">
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">60% Rústico (Papel Kraft):</strong> É a sua cor dominante. Ela comunica origem, cuidado artesanal e sustentabilidade.</span></li>
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">30% Gourmet (Cor de Marca):</strong> Use em fitas de cetim ou adesivos. Sugerimos tons de Terra ou Azul Petróleo para um contraste de luxo.</span></li>
+                                    <li className="flex items-start gap-3"><div className="h-1.5 w-1.5 rounded-full bg-secondary mt-2 shrink-0" /> <span><strong className="text-primary">10% Ouro (Detalhe Final):</strong> O fecho em sisal fino, um carimbo dourado ou um raminho de alecrim seco. É o "brilho" que justifica o ticket alto.</span></li>
+                                </ul>
+                            </div>
+
+                            <div className="relative p-8 bg-primary text-white rounded-[3rem] shadow-2xl overflow-hidden">
+                                <div className="relative z-10">
+                                    <h4 className="font-black text-[13px] uppercase mb-4 text-secondary tracking-widest">Neurociência: O Valor da Espessura</h4>
+                                    <p className="text-[14px] leading-relaxed mb-6 opacity-80">Nosso cérebro associa <strong>resistência mecânica à qualidade de conteúdo</strong>. Embalagens moles ou finas (abaixo de 200g) transmitem a ideia de produto industrializado e barato. Ao usar o Kraft de 240g, o som da caixa ao ser aberta emite uma frequência que o subconsciente do cliente interpreta como "Produto de Elite".</p>
+                                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-3">
+                                        <Layers size={20} className="text-secondary" />
+                                        <p className="text-[11px] font-bold">DICA: Peça sempre Kraft 'Pardo', que possui fibras mais longas e visual mais rústico que o Kraft 'Simples'.</p>
+                                    </div>
+                                </div>
+                                <div className="absolute top-[-30%] right-[-20%] w-64 h-64 bg-secondary/10 blur-[60px] rounded-full" />
+                            </div>
+
+                            <div className="space-y-4">
+                                <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Zap size={16}/> Camadas de Antecipação (Unboxing)</h4>
+                                <p>O erro do iniciante é mostrar o doce logo de cara. O Expert cria uma jornada de descoberta:</p>
+                                <p className="p-6 border-l-4 border-secondary bg-secondary/5 italic font-bold text-primary/70">"O prazer do unboxing não está no produto final, mas no tempo que levamos para chegar até ele. Use papel de seda branco ou pardo dentro da caixa, fechado com um simples adesivo circular. Isso força o cliente a interagir com a marca por mais 5 segundos antes de ver o doce, aumentando o nível de dopamina."</p>
+                            </div>
                         </div>
                     </div>
                 </section>
