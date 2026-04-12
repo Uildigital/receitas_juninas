@@ -23,7 +23,8 @@ import {
   Paintbrush,
   Crown,
   BarChart3,
-  Percent
+  Percent,
+  BookOpenCheck
 } from "lucide-react";
 
 export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
