@@ -19,7 +19,10 @@ import {
   ShieldAlert,
   ArrowDownToLine,
   TrendingUp,
-  PackageOpen
+  PackageOpen,
+  Tags,
+  CheckSquare,
+  Droplets
 } from "lucide-react";
 
 export default function ControleEstoque({ onBack }: { onBack: () => void }) {
@@ -45,7 +48,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
   const categories = [
     { id: 'fundamentos', label: 'Estratégia 360º', icon: Activity },
     { id: 'validades', label: 'Tabela Técnica', icon: ThermometerSnowflake },
-    { id: 'perdas', label: 'Lucro Invisível', icon: Calculator }
+    { id: 'perdas', label: 'Gestão de Lucro', icon: Calculator }
   ];
 
   return (
@@ -70,8 +73,8 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                         <ClipboardCheck size={24} />
                     </div>
                 </div>
-                <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Blindagem<br/><span className="text-secondary italic">de Lucro Real</span></h1>
-                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em] leading-relaxed">Estoque não é depósito.<br/>Estoque é dinheiro parado.</p>
+                <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Blindagem de <span className="text-secondary italic">Lucro Real</span></h1>
+                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em] leading-relaxed">Sua cozinha como uma empresa de alta escala.</p>
             </motion.div>
         </div>
       </div>
@@ -93,38 +96,65 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
           <motion.div key={activeCategory} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.4 }}>
             
             {/* ======================================================== */}
-            {/* ABA 1: FUNDAMENTOS / ESTRATÉGIA */}
+            {/* ABA 1: ESTRATÉGIA 360º */}
             {/* ======================================================== */}
             {activeCategory === 'fundamentos' && (
               <div className="space-y-10">
                  <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <History size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">A Regra de Ouro</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Mentalidade de Alta Cozinha</p></div>
+                    <div><h2 className="text-2xl leading-none">Arquitetura de Fluxo</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Onde a Operação começa</p></div>
                 </div>
 
-                <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-8 space-y-8">
-                    <div className="bg-primary/5 p-6 rounded-[2.5rem] border border-primary/10 relative">
-                        <ArrowDownToLine className="absolute top-4 right-4 text-primary/10" size={40} />
-                        <h3 className="font-black text-[13px] uppercase text-primary mb-3">O Princípio P.V.P.S.</h3>
-                        <p className="text-[14px] text-primary/80 leading-relaxed font-medium">A base de qualquer restaurante com Estrela Michelin. <strong>P</strong>rimeiro que <strong>V</strong>ence, <strong>P</strong>rimeiro que <strong>S</strong>ai. {"\n\n"}Isso significa que, ao guardar um novo lote de leite condensado, ele obrigatoriamente vai para o fundo da prateleira. Se você coloca o novo na frente, o velho fica oculto e passa do prazo de validade.</p>
-                    </div>
-                </div>
-
-                <div className="bg-primary text-white rounded-[3.5rem] overflow-hidden shadow-2xl p-8 relative">
-                    <div className="relative z-10 space-y-6">
-                        <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-                            <PackageOpen size={24} className="text-secondary" />
-                            <h3 className="text-xl font-black">A "Curva ABC" na Prática</h3>
+                <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-8 space-y-12">
+                     <div className="space-y-6">
+                        <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><ArrowDownToLine size={18}/> Organização Vertical (Geladeira)</h4>
+                        <p className="text-[14px] text-primary/80 leading-relaxed font-medium">O erro mais comum é o empilhamento sem lógica. Siga a regra de segurança alimentar para evitar perdas:</p>
+                        <div className="space-y-4">
+                            <div className="bg-[#FAFAFA] p-5 rounded-[2rem] border-l-4 border-success">
+                                <span className="font-black text-[11px] text-success uppercase block mb-1">Prateleiras Superiores (Mais Frias):</span>
+                                <span className="text-[12px] text-primary/60 font-medium">Produtos prontos para o consumo, doces finalizados e massas cozidas. É a zona de segurança máxima.</span>
+                            </div>
+                            <div className="bg-[#FAFAFA] p-5 rounded-[2rem] border-l-4 border-amber-500">
+                                <span className="font-black text-[11px] text-amber-600 uppercase block mb-1">Prateleiras Intermediárias:</span>
+                                <span className="text-[12px] text-primary/60 font-medium">Laticínios abertos (etiquetados), ovos e insumos em fase de maturação.</span>
+                            </div>
+                            <div className="bg-[#FAFAFA] p-5 rounded-[2rem] border-l-4 border-primary">
+                                <span className="font-black text-[11px] text-primary uppercase block mb-1">Gavetões e Base:</span>
+                                <span className="text-[12px] text-primary/60 font-medium">Insumos brutos (milho in natura, hortifruti). Nunca misture o milho da roça com os bolos prontos para evitar contaminação por terra.</span>
+                            </div>
                         </div>
-                        <p className="text-[14px] leading-relaxed text-white/80 font-medium">Nem todo ingrediente demanda o mesmo cuidado. Trate seu estoque com o método de risco:</p>
+                     </div>
+
+                     <div className="p-8 bg-primary/5 rounded-[3rem] border border-primary/10 space-y-6">
+                        <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-primary"><Tags size={18}/> O Protocolo de Etiquetagem Elite</h4>
+                        <p className="text-[13px] text-primary/70 leading-relaxed font-medium italic">"Se não tem etiqueta, é lixo. Não arrisque sua marca por uma dúvida de 2 dias."</p>
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/5 text-center">
+                                <span className="text-[9px] font-black text-primary/40 uppercase block mb-1">Campo Obrigatório 1</span>
+                                <span className="text-[11px] font-black text-primary uppercase">Data de Abertura</span>
+                            </div>
+                            <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/5 text-center">
+                                <span className="text-[9px] font-black text-primary/40 uppercase block mb-1">Campo Obrigatório 2</span>
+                                <span className="text-[11px] font-black text-primary uppercase">Prazo de Validade</span>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <div className="bg-primary text-white rounded-[3.5rem] overflow-hidden shadow-2xl p-10 relative">
+                    <div className="relative z-10 space-y-8">
+                        <div className="flex items-center gap-3">
+                            <CheckSquare size={28} className="text-secondary" />
+                            <h3 className="text-2xl font-black">Checklist de Auditoria</h3>
+                        </div>
                         <ul className="space-y-4">
-                            <li className="bg-white/5 p-4 rounded-3xl border border-white/10">
-                                <span className="font-black text-secondary block mb-1">Risco A (Alto Valor + Baixa Duração):</span>
-                                <span className="text-[12px] text-white/60">Laticínios, cremes frescos, coco ralado in natura. Monitoramento diário obrigatório.</span>
+                            <li className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl">
+                                <div className="h-5 w-5 bg-secondary rounded-full flex items-center justify-center shrink-0 mt-0.5"><Star size={12} className="text-primary" /></div>
+                                <div><span className="font-black text-[12px] uppercase text-secondary">Diário:</span><p className="text-[12px] text-white/60">Conferência de temperatura do freezer (-18ºC) e etiquetas que vencem hoje.</p></div>
                             </li>
-                            <li className="bg-white/5 p-4 rounded-3xl border border-white/10">
-                                <span className="font-black text-white block mb-1">Risco C (Baixo Valor + Longa Duração):</span>
-                                <span className="text-[12px] text-white/60">Açúcar, sal, amendoim selado. Checagem mensal apenas para reposição de volume.</span>
+                            <li className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl">
+                                <div className="h-5 w-5 bg-white/20 rounded-full flex items-center justify-center shrink-0 mt-0.5"><Activity size={12} className="text-white" /></div>
+                                <div><span className="font-black text-[12px] uppercase text-white">Semanal:</span><p className="text-[12px] text-white/60">Higienização profunda de compartimentos e conferência da "Curva ABC".</p></div>
                             </li>
                         </ul>
                     </div>
@@ -191,9 +221,6 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                                 </div>
                             </div>
                         ))}
-                        {filteredValidades.length === 0 && (
-                            <p className="text-center text-primary/40 font-bold py-6 text-sm">Nenhum item encontrado.</p>
-                        )}
                     </div>
                 </div>
               </div>
@@ -209,19 +236,26 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                     <div><h2 className="text-2xl leading-none">A Matemática do Lixo</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Protegendo sua Margem</p></div>
                 </div>
 
-                <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-8 space-y-6">
-                    <div className="p-6 bg-secondary text-white rounded-[2.5rem] shadow-xl flex items-center gap-4">
-                        <ShieldAlert size={32} className="shrink-0 text-white/50" />
-                        <p className="text-[13px] font-medium leading-relaxed">Você acha que perder uma lata de leite condensado vencida custa apenas R$ 6,00? <strong>Você está caindo na Ilusão do Custo Bruto.</strong></p>
+                <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-10 space-y-12">
+                    <div className="space-y-6">
+                        <h4 className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-secondary"><Droplets size={18}/> O Inimigo Silencioso: Oxidação</h4>
+                        <p className="text-[14px] text-primary/80 leading-relaxed font-medium">No cardápio junino, o <strong>Amendoim</strong> é o grande vilão do estoque. Por ter alto teor de gordura, ele oxida (fica rançoso) em contato com o ar.</p>
+                        <div className="p-6 bg-primary/5 rounded-[2rem] border border-primary/10">
+                            <span className="font-black text-[11px] text-primary uppercase block mb-1">Estratégia Anti-Prejuízo:</span>
+                            <span className="text-[12px] text-primary/60 font-medium">Compre a vácuo e, após abrir, armazene em potes de vidro com vedação hermética. O amendoim rançoso nos seus doces gourmet pode destruir a reputação da sua marca em um único dia.</span>
+                        </div>
                     </div>
 
-                    <div className="space-y-4 pt-4">
-                        <h3 className="font-black text-sm uppercase text-primary tracking-widest border-b border-primary/10 pb-2">A Regra da Margem de 30%</h3>
-                        <p className="text-[14px] text-primary/80 leading-relaxed font-medium">Se a sua margem de lucro líquido em um produto for de 30%, isso significa que para pagar aquela lata de R$ 6,00 que foi pro lixo, você não precisa fazer mais R$ 6,00. <strong>Você precisa vender R$ 20,00 pra recuperar o prejuízo da perda!</strong></p>
+                    <div className="space-y-4 pt-10 border-t border-primary/5">
+                        <h3 className="font-black text-sm uppercase text-primary tracking-widest">A Ilusão do Custo Bruto</h3>
+                        <p className="text-[14px] text-primary/80 leading-relaxed font-bold">Se a sua margem de lucro líquido é de 30%, para pagar uma lata de leite condensado de <strong>R$ 8,00</strong> que foi para o lixo, você não precisa faturar R$ 8,00. <strong>Você precisa vender R$ 26,00 em produtos para recuperar aquele único prejuízo!</strong></p>
                         
-                        <div className="bg-amber-50 border border-amber-200 p-6 rounded-[2rem] mt-4 flex gap-4">
-                            <AlertTriangle size={20} className="text-amber-600 shrink-0 mt-1" />
-                            <p className="text-[12px] text-amber-900/80 font-bold leading-relaxed">Etiquetar todos os insumos abertos com a "Data de Abertura" não é preciosismo de chefe, é uma ferramenta de retenção de lucro.</p>
+                        <div className="bg-amber-100 border border-amber-300 p-8 rounded-[3rem] mt-6 flex gap-5 items-start shadow-sm">
+                            <ShieldAlert size={28} className="text-amber-600 shrink-0 mt-1" />
+                            <div>
+                                <h5 className="font-black text-[12px] text-amber-900 uppercase mb-1 leading-none">Alerta de Margem:</h5>
+                                <p className="text-[12px] text-amber-950 font-bold leading-relaxed">Em escala de 100 produções, pequenos desperdícios de 5% podem representar o seu próprio pró-labore. Gestão de estoque é a diferença entre ser uma "cozinheira" e ser uma "Dona de Negócio".</p>
+                            </div>
                         </div>
                     </div>
                 </div>
