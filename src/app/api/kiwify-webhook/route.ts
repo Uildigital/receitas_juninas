@@ -4,7 +4,7 @@ import { createHash } from "crypto";
 // ─── Configurações ────────────────────────────────────────────────────────────
 const PIXEL_ID = "1523944362485658";
 const CAPI_TOKEN = "EAAPiJwUDYecBRJfmiFTRjm81OXDDyWEQHgi1a4RiYYKzD2kAV7LxyQFNJZBNW04DOI3vdvhYcJnTIW2l1X2kYiJRu5EPZC82Ofjb7fmgbKY0K0SVv6qr619h4zU0ZCaKnMlBYxRs9IPIuyzty6MdovWXLezxBLZBA9dxxZCEE4t1eEXuGHXKd2RiwY4DIi55TUgZDZD";
-const WEBHOOK_TOKEN = process.env.KIWIFY_WEBHOOK_TOKEN || "receitas-juninas-webhook-2024";
+const WEBHOOK_TOKEN = process.env.KIWIFY_WEBHOOK_TOKEN || "4kzb5h30vzm";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
