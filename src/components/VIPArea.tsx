@@ -25,7 +25,11 @@ import {
   ArrowUpRight,
   Target,
   Activity,
-  Zap
+  Zap,
+  ShoppingCart,
+  Trash2,
+  Store,
+  Info
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import recipesData from "@/data/receitas.json";
@@ -53,7 +57,7 @@ interface Recipe {
 }
 
 export default function VIPArea() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'recipes' | 'bonuses'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'recipes' | 'bonuses' | 'shopping'>('dashboard');
   const [activeBonus, setActiveBonus] = useState<string | null>(null);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [completedItems, setCompletedItems] = useState<Record<string, boolean>>({});
@@ -161,6 +165,8 @@ export default function VIPArea() {
             <GuiaEmbalagens onBack={() => setActiveBonus(null)} />
         ) : activeTab === 'bonuses' && activeBonus === 'estoque' ? (
             <ControleEstoque onBack={() => setActiveBonus(null)} />
+        ) : activeTab === 'shopping' ? (
+            <ShoppingView onBack={() => setActiveTab('dashboard')} />
         ) : (
             <BonusesView 
               onBack={() => setActiveTab('dashboard')} 
@@ -175,6 +181,7 @@ export default function VIPArea() {
           {[
             { id: 'dashboard', icon: LayoutDashboard, label: 'Início' },
             { id: 'recipes', icon: BookOpen, label: 'Receitas' },
+            { id: 'shopping', icon: Package, label: 'Mercado' },
             { id: 'bonuses', icon: Gift, label: 'Bônus' }
           ].map((tab) => (
             <button
@@ -526,4 +533,230 @@ function BonusesView({ onBack, onSelect }: any) {
       </div>
     </motion.div>
   );
+}
+
+function ShoppingView({ onBack }: any) {
+    const [prices, setPrices] = useState<Record<string, { price: string; totalQty: string }>>({});
+    const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [productionPlan, setProductionPlan] = useState<Record<number, number>>({}); // recipeId -> quantity
+    const [mode, setMode] = useState<'plan' | 'shop'>('plan');
+
+    // Pega todos os ingredientes únicos das receitas para oferecer como sugestão
+    const allIngredients = useMemo(() => {
+        const unique = new Set<string>();
+        (recipesData as any[]).forEach(r => {
+            r.ingredientes.forEach((i: string) => {
+                const name = i.split('(')[0].trim().toLowerCase();
+                if (name) unique.add(name);
+            });
+        });
+        return Array.from(unique).sort();
+    }, []);
+
+    // Calcula a soma de insumos necessários com base no plano de produção
+    const calculatedShoppingList = useMemo(() => {
+        const totals: Record<string, { qty: number; unit: string }> = {};
+        
+        Object.entries(productionPlan).forEach(([id, multiplier]) => {
+            if (multiplier <= 0) return;
+            const recipe = (recipesData as any[]).find(r => r.id === parseInt(id));
+            if (!recipe) return;
+
+            recipe.ingredientes.forEach((ing: string) => {
+                const name = ing.split('(')[0].trim().toLowerCase();
+                const match = ing.match(/(\d+)(g|ml)/i);
+                if (match) {
+                    const val = parseInt(match[1]) * multiplier;
+                    const unit = match[2];
+                    if (!totals[name]) totals[name] = { qty: 0, unit };
+                    totals[name].qty += val;
+                }
+            });
+        });
+
+        return totals;
+    }, [productionPlan]);
+
+    useEffect(() => {
+        const saved = localStorage.getItem('webbook-global-prices');
+        if (saved) setPrices(JSON.parse(saved));
+        
+        const savedList = localStorage.getItem('webbook-shopping-list');
+        if (savedList) setSelectedIngredients(JSON.parse(savedList));
+        
+        const savedPlan = localStorage.getItem('webbook-production-plan');
+        if (savedPlan) setProductionPlan(JSON.parse(savedPlan));
+    }, []);
+
+    const updatePrice = (name: string, field: 'price' | 'totalQty', value: string) => {
+        const newPrices = { ...prices, [name]: { ...prices[name], [field]: value } };
+        setPrices(newPrices);
+        localStorage.setItem('webbook-global-prices', JSON.stringify(newPrices));
+    };
+
+    const toggleIngredient = (name: string) => {
+        const newList = selectedIngredients.includes(name) 
+            ? selectedIngredients.filter(i => i !== name)
+            : [...selectedIngredients, name];
+        setSelectedIngredients(newList);
+        localStorage.setItem('webbook-shopping-list', JSON.stringify(newList));
+    };
+
+    const updatePlan = (id: number, qty: number) => {
+        const newPlan = { ...productionPlan, [id]: Math.max(0, qty) };
+        setProductionPlan(newPlan);
+        localStorage.setItem('webbook-production-plan', JSON.stringify(newPlan));
+    };
+
+    const generateListFromPlan = () => {
+        const itemsFromPlan = Object.keys(calculatedShoppingList);
+        if (itemsFromPlan.length === 0) return;
+        
+        const newList = Array.from(new Set([...selectedIngredients, ...itemsFromPlan]));
+        setSelectedIngredients(newList);
+        localStorage.setItem('webbook-shopping-list', JSON.stringify(newList));
+        setMode('shop');
+    };
+
+    const clearAll = () => {
+        if (confirm("Deseja resetar todo o planejamento e lista?")) {
+            setProductionPlan({});
+            setSelectedIngredients([]);
+            localStorage.removeItem('webbook-production-plan');
+            localStorage.removeItem('webbook-shopping-list');
+        }
+    };
+
+    return (
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 max-w-lg mx-auto pb-48 pt-12">
+            <header className="mb-8">
+                <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                        <button onClick={onBack} className="p-2 bg-primary/10 rounded-xl text-primary"><ChevronLeft /></button>
+                        <h1 className="text-3xl font-black text-primary tracking-tight">Sistema de Lucro</h1>
+                    </div>
+                    {(selectedIngredients.length > 0 || Object.keys(productionPlan).length > 0) && (
+                        <button onClick={clearAll} className="p-3 text-red-500 bg-red-50 rounded-xl active:scale-90 transition-all">
+                            <Trash2 size={20} />
+                        </button>
+                    )}
+                </div>
+
+                {/* Alternador de Modo */}
+                <div className="flex bg-white p-1.5 rounded-[2rem] border border-primary/5 shadow-xl">
+                    <button 
+                        onClick={() => setMode('plan')}
+                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'plan' ? "bg-primary text-white shadow-lg" : "text-primary/40"}`}
+                    >
+                        <Target size={16} /> 1. Planejar
+                    </button>
+                    <button 
+                        onClick={() => setMode('shop')}
+                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'shop' ? "bg-secondary text-white shadow-lg" : "text-primary/40"}`}
+                    >
+                        <ShoppingCart size={16} /> 2. Mercado
+                    </button>
+                </div>
+            </header>
+
+            <AnimatePresence mode="wait">
+                {mode === 'plan' ? (
+                    <motion.div key="plan" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} className="space-y-6">
+                        <div className="bg-primary p-8 rounded-[3rem] text-white shadow-2xl relative overflow-hidden mb-8">
+                            <div className="relative z-10">
+                                <h3 className="text-xl font-black mb-2 flex items-center gap-2"><Zap className="text-secondary" /> O que você vai produzir?</h3>
+                                <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest">Defina as quantidades para gerar a lista.</p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-3">
+                            {(recipesData as any[]).map(recipe => (
+                                <div key={recipe.id} className="bg-white p-5 rounded-[2.5rem] border border-primary/5 shadow-xl flex items-center justify-between gap-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-12 w-12 rounded-2xl overflow-hidden relative border border-primary/10 shadow-sm">
+                                            <Image src={recipe.imagem} alt={recipe.titulo} fill className="object-cover" />
+                                        </div>
+                                        <span className="font-black text-[11px] text-primary uppercase leading-tight max-w-[120px]">{recipe.titulo}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-primary/5 p-1 rounded-2xl">
+                                        <button onClick={() => updatePlan(recipe.id, (productionPlan[recipe.id] || 0) - 1)} className="h-8 w-8 bg-white rounded-xl flex items-center justify-center text-primary active:scale-90 transition-all"><Minus size={14}/></button>
+                                        <input 
+                                            type="number" 
+                                            value={productionPlan[recipe.id] || 0}
+                                            onChange={(e) => updatePlan(recipe.id, parseInt(e.target.value))}
+                                            className="w-10 bg-transparent text-center font-black text-xs outline-none"
+                                        />
+                                        <button onClick={() => updatePlan(recipe.id, (productionPlan[recipe.id] || 0) + 1)} className="h-8 w-8 bg-secondary rounded-xl flex items-center justify-center text-primary active:scale-90 transition-all"><Plus size={14}/></button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {Object.values(productionPlan).some(v => v > 0) && (
+                            <button 
+                                onClick={generateListFromPlan}
+                                className="w-full bg-secondary text-primary py-8 rounded-[3rem] font-black text-sm uppercase tracking-widest shadow-2xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 mt-10"
+                            >
+                                <ArrowRight size={20} /> Gerar Lista de Compras
+                            </button>
+                        )}
+                    </motion.div>
+                ) : (
+                    <motion.div key="shop" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+                        {/* Buscador de Insumos Extra */}
+                        <div className="relative mb-8">
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/20" size={18} />
+                            <input 
+                                type="text" 
+                                placeholder="Adicionar outro ingrediente..." 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="w-full h-16 bg-white rounded-full pl-16 pr-6 outline-none border border-primary/5 shadow-xl text-xs uppercase font-black"
+                            />
+                            {searchTerm && (
+                                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-[2rem] shadow-2xl border border-primary/5 z-[60] max-h-48 overflow-y-auto p-2">
+                                    {allIngredients.filter(i => i.includes(searchTerm.toLowerCase())).map(ing => (
+                                        <button key={ing} onClick={() => { toggleIngredient(ing); setSearchTerm(""); }} className="w-full text-left p-4 hover:bg-primary/5 rounded-xl font-black text-[10px] uppercase text-primary border-b border-primary/5 flex items-center justify-between">
+                                            {ing} <Plus size={14} className="text-secondary" />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {selectedIngredients.length === 0 ? (
+                            <div className="text-center py-20 opacity-20"><Store size={64} className="mx-auto mb-4" /><p className="font-black uppercase text-[10px] tracking-[0.3em]">Lista vazia</p></div>
+                        ) : (
+                            <div className="space-y-4">
+                                {selectedIngredients.map((ing) => (
+                                    <div key={ing} className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-xl">
+                                        <div className="flex items-start justify-between mb-4">
+                                            <div>
+                                                <span className="font-black text-xs text-primary uppercase tracking-tight block">{ing}</span>
+                                                {calculatedShoppingList[ing] && (
+                                                    <span className="text-[10px] font-black text-secondary uppercase italic">Necessário: {calculatedShoppingList[ing].qty}{calculatedShoppingList[ing].unit}</span>
+                                                )}
+                                            </div>
+                                            <button onClick={() => toggleIngredient(ing)} className="text-primary/10 hover:text-red-400 p-1"><X size={16}/></button>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-3">
+                                            <div className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
+                                                <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Preço Pago (R$)</span>
+                                                <input type="text" value={prices[ing]?.price || ''} onChange={(e) => updatePrice(ing, 'price', e.target.value)} placeholder="0,00" className="w-full bg-transparent outline-none font-black text-xs text-secondary"/>
+                                            </div>
+                                            <div className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
+                                                <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Peso Total (g/ml)</span>
+                                                <input type="text" value={prices[ing]?.totalQty || ''} onChange={(e) => updatePrice(ing, 'totalQty', e.target.value)} placeholder="Ex: 1000" className="w-full bg-transparent outline-none font-black text-xs text-primary"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
+    );
 }
