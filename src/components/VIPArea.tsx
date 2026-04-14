@@ -677,13 +677,13 @@ function ShoppingView({ onBack }: any) {
                 <div className="flex bg-white p-1.5 rounded-[2rem] border border-primary/5 shadow-xl">
                     <button 
                         onClick={() => setMode('plan')}
-                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'plan' ? "bg-primary text-white shadow-lg" : "text-primary/40"}`}
+                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'plan' ? "bg-primary text-white shadow-lg" : "text-primary/60 hover:text-primary"}`}
                     >
                         <Target size={16} /> 1. Planejar
                     </button>
                     <button 
                         onClick={() => setMode('shop')}
-                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'shop' ? "bg-secondary text-white shadow-lg" : "text-primary/40"}`}
+                        className={`flex-1 py-4 rounded-[1.5rem] font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${mode === 'shop' ? "bg-secondary text-white shadow-lg" : "text-primary/60 hover:text-primary"}`}
                     >
                         <ShoppingCart size={16} /> 2. Mercado
                     </button>
@@ -707,17 +707,17 @@ function ShoppingView({ onBack }: any) {
                                         <div className="h-12 w-12 rounded-2xl overflow-hidden relative border border-primary/10 shadow-sm">
                                             <Image src={recipe.imagem} alt={recipe.titulo} fill className="object-cover" />
                                         </div>
-                                        <span className="font-black text-[11px] text-primary uppercase leading-tight max-w-[120px]">{recipe.titulo}</span>
+                                        <span className="font-black text-sm text-primary uppercase leading-tight max-w-[130px]">{recipe.titulo}</span>
                                     </div>
-                                    <div className="flex items-center gap-2 bg-primary/5 p-1 rounded-2xl">
+                                    <div className="flex items-center gap-1 bg-primary/5 p-1 rounded-2xl border border-primary/10">
                                         <button onClick={() => updatePlan(recipe.id, (productionPlan[recipe.id] || 0) - 1)} className="h-8 w-8 bg-white rounded-xl flex items-center justify-center text-primary active:scale-90 transition-all"><Minus size={14}/></button>
                                         <input 
                                             type="number" 
                                             value={productionPlan[recipe.id] || 0}
                                             onChange={(e) => updatePlan(recipe.id, parseInt(e.target.value))}
-                                            className="w-10 bg-transparent text-center font-black text-xs outline-none"
+                                            className="w-10 bg-transparent text-center font-black text-sm text-primary outline-none"
                                         />
-                                        <button onClick={() => updatePlan(recipe.id, (productionPlan[recipe.id] || 0) + 1)} className="h-8 w-8 bg-secondary rounded-xl flex items-center justify-center text-primary active:scale-90 transition-all"><Plus size={14}/></button>
+                                        <button onClick={() => updatePlan(recipe.id, (productionPlan[recipe.id] || 0) + 1)} className="h-8 w-8 bg-secondary rounded-xl flex items-center justify-center text-white active:scale-90 transition-all"><Plus size={14}/></button>
                                     </div>
                                 </div>
                             ))}
@@ -727,7 +727,7 @@ function ShoppingView({ onBack }: any) {
                             <div className="fixed bottom-24 left-6 right-6 z-[60] animate-in slide-in-from-bottom-5 duration-500">
                                 <button 
                                     onClick={generateListFromPlan}
-                                    className="w-full bg-secondary text-primary py-6 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(255,153,0,0.4)] hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 border-b-4 border-primary/20"
+                                    className="w-full bg-secondary text-white py-6 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(183,83,23,0.5)] hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3"
                                 >
                                     <ArrowRight size={20} /> Gerar Lista de Compras
                                 </button>
@@ -738,13 +738,13 @@ function ShoppingView({ onBack }: any) {
                     <motion.div key="shop" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                         {/* Buscador de Insumos Extra */}
                         <div className="relative mb-8">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/20" size={18} />
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/40" size={18} />
                             <input 
                                 type="text" 
                                 placeholder="Adicionar outro ingrediente..." 
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full h-16 bg-white rounded-full pl-16 pr-6 outline-none border border-primary/5 shadow-xl text-xs uppercase font-black"
+                                className="w-full h-16 bg-white rounded-full pl-16 pr-6 outline-none border-2 border-primary/10 shadow-xl text-xs uppercase font-black text-primary placeholder:text-primary/30"
                             />
                             {searchTerm && (
                                 <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-[2rem] shadow-2xl border border-primary/5 z-[60] max-h-48 overflow-y-auto p-2">
