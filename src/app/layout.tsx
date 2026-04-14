@@ -9,12 +9,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://receitas-juninas.webbookpro.com"),
   title: "Guia Junino Interativo | Receitas que Calculam seu Lucro 🌽",
   description: "Garanta seu acesso vitalício ao Guia Junino Interativo com 76% de desconto. 40+ receitas lucrativas com calculadora de custos e simulador de metas.",
   manifest: "/manifest.json",
   openGraph: {
     title: "Guia Junino Interativo | Web-App de Lucro",
     description: "Transforme sua cozinha em uma fonte de lucro nestas festas juninas.",
+    url: "https://receitas-juninas.webbookpro.com",
+    siteName: "Guia Junino Interativo",
+    locale: "pt_BR",
     images: [{ url: "/imagens/mockup.avif", width: 1200, height: 630, alt: "Mockup do Guia Junino" }],
     type: "website",
   },
