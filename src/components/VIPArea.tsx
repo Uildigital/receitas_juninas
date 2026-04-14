@@ -223,9 +223,39 @@ function DashboardView({ globalProgress, completedCount, totalCount, onNavigate 
               </div>
             </div>
           </header>
-          <div className="grid grid-cols-2 gap-4">
-             <button onClick={() => onNavigate('recipes')} className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-xl text-left"><BookOpen size={24} className="text-secondary mb-6" /><h3 className="font-black text-primary text-sm uppercase">Receitas</h3></button>
-             <button onClick={() => onNavigate('bonuses')} className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-xl text-left"><Gift size={24} className="text-accent mb-6" /><h3 className="font-black text-primary text-sm uppercase">Bônus</h3></button>
+          <div className="grid grid-cols-1 gap-4">
+             <button onClick={() => onNavigate('recipes')} className="group bg-white p-6 rounded-[2.5rem] border-2 border-primary/5 shadow-xl text-left flex items-center justify-between hover:border-secondary/20 transition-all">
+                <div className="flex items-center gap-5">
+                   <div className="h-14 w-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary"><BookOpen size={28} /></div>
+                   <div>
+                      <h3 className="font-black text-primary text-sm uppercase tracking-widest">Receitas de Ouro</h3>
+                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Segredos do Arraiá</p>
+                   </div>
+                </div>
+                <ArrowRight size={20} className="text-primary/10 group-hover:text-secondary group-hover:translate-x-1 transition-all" />
+             </button>
+
+             <button onClick={() => onNavigate('shopping')} className="group bg-white p-6 rounded-[2.5rem] border-2 border-primary/5 shadow-xl text-left flex items-center justify-between hover:border-secondary/20 transition-all">
+                <div className="flex items-center gap-5">
+                   <div className="h-14 w-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500"><Package size={28} /></div>
+                   <div>
+                      <h3 className="font-black text-primary text-sm uppercase tracking-widest">Sistema de Lucro</h3>
+                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Mercado & Produção</p>
+                   </div>
+                </div>
+                <ArrowRight size={20} className="text-primary/10 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" />
+             </button>
+
+             <button onClick={() => onNavigate('bonuses')} className="group bg-white p-6 rounded-[2.5rem] border-2 border-primary/5 shadow-xl text-left flex items-center justify-between hover:border-accent/20 transition-all">
+                <div className="flex items-center gap-5">
+                   <div className="h-14 w-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent"><Gift size={28} /></div>
+                   <div>
+                      <h3 className="font-black text-primary text-sm uppercase tracking-widest">Meus Bônus</h3>
+                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Extras de Elite</p>
+                   </div>
+                </div>
+                <ArrowRight size={20} className="text-primary/10 group-hover:text-accent group-hover:translate-x-1 transition-all" />
+             </button>
           </div>
         </motion.div>
     );
