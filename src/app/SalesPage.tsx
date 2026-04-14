@@ -31,26 +31,30 @@ const cssAnimations = `
 export default function SalesPage() {
   const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK";
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 59, seconds: 59 });
+  const [timeLeft, setTimeLeft] = useState({ minutes: 19, seconds: 59 });
+  const [expired, setExpired] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Timer real: deadline de 24h desde a primeira visita, persiste no localStorage
-    const DEADLINE_KEY = "junino-offer-deadline";
-    const DURATION_MS = 24 * 60 * 60 * 1000; // 24 horas
+    // Timer de 20 min por sessão: persiste no reload, reseta ao fechar o navegador
+    const DEADLINE_KEY = "junino-offer-deadline-session";
+    const DURATION_MS = 20 * 60 * 1000; // 20 minutos
 
-    let deadline = parseInt(localStorage.getItem(DEADLINE_KEY) || "0", 10);
+    let deadline = parseInt(sessionStorage.getItem(DEADLINE_KEY) || "0", 10);
     if (!deadline || deadline < Date.now()) {
       deadline = Date.now() + DURATION_MS;
-      localStorage.setItem(DEADLINE_KEY, String(deadline));
+      sessionStorage.setItem(DEADLINE_KEY, String(deadline));
     }
 
     const calcTimeLeft = () => {
       const diff = Math.max(0, deadline - Date.now());
+      if (diff === 0) {
+        setExpired(true);
+        return { minutes: 0, seconds: 0 };
+      }
       const totalSeconds = Math.floor(diff / 1000);
       return {
-        hours: Math.floor(totalSeconds / 3600),
-        minutes: Math.floor((totalSeconds % 3600) / 60),
+        minutes: Math.floor(totalSeconds / 60),
         seconds: totalSeconds % 60,
       };
     };
@@ -83,7 +87,10 @@ export default function SalesPage() {
       {/* Top Urgency Bar */}
       <div className="bg-secondary py-2 relative z-[70] border-b border-white/10">
         <div className="text-center text-[10px] sm:text-xs font-black uppercase tracking-widest px-4">
-          🔥 OFERTA DE SÃO JOÃO: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: {timeLeft.hours.toString().padStart(2, '0')}:{timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+          {expired
+            ? "⚠️ OFERTA EXPIRADA — RECARREGUE PARA VERIFICAR DISPONIBILIDADE"
+            : `🔥 OFERTA DE SÃO JOÃO: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: ${timeLeft.minutes.toString().padStart(2, '0')}:${timeLeft.seconds.toString().padStart(2, '0')}`
+          }
         </div>
       </div>
 
