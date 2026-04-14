@@ -32,7 +32,7 @@ export default function SmartRootPage() {
           (window as any).fbq('track', 'Purchase', { 
             value: 47.00, 
             currency: 'BRL',
-            content_name: 'Guia Junino Interativo',
+            content_name: 'Receitas Juninas Interativo: 40 Receitas Premium com Check-Point',
             content_category: 'Webbook'
           });
         }

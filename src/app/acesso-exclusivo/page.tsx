@@ -129,9 +129,19 @@ export default function RecipeApp() {
       setIsVip(true);
       if (!localStorage.getItem("webbook-purchase-tracked")) {
         if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Purchase', { currency: 'BRL', value: 47.00 });
+          (window as any).fbq('track', 'Purchase', { 
+            currency: 'BRL', 
+            value: 47.00,
+            content_name: 'Receitas Juninas Interativo: 40 Receitas Premium com Check-Point',
+            content_category: 'Webbook'
+          });
         }
-        trackServerEvent('Purchase', { currency: 'BRL', value: 47.00 });
+        trackServerEvent('Purchase', { 
+          currency: 'BRL', 
+          value: 47.00,
+          content_name: 'Receitas Juninas Interativo: 40 Receitas Premium com Check-Point',
+          content_category: 'Webbook'
+        });
         localStorage.setItem("webbook-purchase-tracked", "true");
       }
       localStorage.setItem("webbook-isvip", "true");

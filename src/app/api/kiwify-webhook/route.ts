@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
           custom_data: {
             value,
             currency: "BRL",
-            content_name: payload.Product?.product_name || "Guia Junino Interativo",
+            content_name: payload.Product?.product_name || "Receitas Juninas Interativo: 40 Receitas Premium com Check-Point",
             content_category: "Webbook",
             order_id: payload.order_id,
           },
