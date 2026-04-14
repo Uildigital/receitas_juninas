@@ -380,7 +380,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                 <section className="bg-primary text-white p-6 rounded-[2.5rem] shadow-2xl relative overflow-hidden border-b-4 border-secondary/50">
                     <div className="relative z-10 flex items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                            <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center text-secondary shadow-inner"><Calculator size={18} /></div>
+                            <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center text-highlight shadow-inner"><Calculator size={18} /></div>
                             <div>
                                 <h3 className="text-sm font-black tracking-tight leading-none mb-1">Escala</h3>
                                 <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest">Ajuste Rápido</p>
@@ -388,7 +388,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                         </div>
                         <div className="flex items-center gap-1 bg-white/5 p-1 rounded-2xl border border-white/5">
                             <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center active:scale-90 transition-all"><Minus size={14} /></button>
-                            <div className="px-3 text-center min-w-[50px]"><span className="text-xl font-black text-secondary leading-none">{yieldMultiplier}x</span></div>
+                            <div className="px-3 text-center min-w-[50px]"><span className="text-xl font-black text-highlight leading-none">{yieldMultiplier}x</span></div>
                             <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-8 w-8 bg-secondary rounded-lg flex items-center justify-center text-white active:scale-90 transition-all font-black"><Plus size={14} /></button>
                         </div>
                     </div>
@@ -524,7 +524,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                         </p>
                     </div>
                     <div className="p-8 bg-primary text-white rounded-[3rem] shadow-xl space-y-4">
-                        <h4 className="flex items-center gap-3 text-secondary font-black text-sm uppercase tracking-widest leading-none mt-1"><Target size={18} /> Engenharia de Produto</h4>
+                        <h4 className="flex items-center gap-3 text-highlight font-black text-sm uppercase tracking-widest leading-none mt-1"><Target size={18} /> Engenharia de Produto</h4>
                         <p className="text-[13px] text-white/90 leading-relaxed font-medium">
                             {recipe.diferencial || "Receita otimizada para manter a umidade por até 48 horas em temperatura ambiente."}
                         </p>
@@ -695,7 +695,7 @@ function ShoppingView({ onBack }: any) {
                     <motion.div key="plan" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} className="space-y-6">
                         <div className="bg-primary p-8 rounded-[3rem] text-white shadow-2xl relative overflow-hidden mb-8">
                             <div className="relative z-10">
-                                <h3 className="text-xl font-black mb-2 flex items-center gap-2"><Zap className="text-secondary" /> O que você vai produzir?</h3>
+                                <h3 className="text-xl font-black mb-2 flex items-center gap-2"><Zap className="text-highlight" /> O que você vai produzir?</h3>
                                 <p className="text-[10px] text-white/70 font-bold uppercase tracking-widest italic">Defina as quantidades para gerar a lista abaixo.</p>
                             </div>
                         </div>

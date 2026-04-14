@@ -144,17 +144,17 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                 <div className="bg-primary text-white rounded-[3.5rem] overflow-hidden shadow-2xl p-10 relative">
                     <div className="relative z-10 space-y-8">
                         <div className="flex items-center gap-3">
-                            <CheckSquare size={28} className="text-secondary" />
+                            <CheckSquare size={28} className="text-highlight" />
                             <h3 className="text-2xl font-black">Checklist de Auditoria</h3>
                         </div>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl">
                                 <div className="h-5 w-5 bg-secondary rounded-full flex items-center justify-center shrink-0 mt-0.5"><Star size={12} className="text-primary" /></div>
-                                <div><span className="font-black text-[12px] uppercase text-secondary">Diário:</span><p className="text-[12px] text-white/60">Conferência de temperatura do freezer (-18ºC) e etiquetas que vencem hoje.</p></div>
+                                <div><span className="font-black text-[12px] uppercase text-highlight">Diário:</span><p className="text-[12px] text-white/80">Conferência de temperatura do freezer (-18ºC) e etiquetas que vencem hoje.</p></div>
                             </li>
                             <li className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl">
                                 <div className="h-5 w-5 bg-white/20 rounded-full flex items-center justify-center shrink-0 mt-0.5"><Activity size={12} className="text-white" /></div>
-                                <div><span className="font-black text-[12px] uppercase text-white">Semanal:</span><p className="text-[12px] text-white/60">Higienização profunda de compartimentos e conferência da "Curva ABC".</p></div>
+                                <div><span className="font-black text-[12px] uppercase text-white">Semanal:</span><p className="text-[12px] text-white/80">Higienização profunda de compartimentos e conferência da "Curva ABC".</p></div>
                             </li>
                         </ul>
                     </div>
