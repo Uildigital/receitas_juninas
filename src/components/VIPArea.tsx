@@ -229,7 +229,7 @@ function DashboardView({ globalProgress, completedCount, totalCount, onNavigate 
                    <div className="h-14 w-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary"><BookOpen size={28} /></div>
                    <div>
                       <h3 className="font-black text-primary text-sm uppercase tracking-widest">Receitas de Ouro</h3>
-                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Segredos do Arraiá</p>
+                      <p className="text-[10px] text-primary/70 font-bold uppercase italic">Segredos do Arraiá</p>
                    </div>
                 </div>
                 <ArrowRight size={20} className="text-primary/10 group-hover:text-secondary group-hover:translate-x-1 transition-all" />
@@ -240,7 +240,7 @@ function DashboardView({ globalProgress, completedCount, totalCount, onNavigate 
                    <div className="h-14 w-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500"><Package size={28} /></div>
                    <div>
                       <h3 className="font-black text-primary text-sm uppercase tracking-widest">Sistema de Lucro</h3>
-                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Mercado & Produção</p>
+                      <p className="text-[10px] text-primary/70 font-bold uppercase italic">Mercado & Produção</p>
                    </div>
                 </div>
                 <ArrowRight size={20} className="text-primary/10 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" />
@@ -251,7 +251,7 @@ function DashboardView({ globalProgress, completedCount, totalCount, onNavigate 
                    <div className="h-14 w-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent"><Gift size={28} /></div>
                    <div>
                       <h3 className="font-black text-primary text-sm uppercase tracking-widest">Meus Bônus</h3>
-                      <p className="text-[10px] text-primary/40 font-bold uppercase italic">Extras de Elite</p>
+                      <p className="text-[10px] text-primary/70 font-bold uppercase italic">Extras de Elite</p>
                    </div>
                 </div>
                 <ArrowRight size={20} className="text-primary/10 group-hover:text-accent group-hover:translate-x-1 transition-all" />
@@ -360,7 +360,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                 { id: 'lucro', icon: Calculator, label: 'ROI' },
                 { id: 'dicas', icon: Sparkles, label: 'Dicas' }
               ].map((t: any) => (
-                  <button key={t.id} onClick={() => setDetailTab(t.id as any)} className={`flex items-center justify-center p-3 rounded-xl transition-all ${detailTab === t.id ? "bg-primary text-white shadow-xl scale-110" : "text-primary/30 hover:text-primary/60"}`}>
+                  <button key={t.id} onClick={() => setDetailTab(t.id as any)} className={`flex items-center justify-center p-3 rounded-xl transition-all ${detailTab === t.id ? "bg-primary text-white shadow-xl scale-110" : "text-primary/60 hover:text-primary"}`}>
                       <t.icon size={20}/>
                   </button>
               ))}
@@ -383,13 +383,13 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                             <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center text-secondary shadow-inner"><Calculator size={18} /></div>
                             <div>
                                 <h3 className="text-sm font-black tracking-tight leading-none mb-1">Escala</h3>
-                                <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Ajuste Rápido</p>
+                                <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest">Ajuste Rápido</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-1 bg-white/5 p-1 rounded-2xl border border-white/5">
                             <button onClick={() => setYieldMultiplier(Math.max(1, yieldMultiplier - 1))} className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center active:scale-90 transition-all"><Minus size={14} /></button>
                             <div className="px-3 text-center min-w-[50px]"><span className="text-xl font-black text-secondary leading-none">{yieldMultiplier}x</span></div>
-                            <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-8 w-8 bg-secondary rounded-lg flex items-center justify-center text-primary active:scale-90 transition-all font-black"><Plus size={14} /></button>
+                            <button onClick={() => setYieldMultiplier(yieldMultiplier + 1)} className="h-8 w-8 bg-secondary rounded-lg flex items-center justify-center text-white active:scale-90 transition-all font-black"><Plus size={14} /></button>
                         </div>
                     </div>
                 </section>
@@ -399,7 +399,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                     <div className="space-y-3">
                     {recipe.ingredientes.map((ing: string, i: number) => (
                         <div key={i} onClick={() => toggleItem(recipe.id, "ing", i)} className={`flex items-center gap-4 p-5 rounded-2xl border transition-all cursor-pointer ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary/5 opacity-40 grayscale" : "bg-white border-primary/5 shadow-sm active:scale-[0.98]"}`}>
-                        <div className={`h-6 w-6 rounded-lg border-2 flex items-center justify-center shrink-0 ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary border-secondary text-white" : "border-primary/10"}`}>{completedItems[`${recipe.id}-ing-${i}`] && <CheckCircle2 size={16} />}</div>
+                        <div className={`h-6 w-6 rounded-lg border-2 flex items-center justify-center shrink-0 ${completedItems[`${recipe.id}-ing-${i}`] ? "bg-secondary border-secondary text-white" : "border-primary/20 bg-primary/5"}`}>{completedItems[`${recipe.id}-ing-${i}`] && <CheckCircle2 size={16} />}</div>
                         <span className="text-[14px] font-bold text-primary leading-tight">{yieldMultiplier > 1 && <span className="text-secondary mr-2">{yieldMultiplier}x</span>}{ing}</span>
                         </div>
                     ))}
@@ -425,24 +425,24 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                 <div className="bg-success text-white p-8 rounded-[3rem] shadow-2xl relative overflow-hidden">
                     <div className="relative z-10">
                         <h3 className="text-2xl font-black mb-1 flex items-center gap-2"><Calculator size={24} /> Simulador ROI Expert</h3>
-                        <p className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Memória inteligente de preços ativa ✅</p>
+                        <p className="text-[10px] font-bold text-white/80 uppercase tracking-[0.2em]">Memória inteligente de preços ativa ✅</p>
                     </div>
                     <div className="absolute top-[-40%] right-[-10%] w-48 h-48 bg-white/10 blur-[50px] rounded-full" />
                 </div>
 
                 <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/10">
-                    <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-6 pl-2">1. Insumos (Preço e Medida Total):</h4>
+                    <h4 className="text-[11px] font-black text-primary/70 uppercase tracking-widest mb-6 pl-2">1. Insumos (Preço e Medida Total):</h4>
                     <div className="space-y-4">
                         {recipe.ingredientes.map((ing: string, i: number) => (
                             <div key={i} className="bg-primary/[0.02] p-6 rounded-[2.5rem] border border-primary/5 space-y-4">
                                 <span className="text-[13px] font-black text-primary block leading-tight">{ing}</span>
                                 <div className="grid grid-cols-2 gap-3">
                                     <div className="bg-white p-3 rounded-xl border border-primary/10">
-                                        <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Preço Pago (R$)</span>
+                                        <span className="text-[9px] font-black uppercase text-primary/60 block mb-1">Preço Pago (R$)</span>
                                         <input type="text" value={calcData[i]?.price || ''} onChange={(e) => handlePriceUpdate(i, 'price', e.target.value)} className="w-full bg-transparent outline-none font-black text-xs" placeholder="0,00" />
                                     </div>
                                     <div className="bg-white p-3 rounded-xl border border-primary/10">
-                                        <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Peso Total (g/ml)</span>
+                                        <span className="text-[9px] font-black uppercase text-primary/60 block mb-1">Peso Total (g/ml)</span>
                                         <input type="text" value={calcData[i]?.totalQty || ''} onChange={(e) => handlePriceUpdate(i, 'totalQty', e.target.value)} className="w-full bg-transparent outline-none font-black text-xs" placeholder="1000" />
                                     </div>
                                 </div>
@@ -452,12 +452,12 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                 </section>
 
                 <section className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/10">
-                    <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-6 pl-2">2. Custos Indiretos (Por Receita):</h4>
+                    <h4 className="text-[11px] font-black text-primary/70 uppercase tracking-widest mb-6 pl-2">2. Custos Indiretos (Por Receita):</h4>
                     <div className="grid grid-cols-2 gap-4">
                         {Object.entries(extraCosts).map(([key, val]) => (
                             key !== 'sellMultiplier' && (
                                 <div key={key} className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
-                                    <span className="text-[8px] font-black uppercase text-primary/40 block mb-1">{key === 'gas' ? 'Gás/Energia' : key === 'labor' ? 'Mão de Obra' : key === 'energy' ? 'Água/Diversos' : 'Embalagem/Tags'} (R$)</span>
+                                    <span className="text-[9px] font-black uppercase text-primary/60 block mb-1">{key === 'gas' ? 'Gás/Energia' : key === 'labor' ? 'Mão de Obra' : key === 'energy' ? 'Água/Diversos' : 'Embalagem/Tags'} (R$)</span>
                                     <input type="text" value={val} onChange={(e) => setExtraCosts({...extraCosts, [key]: e.target.value})} className="w-full bg-transparent outline-none font-black text-xs text-primary" />
                                 </div>
                             )
@@ -467,8 +467,8 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
 
                 <section className="bg-primary text-white p-10 rounded-[4rem] shadow-2xl space-y-8 relative overflow-hidden">
                     <div className="relative z-10">
-                        <div className="flex justify-between items-center bg-white/10 p-6 rounded-[2rem] border border-white/10 mb-6">
-                            <div><span className="text-[10px] font-black uppercase text-white/50">Custo Total x{yieldMultiplier}</span><p className="text-3xl font-black">R$ {costPerRecipe.toFixed(2).replace('.', ',')}</p></div>
+                        <div className="flex justify-between items-center bg-white/10 p-6 rounded-[2rem] border-2 border-white/5 mb-6">
+                            <div><span className="text-[10px] font-black uppercase text-white/70">Custo Total x{yieldMultiplier}</span><p className="text-3xl font-black">R$ {costPerRecipe.toFixed(2).replace('.', ',')}</p></div>
                             <div className="text-right">
                                 <span className="text-[10px] font-black uppercase text-secondary">Margem Sugerida</span>
                                 <select value={extraCosts.sellMultiplier} onChange={(e) => setExtraCosts({...extraCosts, sellMultiplier: e.target.value})} className="bg-secondary text-primary font-black px-3 py-1 rounded-lg outline-none ml-2 block">
@@ -547,19 +547,19 @@ function BonusesView({ onBack, onSelect }: any) {
       <div onClick={() => onSelect('embalagens')} className="bg-gradient-to-br from-white to-amber-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl mb-6 cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
         <Package size={32} className="text-secondary mb-6 relative z-10" />
         <h3 className="text-xl font-black mb-2 flex items-center justify-between relative z-10">Guia de Embalagens <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
-        <p className="text-sm text-primary/60 font-medium relative z-10">Sua checklist interativa para valorizar o produto.</p>
+        <p className="text-sm text-primary/70 font-medium relative z-10">Sua checklist interativa para valorizar o produto.</p>
       </div>
 
       <div onClick={() => onSelect('scripts')} className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl mb-6 cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
         <ScrollText size={32} className="text-accent mb-6" />
         <h3 className="text-xl font-black mb-2 flex items-center justify-between">Scripts WhatsApp <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
-        <p className="text-sm text-primary/60 font-medium">Clique para acessar e copiar as mensagens prontas que vendem de verdade.</p>
+        <p className="text-sm text-primary/70 font-medium">Clique para acessar e copiar as mensagens prontas que vendem de verdade.</p>
       </div>
 
       <div onClick={() => onSelect('estoque')} className="bg-gradient-to-br from-white to-green-50 p-8 rounded-[3rem] border border-primary/10 shadow-2xl cursor-pointer active:scale-95 transition-all relative overflow-hidden group">
         <Target size={32} className="text-secondary mb-6 relative z-10" />
         <h3 className="text-xl font-black mb-2 flex items-center justify-between relative z-10">Organização de Estoque <ArrowRight size={20} className="text-primary group-hover:translate-x-2 transition-transform"/></h3>
-        <p className="text-sm text-primary/60 font-medium relative z-10">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
+        <p className="text-sm text-primary/70 font-medium relative z-10">Aprenda a gerenciar os seus insumos e evitar desperdícios.</p>
       </div>
     </motion.div>
   );
