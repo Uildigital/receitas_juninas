@@ -56,7 +56,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         <div className="px-5 -mt-20 relative z-20">
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white p-8 rounded-[3rem] shadow-2xl border border-primary/5 text-center">
                 <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Estratégia & <span className="text-secondary italic font-outfit">Lucratividade</span></h1>
-                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em]">Onde o design encontra o faturamento real.</p>
+                <p className="text-[12px] font-bold text-primary/70 uppercase tracking-[0.2em]">Onde o design encontra o faturamento real.</p>
             </motion.div>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
         {/* Navigation Tabs */}
         <div className="bg-white/80 backdrop-blur-md p-1.5 rounded-[2.5rem] shadow-xl border border-primary/5 flex items-center mb-12">
           {categories.map((cat) => (
-            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 flex items-center justify-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/40 hover:text-primary"}`}>
+            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 flex items-center justify-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/70 hover:text-primary"}`}>
               {activeCategory === cat.id && <motion.div layoutId="activeTab" className="absolute inset-0 bg-primary shadow-xl" style={{ borderRadius: "2rem" }} transition={{ type: "spring", bounce: 0.1, duration: 0.6 }} />}
               <cat.icon size={14} className="relative z-10" />
               <span className="relative z-10 font-black text-[9px] uppercase tracking-widest leading-none">{cat.label}</span>
@@ -87,7 +87,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                             <div className="h-12 w-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary shadow-inner"><Crown size={24} /></div>
                             <div>
                                 <h3 className="text-2xl font-black text-primary tracking-tight font-outfit">O Conceito Loft-Rural</h3>
-                                <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em]">Branding Gastronômico de Elite</p>
+                                <p className="text-[10px] font-black text-primary/70 uppercase tracking-[0.3em]">Branding Gastronômico de Elite</p>
                             </div>
                         </div>
                         
@@ -104,10 +104,10 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
 
                             <div className="relative p-8 bg-primary text-white rounded-[3rem] shadow-2xl overflow-hidden">
                                 <div className="relative z-10">
-                                    <h4 className="font-black text-[13px] uppercase mb-4 text-secondary tracking-widest">Neurociência: O Valor da Espessura</h4>
+                                    <h4 className="font-black text-[13px] uppercase mb-4 text-highlight tracking-widest">Neurociência: O Valor da Espessura</h4>
                                     <p className="text-[14px] leading-relaxed mb-6 opacity-80">Nosso cérebro associa <strong>resistência mecânica à qualidade de conteúdo</strong>. Embalagens moles ou finas (abaixo de 200g) transmitem a ideia de produto industrializado e barato. Ao usar o Kraft de 240g, o som da caixa ao ser aberta emite uma frequência que o subconsciente do cliente interpreta como "Produto de Elite".</p>
                                     <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-3">
-                                        <Layers size={20} className="text-secondary" />
+                                        <Layers size={20} className="text-highlight" />
                                         <p className="text-[11px] font-bold">DICA: Peça sempre Kraft 'Pardo', que possui fibras mais longas e visual mais rústico que o Kraft 'Simples'.</p>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                 <section>
                     <div className="flex items-center gap-4 mb-8 pl-2 font-black text-primary uppercase tracking-tighter">
                         <BarChart3 size={24} className="text-secondary" />
-                        <div><h2 className="text-2xl leading-none">A Roda do Lucro</h2><p className="text-[10px] text-primary/60 tracking-widest mt-1 uppercase leading-none">Psicologia de Precificação Expert</p></div>
+                        <div><h2 className="text-2xl leading-none">A Roda do Lucro</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Psicologia de Precificação Expert</p></div>
                     </div>
 
                     <div className="space-y-8">
@@ -148,18 +148,18 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                         <div className="bg-primary p-10 rounded-[4rem] text-white shadow-[0_40px_80px_rgba(0,0,0,0.2)] relative overflow-hidden">
                             <div className="relative z-10 space-y-10">
                                 <div className="flex justify-between items-start">
-                                    <div className="bg-secondary/20 p-4 rounded-3xl border border-secondary/20"><ShoppingCart size={28} className="text-secondary" /></div>
-                                    <div className="text-right"><h4 className="text-2xl font-black mb-1">Cesta Arraiá High-End</h4><p className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em]">Estratégia de Presenteáveis</p></div>
+                                    <div className="bg-highlight/20 p-4 rounded-3xl border border-highlight/20"><ShoppingCart size={28} className="text-highlight" /></div>
+                                    <div className="text-right"><h4 className="text-2xl font-black mb-1">Cesta Arraiá High-End</h4><p className="text-[10px] font-bold text-highlight uppercase tracking-[0.2em]">Estratégia de Presenteáveis</p></div>
                                 </div>
                                 <div className="relative h-56 w-full rounded-[3rem] overflow-hidden border-2 border-white/5"><Image src="/imagens/cesta_luxo.png" alt="Cesta" fill className="object-cover" /></div>
                                 <div className="space-y-8">
                                     <div>
-                                        <h5 className="text-[12px] font-black text-secondary uppercase mb-3 flex items-center gap-2 tracking-[0.2em]"><Zap size={16}/> O Poder da Ancoragem</h5>
+                                        <h5 className="text-[12px] font-black text-highlight uppercase mb-3 flex items-center gap-2 tracking-[0.2em]"><Zap size={16}/> O Poder da Ancoragem</h5>
                                         <p className="text-[14px] text-white/70 leading-relaxed font-medium">Anunciar a Cesta de <strong>R$ 180,00</strong> primeiro no seu feed serve como <strong>âncora</strong>. Quando o cliente vê a Box por R$ 45,00, o cérebro dele a interpreta como "barata" instantaneamente. Sem a âncora do preço alto, ele acharia a box cara.</p>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
-                                        <h5 className="text-[11px] font-black text-white uppercase mb-2 tracking-widest flex items-center gap-2"><BarChart3 size={14} className="text-secondary"/> B2B: O Mercado das Empresas</h5>
-                                        <p className="text-[11px] text-white/50 leading-relaxed font-medium italic">Empresas buscam cestas juninas para funcionários em Junho. Remova o preço unitário e foque em "Experiência da Empresa". Vender 50 cestas para um único CNPJ é o que vai te fazer mudar de patamar financeiro.</p>
+                                        <h5 className="text-[11px] font-black text-white uppercase mb-2 tracking-widest flex items-center gap-2"><BarChart3 size={14} className="text-highlight"/> B2B: O Mercado das Empresas</h5>
+                                        <p className="text-[11px] text-white/80 leading-relaxed font-medium italic">Empresas buscam cestas juninas para funcionários em Junho. Remova o preço unitário e foque em "Experiência da Empresa". Vender 50 cestas para um único CNPJ é o que vai te fazer mudar de patamar financeiro.</p>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                                 <div className="flex justify-between items-center py-4 border-b border-primary/5"><span className="text-[13px] font-bold text-primary/60">Aumento no Ticket Médio:</span><span className="text-[14px] font-black text-secondary">+ R$ 12,50</span></div>
                                 <div className="flex justify-between items-center py-4 text-primary bg-primary/5 px-6 rounded-2xl"><span className="text-[13px] font-black uppercase tracking-widest">Lucro Adicional por Unid:</span><span className="text-xl font-black">R$ 10,10</span></div>
                             </div>
-                            <p className="text-[10px] text-primary/30 mt-6 text-center italic font-bold">"Em um volume de 100 pedidos, seu design te pagou R$ 1.010,00 a mais de lucro puro."</p>
+                            <p className="text-[10px] text-primary/60 mt-6 text-center italic font-bold">"Em um volume de 100 pedidos, seu design te pagou R$ 1.010,00 a mais de lucro puro."</p>
                         </div>
                     </div>
                 </section>
@@ -193,7 +193,7 @@ export default function GuiaEmbalagens({ onBack }: { onBack: () => void }) {
                             {/* REAQUECIMENTO DETALHADO */}
                             <div className="bg-primary text-white p-8 rounded-[3rem] shadow-xl relative overflow-hidden">
                                 <div className="relative z-10">
-                                    <h4 className="flex items-center gap-2 font-black text-lg mb-6 text-secondary uppercase tracking-tighter"><ThermometerSun size={24} /> O Segredo do Reaquecimento Técnico</h4>
+                                    <h4 className="flex items-center gap-2 font-black text-lg mb-6 text-highlight uppercase tracking-tighter"><ThermometerSun size={24} /> O Segredo do Reaquecimento Técnico</h4>
                                     
                                     <div className="space-y-8">
                                         <div className="space-y-2">

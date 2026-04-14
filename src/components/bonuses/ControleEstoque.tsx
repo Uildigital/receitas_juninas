@@ -74,7 +74,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                     </div>
                 </div>
                 <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Blindagem de <span className="text-secondary italic">Lucro Real</span></h1>
-                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em] leading-relaxed">Sua cozinha como uma empresa de alta escala.</p>
+                <p className="text-[12px] font-bold text-primary/70 uppercase tracking-[0.2em] leading-relaxed">Sua cozinha como uma empresa de alta escala.</p>
             </motion.div>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
         {/* Navigation Tabs */}
         <div className="bg-white/80 backdrop-blur-md p-1.5 rounded-[2.5rem] shadow-xl border border-primary/5 flex items-center mb-10 overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
-            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 min-w-[110px] flex justify-center items-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/40 hover:text-primary"}`}>
+            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 min-w-[110px] flex justify-center items-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/70 hover:text-primary"}`}>
               {activeCategory === cat.id && <motion.div layoutId="estoqueTab" className="absolute inset-0 bg-primary shadow-lg shadow-primary/20" style={{ borderRadius: "2rem" }} transition={{ type: "spring", bounce: 0.15, duration: 0.6 }} />}
               <cat.icon size={14} className="relative z-10" />
               <span className="relative z-10 font-black text-[9px] uppercase tracking-widest leading-none">{cat.label}</span>
@@ -102,7 +102,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
               <div className="space-y-10">
                  <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <History size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">Arquitetura de Fluxo</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Onde a Operação começa</p></div>
+                    <div><h2 className="text-2xl leading-none">Arquitetura de Fluxo</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Onde a Operação começa</p></div>
                 </div>
 
                 <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-8 space-y-12">
@@ -130,11 +130,11 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                         <p className="text-[13px] text-primary/70 leading-relaxed font-medium italic">"Se não tem etiqueta, é lixo. Não arrisque sua marca por uma dúvida de 2 dias."</p>
                         <div className="grid grid-cols-2 gap-3">
                             <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/5 text-center">
-                                <span className="text-[9px] font-black text-primary/40 uppercase block mb-1">Campo Obrigatório 1</span>
+                                <span className="text-[9px] font-black text-primary/60 uppercase block mb-1">Campo Obrigatório 1</span>
                                 <span className="text-[11px] font-black text-primary uppercase">Data de Abertura</span>
                             </div>
                             <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/5 text-center">
-                                <span className="text-[9px] font-black text-primary/40 uppercase block mb-1">Campo Obrigatório 2</span>
+                                <span className="text-[9px] font-black text-primary/60 uppercase block mb-1">Campo Obrigatório 2</span>
                                 <span className="text-[11px] font-black text-primary uppercase">Prazo de Validade</span>
                             </div>
                         </div>
@@ -170,19 +170,19 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
               <div className="space-y-8">
                  <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <Refrigerator size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">Matriz de Validade</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Segurança Alimentar Total</p></div>
+                    <div><h2 className="text-2xl leading-none">Matriz de Validade</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Segurança Alimentar Total</p></div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-lg text-center flex flex-col items-center justify-center">
                         <div className="w-10 h-10 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-3"><Refrigerator size={20} /></div>
                         <h3 className="text-[11px] font-black text-primary uppercase mb-1">Geladeira</h3>
-                        <p className="text-[10px] text-primary/50 font-bold">Max. 4°C</p>
+                        <p className="text-[10px] text-primary/70 font-bold">Max. 4°C</p>
                     </div>
                     <div className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-lg text-center flex flex-col items-center justify-center">
                         <div className="w-10 h-10 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-3"><Snowflake size={20} /></div>
                         <h3 className="text-[11px] font-black text-primary uppercase mb-1">Freezer</h3>
-                        <p className="text-[10px] text-primary/50 font-bold">Min. -18°C</p>
+                        <p className="text-[10px] text-primary/70 font-bold">Min. -18°C</p>
                     </div>
                 </div>
 
@@ -207,7 +207,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
                                 </h3>
                                 <div className="grid grid-cols-3 gap-2">
                                     <div className="flex flex-col gap-1.5">
-                                        <span className="text-[9px] font-black uppercase text-primary/40 leading-none">Ambiente</span>
+                                        <span className="text-[9px] font-black uppercase text-primary/70 leading-none">Ambiente</span>
                                         <span className="text-[11px] font-bold text-primary/90 leading-tight">{v.ambiente}</span>
                                     </div>
                                     <div className="flex flex-col gap-1.5 border-x border-primary/10 px-3">
@@ -233,7 +233,7 @@ export default function ControleEstoque({ onBack }: { onBack: () => void }) {
               <div className="space-y-12">
                  <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <TrendingUp size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">A Matemática do Lixo</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Protegendo sua Margem</p></div>
+                    <div><h2 className="text-2xl leading-none">A Matemática do Lixo</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Protegendo sua Margem</p></div>
                 </div>
 
                 <div className="bg-white rounded-[3.5rem] overflow-hidden shadow-2xl border border-primary/10 p-10 space-y-12">
