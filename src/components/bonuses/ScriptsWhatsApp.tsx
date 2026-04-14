@@ -65,7 +65,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
                     </div>
                 </div>
                 <h1 className="text-3xl font-black text-primary tracking-tighter leading-none mb-3 font-outfit">Máquina de Vendas<br/><span className="text-success tracking-tight">no WhatsApp</span></h1>
-                <p className="text-[12px] font-bold text-primary/50 uppercase tracking-[0.2em] leading-relaxed">Não implore por vendas.<br/>Gere desejo antecipado.</p>
+                <p className="text-[12px] font-bold text-primary/70 uppercase tracking-[0.2em] leading-relaxed">Não implore por vendas.<br/>Gere desejo antecipado.</p>
             </motion.div>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
         {/* Navigation Tabs (SegControl) */}
         <div className="bg-white/80 backdrop-blur-md p-1.5 rounded-[2.5rem] shadow-xl border border-primary/5 flex items-center mb-10 overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
-            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 min-w-[110px] flex justify-center items-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/40 hover:text-primary"}`}>
+            <button key={cat.id} onClick={() => setActiveCategory(cat.id as any)} className={`relative flex-1 min-w-[110px] flex justify-center items-center gap-2 py-4 rounded-[2rem] transition-all duration-500 ${activeCategory === cat.id ? "text-white" : "text-primary/70 hover:text-primary"}`}>
               {activeCategory === cat.id && <motion.div layoutId="whatsappTab" className="absolute inset-0 bg-success shadow-lg shadow-success/20" style={{ borderRadius: "2rem" }} transition={{ type: "spring", bounce: 0.15, duration: 0.6 }} />}
               <cat.icon size={14} className="relative z-10" />
               <span className="relative z-10 font-black text-[9px] uppercase tracking-widest leading-none">{cat.label}</span>
@@ -93,7 +93,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
               <div className="space-y-10">
                  <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <Flame size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">Criando Desejo</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Abordagem Fria e Morna</p></div>
+                    <div><h2 className="text-2xl leading-none">Criando Desejo</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Abordagem Fria e Morna</p></div>
                 </div>
 
                 {/* SCRIPT 1: LANÇAMENTO VIP */}
@@ -153,31 +153,31 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
               <div className="space-y-12">
                 <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <Target size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">Trancando a Venda</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Matando objeções rápido</p></div>
+                    <div><h2 className="text-2xl leading-none">Trancando a Venda</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Matando objeções rápido</p></div>
                 </div>
 
                 {/* SCRIPT: ESCASSEZ */}
                 <div className="bg-primary text-white rounded-[3.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
                     <div className="p-8 border-b border-white/10 bg-white/5 relative overflow-hidden">
-                        <h3 className="text-xl font-black mb-3 flex items-center gap-3 text-secondary">⏳ Gatilho de Escassez Real</h3>
+                        <h3 className="text-xl font-black mb-3 flex items-center gap-3 text-highlight">⏳ Gatilho de Escassez Real</h3>
                         <p className="text-[13px] text-white/70 font-medium">A pior coisa que você pode fazer é a "cobrança chata". O cliente pediu o cardápio, viu o preço e sumiu? Use isso em 24h:</p>
                         <div className="absolute top-[-50%] right-[-10%] w-40 h-40 bg-secondary/10 blur-[40px] rounded-full" />
                     </div>
                     <div className="p-8 space-y-6">
                         <div className="bg-white/10 p-6 rounded-[2.5rem] border border-white/20 backdrop-blur-md">
                             <p className="text-[14px] text-white/90 whitespace-pre-wrap leading-relaxed font-bold italic">
-                            Oi <span className="text-secondary">[Nome]</span>! Tudo bem? Passando rapidinho por aqui pra ser justa com você.{"\n\n"}
+                            Oi <span className="text-highlight">[Nome]</span>! Tudo bem? Passando rapidinho por aqui pra ser justa com você.{"\n\n"}
                             Como tivemos muitos pedidos na última hora, eu <strong>só tenho mais 3 vagas</strong> de produção para as encomendas deste fim de semana! 🏃‍♀️💨{"\n\n"}
                             Como você já tinha me pedido o cardápio, vim te avisar antes de fechar a agenda. Você vai querer garantir a sua Pamona e o Bolo de Milho? Me avisa pra eu bloquear sua vaga agora.
                             </p>
                         </div>
 
                         <div className="flex bg-white/5 rounded-[2rem] p-5 gap-4 items-start border border-white/5">
-                            <BrainCircuit className="text-secondary shrink-0" size={20} />
-                            <div><h4 className="font-black text-[10px] uppercase text-white mb-1">Neuromarketing Aplicado:</h4><p className="text-[12px] font-medium text-white/60 leading-relaxed">Isso aciona o <strong>FOMO (Fear Of Missing Out - Medo de ficar de fora)</strong>. O cliente não sente que está sendo "cobrado", ele sente que você está fazendo um <em>favor</em> em avisar antes de acabar.</p></div>
+                            <BrainCircuit className="text-highlight shrink-0" size={20} />
+                            <div><h4 className="font-black text-[10px] uppercase text-white mb-1">Neuromarketing Aplicado:</h4><p className="text-[12px] font-medium text-white/80 leading-relaxed">Isso aciona o <strong>FOMO (Fear Of Missing Out - Medo de ficar de fora)</strong>. O cliente não sente que está sendo "cobrado", ele sente que você está fazendo um <em>favor</em> em avisar antes de acabar.</p></div>
                         </div>
 
-                        <button onClick={() => handleCopy('escassez', "Oi [Nome]! Tudo bem? Passando rapidinho por aqui pra ser justa com você.\n\nComo tivemos muitos pedidos na última hora, eu só tenho mais 3 vagas de produção para as encomendas deste fim de semana! 🏃‍♀️💨\n\nComo você já tinha me pedido o cardápio, vim te avisar antes de fechar a agenda. Você vai querer garantir a sua Pamona e o Bolo de Milho? Me avisa pra eu bloquear sua vaga agora.")} className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-xl active:scale-95 ${copiedId === 'escassez' ? "bg-success text-white" : "bg-secondary text-primary"}`}>
+                        <button onClick={() => handleCopy('escassez', "Oi [Nome]! Tudo bem? Passando rapidinho por aqui pra ser justa com você.\n\nComo tivemos muitos pedidos na última hora, eu só tenho mais 3 vagas de produção para as encomendas deste fim de semana! 🏃‍♀️💨\n\nComo você já tinha me pedido o cardápio, vim te avisar antes de fechar a agenda. Você vai querer garantir a sua Pamona e o Bolo de Milho? Me avisa pra eu bloquear sua vaga agora.")} className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-xl active:scale-95 ${copiedId === 'escassez' ? "bg-success text-white" : "bg-highlight text-primary"}`}>
                             {copiedId === 'escassez' ? <><Check size={18} /> COPIADO! VÁ PARA O ZAP</>  : <><Copy size={18} /> COPIAR GATILHO DE VENDA</>}
                         </button>
                     </div>
@@ -192,7 +192,7 @@ export default function ScriptsWhatsApp({ onBack }: { onBack: () => void }) {
               <div className="space-y-12">
                 <div className="flex items-center gap-4 mb-2 pl-2 font-black text-primary uppercase tracking-tighter">
                     <TrendingUp size={24} className="text-secondary" />
-                    <div><h2 className="text-2xl leading-none">B2B e Ticket Alto</h2><p className="text-[10px] text-primary/50 tracking-widest mt-1 uppercase leading-none">Escalando o Faturamento</p></div>
+                    <div><h2 className="text-2xl leading-none">B2B e Ticket Alto</h2><p className="text-[10px] text-primary/70 tracking-widest mt-1 uppercase leading-none">Escalando o Faturamento</p></div>
                 </div>
 
                 {/* SCRIPT: CORPORATIVO */}
