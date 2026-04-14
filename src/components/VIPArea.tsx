@@ -470,8 +470,8 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                         <div className="flex justify-between items-center bg-white/10 p-6 rounded-[2rem] border-2 border-white/5 mb-6">
                             <div><span className="text-[10px] font-black uppercase text-white/70">Custo Total x{yieldMultiplier}</span><p className="text-3xl font-black">R$ {costPerRecipe.toFixed(2).replace('.', ',')}</p></div>
                             <div className="text-right">
-                                <span className="text-[10px] font-black uppercase text-secondary">Margem Sugerida</span>
-                                <select value={extraCosts.sellMultiplier} onChange={(e) => setExtraCosts({...extraCosts, sellMultiplier: e.target.value})} className="bg-secondary text-primary font-black px-3 py-1 rounded-lg outline-none ml-2 block">
+                                <span className="text-[11px] font-black uppercase text-amber-300">Margem Sugerida</span>
+                                <select value={extraCosts.sellMultiplier} onChange={(e) => setExtraCosts({...extraCosts, sellMultiplier: e.target.value})} className="bg-amber-400 text-primary font-black px-3 py-1 rounded-lg outline-none ml-2 block">
                                     <option value="2">2x (Baixa)</option>
                                     <option value="2.5">2.5x (Média)</option>
                                     <option value="3">3x (Ideal)</option>
@@ -481,16 +481,16 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                         </div>
 
                         <div className="space-y-6">
-                            <h4 className="text-xl font-black text-secondary flex items-center gap-2">🎯 Meta Mensal de Lucro</h4>
+                            <h4 className="text-xl font-black text-amber-300 flex items-center gap-2">🎯 Meta Mensal de Lucro</h4>
                             <div className="flex items-center gap-4 bg-white/5 p-6 rounded-[2.5rem] border border-white/10">
                                 <div className="flex-1 text-center border-r border-white/10">
                                     <span className="text-[10px] font-black uppercase text-white/70 block mb-2">Quero Ganhar (Lucro)</span>
-                                    <div className="flex items-center justify-center gap-1"><span className="text-xs font-black opacity-70">R$</span><input type="text" value={monthlyGoal} onChange={(e) => setMonthlyGoal(e.target.value)} className="bg-transparent border-b border-secondary/40 text-2xl font-black outline-none w-24 text-center text-secondary" /></div>
+                                    <div className="flex items-center justify-center gap-1"><span className="text-sm font-black text-white/70">R$</span><input type="text" value={monthlyGoal} onChange={(e) => setMonthlyGoal(e.target.value)} className="bg-transparent border-b-2 border-amber-400/50 text-2xl font-black outline-none w-24 text-center text-amber-300" /></div>
                                 </div>
                                 <div className="flex-1 text-center">
                                     <span className="text-[10px] font-black uppercase text-white/70 block mb-2">Meta de Vendas</span>
                                     <p className="text-3xl font-black">{unitsToGoal} un</p>
-                                    <span className="text-[8px] font-black uppercase text-secondary tracking-widest">Desta Receita</span>
+                                    <span className="text-[10px] font-black uppercase text-amber-300 tracking-widest">Desta Receita</span>
                                 </div>
                             </div>
                         </div>
