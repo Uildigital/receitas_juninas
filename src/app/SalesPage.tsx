@@ -31,26 +31,41 @@ const cssAnimations = `
 export default function SalesPage() {
   const checkoutUrl = "https://pay.kiwify.com.br/VGZzMTK";
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
+  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 59, seconds: 59 });
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { minutes: prev.minutes - 1, seconds: 59 };
-        return prev;
-      });
-    }, 1000);
+    // Timer real: deadline de 24h desde a primeira visita, persiste no localStorage
+    const DEADLINE_KEY = "junino-offer-deadline";
+    const DURATION_MS = 24 * 60 * 60 * 1000; // 24 horas
+
+    let deadline = parseInt(localStorage.getItem(DEADLINE_KEY) || "0", 10);
+    if (!deadline || deadline < Date.now()) {
+      deadline = Date.now() + DURATION_MS;
+      localStorage.setItem(DEADLINE_KEY, String(deadline));
+    }
+
+    const calcTimeLeft = () => {
+      const diff = Math.max(0, deadline - Date.now());
+      const totalSeconds = Math.floor(diff / 1000);
+      return {
+        hours: Math.floor(totalSeconds / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+      };
+    };
+
+    setTimeLeft(calcTimeLeft());
+    const timer = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 400);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => { 
-      clearInterval(timer); 
-      window.removeEventListener("scroll", handleScroll); 
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -68,7 +83,7 @@ export default function SalesPage() {
       {/* Top Urgency Bar */}
       <div className="bg-secondary py-2 relative z-[70] border-b border-white/10">
         <div className="text-center text-[10px] sm:text-xs font-black uppercase tracking-widest px-4">
-          🔥 OFERTA DE SÃO JOÃO: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+          🔥 OFERTA DE SÃO JOÃO: ACESSO AO SISTEMA JUNINO COM 76% OFF ACABA EM: {timeLeft.hours.toString().padStart(2, '0')}:{timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
         </div>
       </div>
 
