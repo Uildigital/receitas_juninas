@@ -484,11 +484,11 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                             <h4 className="text-xl font-black text-secondary flex items-center gap-2">🎯 Meta Mensal de Lucro</h4>
                             <div className="flex items-center gap-4 bg-white/5 p-6 rounded-[2.5rem] border border-white/10">
                                 <div className="flex-1 text-center border-r border-white/10">
-                                    <span className="text-[9px] font-black uppercase text-white/40 block mb-2">Quero Ganhar (Lucro)</span>
-                                    <div className="flex items-center justify-center gap-1"><span className="text-xs font-black opacity-40">R$</span><input type="text" value={monthlyGoal} onChange={(e) => setMonthlyGoal(e.target.value)} className="bg-transparent border-b border-secondary/40 text-2xl font-black outline-none w-24 text-center text-secondary" /></div>
+                                    <span className="text-[10px] font-black uppercase text-white/70 block mb-2">Quero Ganhar (Lucro)</span>
+                                    <div className="flex items-center justify-center gap-1"><span className="text-xs font-black opacity-70">R$</span><input type="text" value={monthlyGoal} onChange={(e) => setMonthlyGoal(e.target.value)} className="bg-transparent border-b border-secondary/40 text-2xl font-black outline-none w-24 text-center text-secondary" /></div>
                                 </div>
                                 <div className="flex-1 text-center">
-                                    <span className="text-[9px] font-black uppercase text-white/40 block mb-2">Meta de Vendas</span>
+                                    <span className="text-[10px] font-black uppercase text-white/70 block mb-2">Meta de Vendas</span>
                                     <p className="text-3xl font-black">{unitsToGoal} un</p>
                                     <span className="text-[8px] font-black uppercase text-secondary tracking-widest">Desta Receita</span>
                                 </div>
@@ -504,8 +504,8 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
               <motion.div key="dicas" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
                 <div className="bg-secondary p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
                     <div className="relative z-10">
-                        <h3 className="text-2xl font-black text-primary mb-1 flex items-center gap-2 tracking-tighter"><Sparkles size={24} /> Chef's Corner</h3>
-                        <p className="text-[10px] font-bold text-primary/50 uppercase tracking-[0.2em]">O diferencial que cobra caro.</p>
+                        <h3 className="text-2xl font-black text-white mb-1 flex items-center gap-2 tracking-tighter"><Sparkles size={24} /> Chef's Corner</h3>
+                        <p className="text-[10px] font-bold text-white/80 uppercase tracking-[0.2em]">O diferencial que cobra caro.</p>
                     </div>
                     <Activity className="absolute bottom-[-10%] right-[-10%] text-primary/5" size={140} />
                 </div>
@@ -525,7 +525,7 @@ function RecipeDetailView({ recipe, onBack, completedItems, toggleItem, yieldMul
                     </div>
                     <div className="p-8 bg-primary text-white rounded-[3rem] shadow-xl space-y-4">
                         <h4 className="flex items-center gap-3 text-secondary font-black text-sm uppercase tracking-widest leading-none mt-1"><Target size={18} /> Engenharia de Produto</h4>
-                        <p className="text-[12px] text-white/60 leading-relaxed font-medium">
+                        <p className="text-[13px] text-white/90 leading-relaxed font-medium">
                             {recipe.diferencial || "Receita otimizada para manter a umidade por até 48 horas em temperatura ambiente."}
                         </p>
                     </div>
