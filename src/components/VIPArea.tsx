@@ -666,13 +666,13 @@ function ShoppingView({ onBack }: any) {
                         <div className="bg-primary p-8 rounded-[3rem] text-white shadow-2xl relative overflow-hidden mb-8">
                             <div className="relative z-10">
                                 <h3 className="text-xl font-black mb-2 flex items-center gap-2"><Zap className="text-secondary" /> O que você vai produzir?</h3>
-                                <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest">Defina as quantidades para gerar a lista.</p>
+                                <p className="text-[10px] text-white/70 font-bold uppercase tracking-widest italic">Defina as quantidades para gerar a lista abaixo.</p>
                             </div>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3 pb-24">
                             {(recipesData as any[]).map(recipe => (
-                                <div key={recipe.id} className="bg-white p-5 rounded-[2.5rem] border border-primary/5 shadow-xl flex items-center justify-between gap-4">
+                                <div key={recipe.id} className="bg-white p-5 rounded-[2.5rem] border-2 border-primary/5 shadow-xl flex items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="h-12 w-12 rounded-2xl overflow-hidden relative border border-primary/10 shadow-sm">
                                             <Image src={recipe.imagem} alt={recipe.titulo} fill className="object-cover" />
@@ -694,12 +694,14 @@ function ShoppingView({ onBack }: any) {
                         </div>
 
                         {Object.values(productionPlan).some(v => v > 0) && (
-                            <button 
-                                onClick={generateListFromPlan}
-                                className="w-full bg-secondary text-primary py-8 rounded-[3rem] font-black text-sm uppercase tracking-widest shadow-2xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 mt-10"
-                            >
-                                <ArrowRight size={20} /> Gerar Lista de Compras
-                            </button>
+                            <div className="fixed bottom-24 left-6 right-6 z-[60] animate-in slide-in-from-bottom-5 duration-500">
+                                <button 
+                                    onClick={generateListFromPlan}
+                                    className="w-full bg-secondary text-primary py-6 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(255,153,0,0.4)] hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 border-b-4 border-primary/20"
+                                >
+                                    <ArrowRight size={20} /> Gerar Lista de Compras
+                                </button>
+                            </div>
                         )}
                     </motion.div>
                 ) : (
@@ -730,24 +732,24 @@ function ShoppingView({ onBack }: any) {
                         ) : (
                             <div className="space-y-4">
                                 {selectedIngredients.map((ing) => (
-                                    <div key={ing} className="bg-white p-6 rounded-[2.5rem] border border-primary/5 shadow-xl">
+                                    <div key={ing} className="bg-white p-6 rounded-[2.5rem] border-2 border-primary/10 shadow-xl">
                                         <div className="flex items-start justify-between mb-4">
                                             <div>
-                                                <span className="font-black text-xs text-primary uppercase tracking-tight block">{ing}</span>
+                                                <span className="font-black text-sm text-primary uppercase tracking-tight block">{ing}</span>
                                                 {calculatedShoppingList[ing] && (
-                                                    <span className="text-[10px] font-black text-secondary uppercase italic">Necessário: {calculatedShoppingList[ing].qty}{calculatedShoppingList[ing].unit}</span>
+                                                    <span className="text-[11px] font-black text-secondary uppercase italic">Necessário: {calculatedShoppingList[ing].qty}{calculatedShoppingList[ing].unit}</span>
                                                 )}
                                             </div>
-                                            <button onClick={() => toggleIngredient(ing)} className="text-primary/10 hover:text-red-400 p-1"><X size={16}/></button>
+                                            <button onClick={() => toggleIngredient(ing)} className="text-primary/20 hover:text-red-400 p-1"><X size={16}/></button>
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
-                                            <div className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
-                                                <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Preço Pago (R$)</span>
-                                                <input type="text" value={prices[ing]?.price || ''} onChange={(e) => updatePrice(ing, 'price', e.target.value)} placeholder="0,00" className="w-full bg-transparent outline-none font-black text-xs text-secondary"/>
+                                            <div className="bg-primary/5 p-4 rounded-2xl border-2 border-primary/5">
+                                                <span className="text-[9px] font-black uppercase text-primary/60 block mb-1">Paguei (R$)</span>
+                                                <input type="text" value={prices[ing]?.price || ''} onChange={(e) => updatePrice(ing, 'price', e.target.value)} placeholder="0,00" className="w-full bg-transparent outline-none font-black text-xs text-secondary placeholder:text-primary/20"/>
                                             </div>
-                                            <div className="bg-primary/[0.02] p-4 rounded-2xl border border-primary/5">
-                                                <span className="text-[8px] font-black uppercase text-primary/30 block mb-1">Peso Total (g/ml)</span>
-                                                <input type="text" value={prices[ing]?.totalQty || ''} onChange={(e) => updatePrice(ing, 'totalQty', e.target.value)} placeholder="Ex: 1000" className="w-full bg-transparent outline-none font-black text-xs text-primary"/>
+                                            <div className="bg-primary/5 p-4 rounded-2xl border-2 border-primary/5">
+                                                <span className="text-[9px] font-black uppercase text-primary/60 block mb-1">Peso Total (g/ml)</span>
+                                                <input type="text" value={prices[ing]?.totalQty || ''} onChange={(e) => updatePrice(ing, 'totalQty', e.target.value)} placeholder="Ex: 1000" className="w-full bg-transparent outline-none font-black text-xs text-primary placeholder:text-primary/20"/>
                                             </div>
                                         </div>
                                     </div>
